@@ -1,7 +1,31 @@
 baseURL = "https://fbirn.github.io/"
 languageCode = "en-us"
-title = "My New Hugo Project"
+title = "Fabio Birnegger"
 theme = "PaperMod"
 
 [params]
   author = "fbirn"
+  defaultTheme = "auto"
+  ShowShareButtons = false
+  ShowReadingTime = false
+  ShowBreadCrumbs = false
+  ShowPostNavLinks = false
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+
+  [params.profileMode]
+    enabled = true
+    title = "Hi, ich bin Fabio 👋"
+    subtitle = "IT Security | Penetration Testing | Red Teaming"
+    imageUrl = "/images/fbirn.jfif"
+    imageTitle = "Fabio"
+    imageWidth = 200
+    imageHeight = 200
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/fabio-birnegger-22073715a/"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/fbirn"
