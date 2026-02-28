@@ -1,0 +1,7 @@
+baseURL = "https://fbirn.github.io/fbirn_page/"
+languageCode = "en-us"
+title = "My New Hugo Project"
+theme = "PaperMod"
+
+[params]
+  author = "fbirn"
