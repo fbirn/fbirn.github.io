@@ -11,17 +11,8 @@ hideAuthor: true
   <img src="/images/fbirn.jfif" alt="Fabio" style="border-radius: 50%; width: 180px; height: 180px; object-fit: cover;">
 </div>
 
-<style>
 
-.ascii {
-  font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
-  color: #00ff41;
-  line-height: 1.3;
-  white-space: pre;
-  font-size: 0.78rem;
-  display: block;
-  overflow-x: auto;
-}
+<style>
 
 .term-wrap {
   font-family: 'Courier New', Courier, monospace;
@@ -107,14 +98,8 @@ hideAuthor: true
     <div class="term-title">fbirn@kali: ~</div>
   </div>
 
-  <div class="term-line ascii">
-███████╗██████╗ ██╗██████╗ ███╗   ██╗
-██╔════╝██╔══██╗██║██╔══██╗████╗  ██║
-█████╗  ██████╔╝██║██████╔╝██╔██╗ ██║
-██╔══╝  ██╔══██╗██║██╔══██╗██║╚██╗██║
-██║     ██████╔╝██║██║  ██║██║ ╚████║
-╚═╝     ╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
-  </div>
+<!-- NEU: -->
+<img src="/images/fbirn-ascii.svg" alt="FBIRN" style="max-width:100%; margin-bottom: 0.5rem;">
 
   <div class="term-line dim">─────────────────────────────────────────────</div>
 
