@@ -3,6 +3,11 @@ languageCode = "en-us"
 title = "Fabio Birnegger"
 theme = "PaperMod"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   env = "production"
   description = "Personal Page of Fabio Birnegger"
@@ -20,7 +25,7 @@ theme = "PaperMod"
     enabled = true
     title = "Fabio Birnegger"
     subtitle = "IT-Security | Penetration Testing | Red Teaming"
-    imageUrl = "./images/fbirn.jfif"
+    imageUrl = "/images/fbirn.jfif"
     imageTitle = "Fabio"
     imageWidth = 220
     imageHeight = 220
@@ -31,7 +36,7 @@ theme = "PaperMod"
 
     [[params.profileMode.buttons]]
       name = "💼 LinkedIn"
-      url = "https://linkedin.com/in/DEINUSERNAME"
+      url = "https://www.linkedin.com/in/fabio-birnegger-22073715a/"
 
   [[params.socialIcons]]
     name = "linkedin"
@@ -51,11 +56,9 @@ theme = "PaperMod"
 
   [[menu.main]]
     identifier = "about"
-    name = "About"
+    name = "whoami"
     url = "/about/"
     weight = 20
 
 
-ShowCodeCopyButtons = true
-ShowToc = true
-ShowWordCount = true
+

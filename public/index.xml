@@ -6,21 +6,170 @@
     <description>Recent content on Fabio Birnegger</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Feb 2026 18:12:24 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Sat, 28 Feb 2026 18:12:24 +0100</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;My name is Fabio Birnegger and i am a Penetration Tester&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Building My DevOps Blog with Hugo &amp; GitHub Pages</title>
       <link>http://localhost:1313/posts/test_post/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/test_post/</guid>
-      <description>&lt;p&gt;This is my first post about setting up a modern static DevOps blog using Hugo and GitHub Pages.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;test-post&#34;&gt;Test Post&lt;/h1&gt;
+&lt;p&gt;This is my first post about setting up a modern static DevOps blog using Hugo and GitHub Pages. →&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>whoami</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;div style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/images/fbirn.jfif&#34; alt=&#34;Fabio&#34; style=&#34;border-radius: 50%; width: 180px; height: 180px; object-fit: cover;&#34;&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.term-wrap {
+  font-family: &#39;Courier New&#39;, Courier, monospace;
+  background: #0d0d0d;
+  border: 1px solid #00ff41;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 720px;
+  margin: 2rem auto;
+  box-shadow: 0 0 30px rgba(0,255,65,0.15);
+  color: #00ff41;
+}
+
+.term-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #1a3a1a;
+}
+
+.term-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.term-dot.red   { background: #ff5f57; }
+.term-dot.yellow{ background: #ffbd2e; }
+.term-dot.green { background: #28ca41; }
+
+.term-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.term-line {
+  margin: 0.25rem 0;
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+.prompt-user { color: #00ff41; font-weight: bold; }
+.prompt-at   { color: #ffffff; }
+.prompt-host { color: #00bfff; font-weight: bold; }
+.prompt-path { color: #888; }
+.prompt-dollar { color: #ffffff; }
+
+.key   { color: #00bfff; }
+.val   { color: #ffffff; }
+.dim   { color: #444; }
+.ascii { color: #00ff41; line-height: 1.3; white-space: pre; font-size: 0.78rem; }
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.badge {
+  display: inline-block;
+  background: #001a00;
+  border: 1px solid #00ff41;
+  border-radius: 4px;
+  padding: 0 6px;
+  font-size: 0.78rem;
+  margin: 2px 2px 2px 0;
+  color: #00ff41;
+}
+
+.section-gap { margin-top: 1rem; }
+&lt;/style&gt;
+&lt;div class=&#34;term-wrap&#34;&gt;
+  &lt;div class=&#34;term-titlebar&#34;&gt;
+    &lt;div class=&#34;term-dot red&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;term-dot yellow&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;term-dot green&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;term-title&#34;&gt;fbirn@kali: ~&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line ascii&#34;&gt;
+███████╗██████╗ ██╗██████╗ ███╗   ██╗
+██╔════╝██╔══██╗██║██╔══██╗████╗  ██║
+█████╗  ██████╔╝██║██████╔╝██╔██╗ ██║
+██╔══╝  ██╔══██╗██║██╔══██╗██║╚██╗██║
+██║     ██████╔╝██║██║  ██║██║ ╚████║
+╚═╝     ╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line dim&#34;&gt;─────────────────────────────────────────────&lt;/div&gt;
+  &lt;div class=&#34;term-line section-gap&#34;&gt;
+    &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; whoami
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  user         &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Fabio Birnegger&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  age          &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;27&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  location     &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Vienna, Austria 🇦🇹&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line section-gap&#34;&gt;
+    &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; cat profession.txt
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  role         &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Penetration Tester&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  employer     &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;TÜV AUSTRIA&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  education    &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;MSc IT-Security&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  university   &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Hochschule Campus Wien&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line section-gap&#34;&gt;
+    &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; cat skills.json
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;dim&#34;&gt;{&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &amp;nbsp;&amp;nbsp;&lt;span class=&#34;key&#34;&gt;&#34;offensive_security&#34;&lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;[&#34;Web App Pentesting&#34;, &#34;Network Pentesting&#34;, &#34;Red Teaming&#34;]&lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;,&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &amp;nbsp;&amp;nbsp;&lt;span class=&#34;key&#34;&gt;&#34;tools&#34;&lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;[&#34;Burp Suite&#34;, &#34;Metasploit&#34;, &#34;Nmap&#34;, &#34;BloodHound&#34;, &#34;Cobalt Strike&#34;]&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;dim&#34;&gt;}&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line section-gap&#34;&gt;
+    &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; ls hobbies/
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;badge&#34;&gt;⚔️ Hacking&lt;/span&gt;
+    &lt;span class=&#34;badge&#34;&gt;🎮 Gaming&lt;/span&gt;
+    &lt;span class=&#34;badge&#34;&gt;🏋️ Kraftsport&lt;/span&gt;
+    &lt;span class=&#34;badge&#34;&gt;🚩 CTFs&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line section-gap&#34;&gt;
+    &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; &lt;span class=&#34;blink&#34;&gt;█&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</description>
     </item>
   </channel>
 </rss>
