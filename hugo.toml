@@ -4,23 +4,34 @@ title = "Fabio Birnegger"
 theme = "PaperMod"
 
 [params]
-  author = "fbirn"
+  env = "production"
+  description = "Cloud, DevOps & Platform Engineering Blog by Florian Birn"
+  author = "Florian Birn"
   defaultTheme = "auto"
+  ShowReadingTime = true
   ShowShareButtons = false
-  ShowReadingTime = false
   ShowBreadCrumbs = false
-  ShowPostNavLinks = false
   ShowCodeCopyButtons = true
-  ShowRssButtonInSectionTermList = true
+  ShowPostNavLinks = true
+  ShowToc = true
 
+  # Modern Hero Section
   [params.profileMode]
     enabled = true
-    title = "Hi, ich bin Fabio 👋"
-    subtitle = "IT Security | Penetration Testing | Red Teaming"
-    imageUrl = "/images/fbirn.jfif"
+    title = "Fabio Birnegger"
+    subtitle = "IT-Security | Penetration Testing | Red Teaming"
+    imageUrl = "./images/fbirn.jfif"
     imageTitle = "Fabio"
-    imageWidth = 200
-    imageHeight = 200
+    imageWidth = 220
+    imageHeight = 220
+
+    [[params.profileMode.buttons]]
+      name = "📖 Read the Blog"
+      url = "/posts"
+
+    [[params.profileMode.buttons]]
+      name = "💼 LinkedIn"
+      url = "https://linkedin.com/in/DEINUSERNAME"
 
   [[params.socialIcons]]
     name = "linkedin"
