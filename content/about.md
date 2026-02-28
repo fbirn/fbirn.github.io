@@ -12,6 +12,17 @@ hideAuthor: true
 </div>
 
 <style>
+
+.ascii {
+  font-family: 'Share Tech Mono', 'Courier New', Courier, monospace;
+  color: #00ff41;
+  line-height: 1.3;
+  white-space: pre;
+  font-size: 0.78rem;
+  display: block;
+  overflow-x: auto;
+}
+
 .term-wrap {
   font-family: 'Courier New', Courier, monospace;
   background: #0d0d0d;
