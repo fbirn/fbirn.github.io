@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building My DevOps Blog with Hugo &amp; GitHub Pages</title>
-      <link>http://localhost:1313/posts/test_post/</link>
+      <link>http://localhost:1313/writeups/test_post/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/test_post/</guid>
+      <guid>http://localhost:1313/writeups/test_post/</guid>
       <description>&lt;h1 id=&#34;test-post&#34;&gt;Test Post&lt;/h1&gt;
 &lt;p&gt;This is my first post about setting up a modern static DevOps blog using Hugo and GitHub Pages. →&lt;/p&gt;</description>
     </item>
@@ -112,6 +112,7 @@
   &lt;div class=&#34;term-line section-gap&#34;&gt;
     &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; whoami
   &lt;/div&gt;
+&lt;!--- Personal Infos --&gt;
   &lt;div class=&#34;term-line&#34;&gt;
     &lt;span class=&#34;key&#34;&gt;  user         &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Fabio Birnegger&lt;/span&gt;
   &lt;/div&gt;
@@ -124,6 +125,7 @@
   &lt;div class=&#34;term-line section-gap&#34;&gt;
     &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; cat profession.txt
   &lt;/div&gt;
+&lt;!--- work / education --&gt;
   &lt;div class=&#34;term-line&#34;&gt;
     &lt;span class=&#34;key&#34;&gt;  role         &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Penetration Tester&lt;/span&gt;
   &lt;/div&gt;
@@ -136,6 +138,18 @@
   &lt;div class=&#34;term-line&#34;&gt;
     &lt;span class=&#34;key&#34;&gt;  university   &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;→&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Hochschule Campus Wien&lt;/span&gt;
   &lt;/div&gt;
+   &lt;!--- Certifications --&gt;
+  &lt;div class=&#34;term-line section-gap&#34;&gt;
+    &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; cat certifications.txt
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  Offensive Security Certified Professional (OSCP)  &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Offsec&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Running&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;term-line&#34;&gt;
+    &lt;span class=&#34;key&#34;&gt;  
+Certified Web Exploitation Specialist (CWES)  &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Hack The Box&lt;/span&gt; &lt;/span&gt;&lt;span class=&#34;dim&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;val&#34;&gt;Feb. 2025&lt;/span&gt;
+  &lt;/div&gt;
+&lt;!--- Skills --&gt;
   &lt;div class=&#34;term-line section-gap&#34;&gt;
     &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; cat skills.json
   &lt;/div&gt;
@@ -151,6 +165,7 @@
   &lt;div class=&#34;term-line&#34;&gt;
     &lt;span class=&#34;dim&#34;&gt;}&lt;/span&gt;
   &lt;/div&gt;
+  &lt;!--- Hobbies --&gt;
   &lt;div class=&#34;term-line section-gap&#34;&gt;
     &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; ls hobbies/
   &lt;/div&gt;

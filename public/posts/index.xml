@@ -6,15 +6,6 @@
     <description>Recent content in Posts on Fabio Birnegger</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Building My DevOps Blog with Hugo &amp; GitHub Pages</title>
-      <link>http://localhost:1313/posts/test_post/</link>
-      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/test_post/</guid>
-      <description>&lt;h1 id=&#34;test-post&#34;&gt;Test Post&lt;/h1&gt;
-&lt;p&gt;This is my first post about setting up a modern static DevOps blog using Hugo and GitHub Pages. →&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>

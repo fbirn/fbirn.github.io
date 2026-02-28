@@ -31,11 +31,15 @@ theme = "PaperMod"
     imageHeight = 220
 
     [[params.profileMode.buttons]]
-      name = "📖 Read the Blog"
-      url = "/posts"
+      name = "Write Ups"
+      url = "/writeups"
 
     [[params.profileMode.buttons]]
-      name = "💼 LinkedIn"
+      name = "whoami"
+      url = "/about"
+
+    [[params.profileMode.buttons]]
+      name = "LinkedIn"
       url = "https://www.linkedin.com/in/fabio-birnegger-22073715a/"
 
   [[params.socialIcons]]
@@ -49,9 +53,9 @@ theme = "PaperMod"
 [menu]
 
   [[menu.main]]
-    identifier = "posts"
-    name = "Blog"
-    url = "/posts/"
+    identifier = "writeups"
+    name = "Write Ups"
+    url = "/writeups/"
     weight = 10
 
   [[menu.main]]

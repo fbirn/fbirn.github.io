@@ -107,6 +107,7 @@ hideAuthor: true
     <span class="prompt-user">fabio</span><span class="prompt-at">@</span><span class="prompt-host">kali</span><span class="prompt-path"> ~/about</span><span class="prompt-dollar"> $</span> whoami
   </div>
 
+<!--- Personal Infos -->
   <div class="term-line">
     <span class="key">  user         </span><span class="dim">→</span> <span class="val">Fabio Birnegger</span>
   </div>
@@ -121,6 +122,7 @@ hideAuthor: true
     <span class="prompt-user">fabio</span><span class="prompt-at">@</span><span class="prompt-host">kali</span><span class="prompt-path"> ~/about</span><span class="prompt-dollar"> $</span> cat profession.txt
   </div>
 
+<!--- work / education -->
   <div class="term-line">
     <span class="key">  role         </span><span class="dim">→</span> <span class="val">Penetration Tester</span>
   </div>
@@ -134,10 +136,23 @@ hideAuthor: true
     <span class="key">  university   </span><span class="dim">→</span> <span class="val">Hochschule Campus Wien</span>
   </div>
 
+   <!--- Certifications -->
+  <div class="term-line section-gap">
+    <span class="prompt-user">fabio</span><span class="prompt-at">@</span><span class="prompt-host">kali</span><span class="prompt-path"> ~/about</span><span class="prompt-dollar"> $</span> cat certifications.txt
+  </div>
+
+  <div class="term-line">
+    <span class="key">  Offensive Security Certified Professional (OSCP)  </span><span class="dim">:</span> <span class="val">Offsec</span> </span><span class="dim">:</span> <span class="val">Running</span>
+  </div>
+  <div class="term-line">
+    <span class="key">  
+Certified Web Exploitation Specialist (CWES)  </span><span class="dim">:</span> <span class="val">Hack The Box</span> </span><span class="dim">:</span> <span class="val">Feb. 2025</span>
+  </div>
+
+<!--- Skills -->
   <div class="term-line section-gap">
     <span class="prompt-user">fabio</span><span class="prompt-at">@</span><span class="prompt-host">kali</span><span class="prompt-path"> ~/about</span><span class="prompt-dollar"> $</span> cat skills.json
   </div>
-
   <div class="term-line">
     <span class="dim">{</span>
   </div>
@@ -151,6 +166,7 @@ hideAuthor: true
     <span class="dim">}</span>
   </div>
 
+  <!--- Hobbies -->
   <div class="term-line section-gap">
     <span class="prompt-user">fabio</span><span class="prompt-at">@</span><span class="prompt-host">kali</span><span class="prompt-path"> ~/about</span><span class="prompt-dollar"> $</span> ls hobbies/
   </div>
