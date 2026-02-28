@@ -1,4 +1,4 @@
-baseURL = "https://fbirn.github.io/"
+baseURL = "https://fbirn.github.io/fbirn_page/"
 languageCode = "en-us"
 title = "My New Hugo Project"
 theme = "PaperMod"
