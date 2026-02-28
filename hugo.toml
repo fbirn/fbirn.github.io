@@ -5,8 +5,8 @@ theme = "PaperMod"
 
 [params]
   env = "production"
-  description = "Cloud, DevOps & Platform Engineering Blog by Florian Birn"
-  author = "Florian Birn"
+  description = "Personal Page of Fabio Birnegger"
+  author = "Fabio Birnegger"
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowShareButtons = false
@@ -40,3 +40,22 @@ theme = "PaperMod"
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/fbirn"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 20
+
+
+ShowCodeCopyButtons = true
+ShowToc = true
+ShowWordCount = true
