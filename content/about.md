@@ -1,5 +1,5 @@
 ---
-title: "whoami"
+title: ""
 draft: false
 ShowToc: false
 ShowReadingTime: false
@@ -7,9 +7,7 @@ ShowBreadCrumbs: false
 hideAuthor: true
 ---
 
-<div style="text-align: center;">
-  <img src="/images/fbirn.jfif" alt="Fabio" style="border-radius: 50%; width: 180px; height: 180px; object-fit: cover;">
-</div>
+
 
 
 <style>
@@ -98,8 +96,10 @@ hideAuthor: true
     <div class="term-title">fbirn@kali: ~</div>
   </div>
 
-<!-- NEU: -->
-<img src="/images/fbirn-ascii.svg" alt="FBIRN" style="max-width:100%; margin-bottom: 0.5rem;">
+<div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0.5rem;">
+  <img src="/images/fbirn-ascii.svg" alt="FBIRN" style="flex: 1; min-width: 0;">
+  <img src="/images/fbirn.jfif" alt="Fabio" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; flex-shrink: 0; border: 2px solid #00ff41;">
+</div>
 
   <div class="term-line dim">─────────────────────────────────────────────</div>
 

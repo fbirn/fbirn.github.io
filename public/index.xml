@@ -17,14 +17,11 @@
 &lt;p&gt;This is my first post about setting up a modern static DevOps blog using Hugo and GitHub Pages. →&lt;/p&gt;</description>
     </item>
     <item>
-      <title>whoami</title>
+      <title></title>
       <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;div style=&#34;text-align: center;&#34;&gt;
-  &lt;img src=&#34;http://localhost:1313/images/fbirn.jfif&#34; alt=&#34;Fabio&#34; style=&#34;border-radius: 50%; width: 180px; height: 180px; object-fit: cover;&#34;&gt;
-&lt;/div&gt;
-&lt;style&gt;
+      <description>&lt;style&gt;
 
 .term-wrap {
   font-family: &#39;Courier New&#39;, Courier, monospace;
@@ -107,8 +104,10 @@
     &lt;div class=&#34;term-dot green&#34;&gt;&lt;/div&gt;
     &lt;div class=&#34;term-title&#34;&gt;fbirn@kali: ~&lt;/div&gt;
   &lt;/div&gt;
-&lt;!-- NEU: --&gt;
-&lt;img src=&#34;http://localhost:1313/images/fbirn-ascii.svg&#34; alt=&#34;FBIRN&#34; style=&#34;max-width:100%; margin-bottom: 0.5rem;&#34;&gt;
+&lt;div style=&#34;display: flex; align-items: center; gap: 1.5rem; margin-bottom: 0.5rem;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/images/fbirn-ascii.svg&#34; alt=&#34;FBIRN&#34; style=&#34;flex: 1; min-width: 0;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/images/fbirn.jfif&#34; alt=&#34;Fabio&#34; style=&#34;border-radius: 50%; width: 120px; height: 120px; object-fit: cover; flex-shrink: 0; border: 2px solid #00ff41;&#34;&gt;
+&lt;/div&gt;
   &lt;div class=&#34;term-line dim&#34;&gt;─────────────────────────────────────────────&lt;/div&gt;
   &lt;div class=&#34;term-line section-gap&#34;&gt;
     &lt;span class=&#34;prompt-user&#34;&gt;fabio&lt;/span&gt;&lt;span class=&#34;prompt-at&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;prompt-host&#34;&gt;kali&lt;/span&gt;&lt;span class=&#34;prompt-path&#34;&gt; ~/about&lt;/span&gt;&lt;span class=&#34;prompt-dollar&#34;&gt; $&lt;/span&gt; whoami
