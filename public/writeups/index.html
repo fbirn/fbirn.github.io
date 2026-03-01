@@ -90,8 +90,13 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/writeups/" title="Write Ups">
-                    <span class="active">Write Ups</span>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span class="active">Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
                 </a>
             </li>
             <li>
@@ -115,12 +120,11 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>User Flag Nmap Scan shows open ports: 21, 22 and 80
-On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there. If we download it and look through it, we can find captured packets from a FTP login process. We can see credentials in clear-text:
+    <p>Box Details Difficulty Easy Type Linux Port Scan └─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100Nmap scan report for 10.129.7.242Host is up (0.037s latency).Not shown: 997 closed tcp ports (reset)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)80/tcp open http GunicornService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
-  <a class="entry-link" aria-label="post link to HTB - Cap" href="http://localhost:1313/writeups/test_post/"></a>
+  <footer class="entry-footer"><span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to HTB - Cap" href="http://localhost:1313/writeups/htb_cap/"></a>
 </article>
     </main>
     

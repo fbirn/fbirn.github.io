@@ -160,7 +160,7 @@ Certified Web Exploitation Specialist (CWES)  </span><span class="dim">:</span> 
     &nbsp;&nbsp;<span class="key">"offensive_security"</span><span class="dim">:</span> <span class="val">["Web App Pentesting", "Network Pentesting", "Red Teaming"]</span><span class="dim">,</span>
   </div>
   <div class="term-line">
-    &nbsp;&nbsp;<span class="key">"tools"</span><span class="dim">:</span> <span class="val">["Burp Suite", "Metasploit", "Nmap", "BloodHound", "Cobalt Strike"]</span>
+    &nbsp;&nbsp;<span class="key">"tools"</span><span class="dim">:</span> <span class="val">["Burp Suite", "Metasploit", "Nmap", "BloodHound"]</span>
   </div>
   <div class="term-line">
     <span class="dim">}</span>

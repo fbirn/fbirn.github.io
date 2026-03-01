@@ -10,12 +10,44 @@
     <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB - Cap</title>
-      <link>http://localhost:1313/writeups/test_post/</link>
+      <link>http://localhost:1313/writeups/htb_cap/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/test_post/</guid>
-      <description>&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
-&lt;p&gt;Nmap Scan shows open ports: 21, 22 and 80&lt;/p&gt;
-&lt;p&gt;On port 80 there is a web application in which we are logged in by default as the user &lt;strong&gt;Nathan&lt;/strong&gt;. In the application we can check out different network stuff. When we click the burger menu and select &lt;strong&gt;Security Snapshot&lt;/strong&gt; we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there. If we download it and look through it, we can find captured packets from a FTP login process. We can see credentials in clear-text:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/writeups/htb_cap/</guid>
+      <description>&lt;h4 id=&#34;box-details&#34;&gt;Box Details&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Easy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;port-scan&#34;&gt;Port Scan&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV 10.129.7.242 
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 +0100
+Nmap scan report for 10.129.7.242
+Host is up (0.037s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Gunicorn
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;On port 80 there is a web application in which we are logged in by default as the user &lt;strong&gt;Nathan&lt;/strong&gt;. In the application we can check out different network stuff. When we click the burger menu and select &lt;strong&gt;Security Snapshot&lt;/strong&gt; we can download a &lt;em&gt;.pcap&lt;/em&gt; file. Seems like every time we visit this page, a new file gets created. There is an &lt;strong&gt;IDOR&lt;/strong&gt; vulnerability through which we can visit the page &lt;code&gt;http://10.10.10.245/data/0&lt;/code&gt; which was already there.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

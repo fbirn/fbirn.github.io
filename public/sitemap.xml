@@ -8,7 +8,7 @@
     <loc>http://localhost:1313/tags/htb/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/test_post/</loc>
+    <loc>http://localhost:1313/writeups/htb_cap/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/linux/</loc>
@@ -26,5 +26,7 @@
     <loc>http://localhost:1313/about/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/publications/</loc>
   </url>
 </urlset>
