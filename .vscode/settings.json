@@ -1,3 +1,4 @@
 {
-  "pasteImage.path": "/images",  
+  "pasteImage.path": "${projectRoot}/static/images/writeup_screens", 
+  "pasteImage.defaultName": "${currentFileName}" 
 }
