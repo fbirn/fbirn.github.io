@@ -9,12 +9,13 @@
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Building My DevOps Blog with Hugo &amp; GitHub Pages</title>
+      <title>HTB - Cap</title>
       <link>http://localhost:1313/writeups/test_post/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/writeups/test_post/</guid>
-      <description>&lt;h1 id=&#34;test-post&#34;&gt;Test Post&lt;/h1&gt;
-&lt;p&gt;This is my first post about setting up a modern static DevOps blog using Hugo and GitHub Pages. →&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;Nmap Scan shows open ports: 21, 22 and 80&lt;/p&gt;
+&lt;p&gt;On port 80 there is a web application in which we are logged in by default as the user &lt;strong&gt;Nathan&lt;/strong&gt;. In the application we can check out different network stuff. When we click the burger menu and select &lt;strong&gt;Security Snapshot&lt;/strong&gt; we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there. If we download it and look through it, we can find captured packets from a FTP login process. We can see credentials in clear-text:&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
