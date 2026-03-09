@@ -13,7 +13,7 @@
       <link>http://localhost:1313/writeups/htb_cap/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/writeups/htb_cap/</guid>
-      <description>&lt;h4 id=&#34;box-details&#34;&gt;Box Details&lt;/h4&gt;
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -32,7 +32,7 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h4 id=&#34;port-scan&#34;&gt;Port Scan&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV 10.129.7.242 
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 +0100
 Nmap scan report for 10.129.7.242
