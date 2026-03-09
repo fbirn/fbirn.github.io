@@ -5,14 +5,14 @@ draft: false
 tags: ["HTB", "Linux", "Write-Up"]
 ---
 
-#### Box Details 
+**Box Details**
 
 |   |   |
 |---|---|
 | Difficulty | Easy |
 | Type | Linux |
 
-#### Port Scan
+**Port Scan**
 ```
 └─$ nmap -sV 10.129.7.242 
 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 +0100
