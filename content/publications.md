@@ -10,17 +10,18 @@ hideAuthor: true
 
 ## Publications
 
-### Radio Hacking mit SDRs (german) - OCG Journal 
-
-**Article** · 01/2023 </br>
-**Authors** · Fabio Birnegger, Fatih Varli </br>
-[Link (page 48)](https://www.yumpu.com/de/document/view/70323548/ocg-journal-01-2025-it-nachwuchs-in-osterreich-2025)
-
 ### Angriff und Verteidigung in der Cloud (german) - OCG Journal 
 
 **Article** · 01/2025 </br>
 **Authors** · Fabio Birnegger, Sebastian Chmel </br>
 [Link (page 10)](https://www.yumpu.com/de/document/read/68257060/ocg-journal-01-2023-it-nachwuchsforschung-in-osterreich)
+
+
+### Radio Hacking mit SDRs (german) - OCG Journal 
+
+**Article** · 01/2023 </br>
+**Authors** · Fabio Birnegger, Fatih Varli </br>
+[Link (page 48)](https://www.yumpu.com/de/document/view/70323548/ocg-journal-01-2025-it-nachwuchs-in-osterreich-2025)
 
 ---
 
