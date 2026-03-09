@@ -1,11 +1,4 @@
----
-title: ""
-draft: false
-ShowToc: false
-ShowReadingTime: false
-ShowBreadCrumbs: false
-hideAuthor: true
----
+ 
 
 
 

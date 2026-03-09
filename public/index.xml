@@ -218,10 +218,25 @@ Certified Web Exploitation Specialist (CWES)  &lt;/span&gt;&lt;span class=&#34;d
       <link>http://localhost:1313/publications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/publications/</guid>
-      <description>&lt;h1 id=&#34;publications&#34;&gt;Publications&lt;/h1&gt;
-&lt;h1 id=&#34;talks&#34;&gt;Talks&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;publications&#34;&gt;Publications&lt;/h2&gt;
+&lt;h3 id=&#34;radio-hacking-mit-sdrs-german---ocg-journal&#34;&gt;Radio Hacking mit SDRs (german) - OCG Journal&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Article&lt;/strong&gt; · 01/2023 &lt;/br&gt;
+&lt;strong&gt;Authors&lt;/strong&gt; · Fabio Birnegger, Fatih Varli &lt;/br&gt;
+&lt;a href=&#34;https://www.yumpu.com/de/document/view/70323548/ocg-journal-01-2025-it-nachwuchs-in-osterreich-2025&#34;&gt;Link (page 48)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;angriff-und-verteidigung-in-der-cloud-german---ocg-journal&#34;&gt;Angriff und Verteidigung in der Cloud (german) - OCG Journal&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Article&lt;/strong&gt; · 01/2025 &lt;/br&gt;
+&lt;strong&gt;Authors&lt;/strong&gt; · Fabio Birnegger, Sebastian Chmel &lt;/br&gt;
+&lt;a href=&#34;https://www.yumpu.com/de/document/read/68257060/ocg-journal-01-2023-it-nachwuchsforschung-in-osterreich&#34;&gt;Link (page 10)&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;talks&#34;&gt;Talks&lt;/h2&gt;
 &lt;h3 id=&#34;purple-cloud-angriff-und-verteidigung-in-der-cloud-german---ikt-sicherheitskonferenz-2024&#34;&gt;Purple Cloud: Angriff und Verteidigung in der Cloud (german) - IKT Sicherheitskonferenz 2024&lt;/h3&gt;
-&lt;p&gt;Fill&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;Public Talk&lt;/strong&gt; · 17/09/2024 &lt;/br&gt;
+&lt;strong&gt;Speakers:&lt;/strong&gt; Fabio Birnegger, Sebastian Chmel &lt;/br&gt;
+&lt;a href=&#34;https://www.sba-research.org/events/ikt-sicherheitskonferenz-2024-young-researchers-day/&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;die-macht-des-osint-workshop-german---its-now&#34;&gt;Die Macht des OSINT Workshop (german) - ITS NOW&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Public Workshop&lt;/strong&gt; · 02/06/2023 &lt;/br&gt;
+&lt;strong&gt;Speakers:&lt;/strong&gt; Fabio Birnegger, Fatih Varli &lt;/br&gt;
+&lt;a href=&#34;https://its-now.science/?review#2023-1W2&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
