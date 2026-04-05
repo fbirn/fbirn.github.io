@@ -3,6 +3,11 @@ title: "HTB - Cap"
 date: 2026-02-28
 draft: false
 tags: ["HTB", "Linux", "Write-Up"]
+cover:
+    image: "/images/writeup_screens/htb_cap/htb_cap_cover.png"      
+    alt: "HTB CCTV Cover"
+    relative: true     
+ShowToc: false
 ---
 
 **Box Details**
@@ -22,7 +27,7 @@ Not shown: 997 closed tcp ports (reset)
 PORT   STATE SERVICE VERSION
 21/tcp open  ftp     vsftpd 3.0.3
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    Gunicorn
+80/tcp open  http    Gunicorn   
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
