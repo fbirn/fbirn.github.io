@@ -6,8 +6,51 @@
     <description>Recent content in Writeups on Fabio Birnegger</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PG Practice - Twiggy</title>
+      <link>http://localhost:1313/writeups/pg_twiggy/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_twiggy/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Easy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -p- 192.168.208.62
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 +0200
+Nmap scan report for 192.168.208.62
+Host is up (0.032s latency).
+Not shown: 65529 filtered tcp ports (no-response)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.4 (protocol 2.0)
+53/tcp   open  domain  NLnet Labs NSD
+80/tcp   open  http    nginx 1.16.1
+4505/tcp open  zmtp    ZeroMQ ZMTP 2.0
+4506/tcp open  zmtp    ZeroMQ ZMTP 2.0
+8000/tcp open  http    nginx 1.16.1
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 117.61 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;proof&#34;&gt;Proof&lt;/h2&gt;
+&lt;p&gt;As we can see in the port scan above, there are two web servers running on the target. On port &lt;strong&gt;80&lt;/strong&gt; there is a &lt;em&gt;Mezzanine&lt;/em&gt; Instance which doesn&amp;rsquo;t seem to be exploitable. On the other hand, the webserver on Port &lt;strong&gt;8000&lt;/strong&gt; is running a &lt;strong&gt;Saltstack-Salt-API&lt;/strong&gt; as can be seen in the &lt;em&gt;X-Upstream&lt;/em&gt; Header in the HTTP-Response:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>HTB - Cap</title>
       <link>http://localhost:1313/writeups/htb_cap/</link>
@@ -48,6 +91,13 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
 &lt;p&gt;On port 80 there is a web application in which we are logged in by default as the user &lt;strong&gt;Nathan&lt;/strong&gt;. In the application we can check out different network stuff. When we click the burger menu and select &lt;strong&gt;Security Snapshot&lt;/strong&gt; we can download a &lt;em&gt;.pcap&lt;/em&gt; file. Seems like every time we visit this page, a new file gets created. There is an &lt;strong&gt;IDOR&lt;/strong&gt; vulnerability through which we can visit the page &lt;code&gt;http://10.10.10.245/data/0&lt;/code&gt; which was already there.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/writeups/writeup_template/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/writeup_template/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
