@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PG Practice - Payday | Fabio Birnegger</title>
+<meta name="keywords" content="Proving Grounds Practice, Linux, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Intermediate
+      
+      
+          Type
+          Linux
+      
+  
+
+Port Scan
+Nmap scan report for 192.168.191.39
+Host is up (0.033s latency).
+Not shown: 65527 closed tcp ports (reset)
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)
+80/tcp  open  http        Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)
+110/tcp open  pop3        Dovecot pop3d
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+143/tcp open  imap        Dovecot imapd
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+993/tcp open  ssl/imaps?
+995/tcp open  ssl/pop3s?
+Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+Local
+To start this box, I manually checked the Webserver running on port 80 on the target machine. There was a CS-Cart instance running and i noticed the login-section. I tried some default credentials and admin:admin worked.">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/pg_payday/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9b4f18f427ed299296009b0f14c130159f761d9d285109ab0e5db09488a51e86.css" integrity="sha256-m08Y9CftKZKWAJsPFMEwFZ92HZ0oUQmrDl2wlIilHoY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/pg_payday/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/pg_payday/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="PG Practice - Payday">
+  <meta property="og:description" content="Box Details
+Difficulty Intermediate Type Linux Port Scan
+Nmap scan report for 192.168.191.39Host is up (0.033s latency).Not shown: 65527 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)80/tcp open http Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)110/tcp open pop3 Dovecot pop3d139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)143/tcp open imap Dovecot imapd445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)993/tcp open ssl/imaps?995/tcp open ssl/pop3s?Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local To start this box, I manually checked the Webserver running on port 80 on the target machine. There was a CS-Cart instance running and i noticed the login-section. I tried some default credentials and admin:admin worked.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-04-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-04-04T00:00:00+00:00">
+    <meta property="article:tag" content="Proving Grounds Practice">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Write-Up">
+    <meta property="og:image" content="http://localhost:1313/writeups/pg_payday/images/writeup_screens/pg_payday/pg_payday_cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/writeups/pg_payday/images/writeup_screens/pg_payday/pg_payday_cover.svg">
+<meta name="twitter:title" content="PG Practice - Payday">
+<meta name="twitter:description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Intermediate
+      
+      
+          Type
+          Linux
+      
+  
+
+Port Scan
+Nmap scan report for 192.168.191.39
+Host is up (0.033s latency).
+Not shown: 65527 closed tcp ports (reset)
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)
+80/tcp  open  http        Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)
+110/tcp open  pop3        Dovecot pop3d
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+143/tcp open  imap        Dovecot imapd
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+993/tcp open  ssl/imaps?
+995/tcp open  ssl/pop3s?
+Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+Local
+To start this box, I manually checked the Webserver running on port 80 on the target machine. There was a CS-Cart instance running and i noticed the login-section. I tried some default credentials and admin:admin worked.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "PG Practice - Payday",
+      "item": "http://localhost:1313/writeups/pg_payday/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PG Practice - Payday",
+  "name": "PG Practice - Payday",
+  "description": "Box Details\nDifficulty Intermediate Type Linux Port Scan\nNmap scan report for 192.168.191.39\rHost is up (0.033s latency).\rNot shown: 65527 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)\r80/tcp open http Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)\r110/tcp open pop3 Dovecot pop3d\r139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)\r143/tcp open imap Dovecot imapd\r445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)\r993/tcp open ssl/imaps?\r995/tcp open ssl/pop3s?\rService Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local To start this box, I manually checked the Webserver running on port 80 on the target machine. There was a CS-Cart instance running and i noticed the login-section. I tried some default credentials and admin:admin worked.\n",
+  "keywords": [
+    "Proving Grounds Practice", "Linux", "Write-Up"
+  ],
+  "articleBody": "Box Details\nDifficulty Intermediate Type Linux Port Scan\nNmap scan report for 192.168.191.39\rHost is up (0.033s latency).\rNot shown: 65527 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)\r80/tcp open http Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)\r110/tcp open pop3 Dovecot pop3d\r139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)\r143/tcp open imap Dovecot imapd\r445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)\r993/tcp open ssl/imaps?\r995/tcp open ssl/pop3s?\rService Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local To start this box, I manually checked the Webserver running on port 80 on the target machine. There was a CS-Cart instance running and i noticed the login-section. I tried some default credentials and admin:admin worked.\nNext, I was able to find the admin interface /admin.php by fuzzing. In the admin interface i discovered the used version of CS-Cart in the upgrade center under admin.php?target=upgrade_center:\nCS-Cart Version: 1.3.3 I searched the web for vulnerabilities affecting this version and found a authenticated RCE with a public exploit. I followed the exploit and uploaded a PHP web shell as .phtml in the template editor:\nThe uploaded shell is accessible via the /skins/ directory and is functional as can be seen in the following screenshot:\nSubsequently, i started a netcat listener on my attacker machine and uploaded a PHP reverse shell (e.g. from PentestMonkey) in the same manner as above. After visiting it in the skins directory i received a reverse shell in my listener as user www-data.\nWe can now simply read local.txt from the home directory of patrick.\nThe CS-Cart instance is also vulnerable to a LFI which allows us to read /etc/passwd. Although a shell on the machine is obviously better from an attacker perspective, reading /etc/passwd and discovering that there is a user patrick on the machine, would be sufficient in this case. This will make sense after reading the section for the Proof flag.\nProof The first thing we should do is to get a TTY shell in our obtained reverse shell with $ python -c 'import pty; pty.spawn(\"/bin/bash\")'.\nThere is really not much to say about this part of the machine as we can just get a shell as user patrick by using the password patrick. $ sudo -l reveals that this user has basically root privileges and we can read the flag at /root/proof.txt:\nWhile this is very simple, it is in my opinion also very unusual to have an attack path like this. I got caught up in some rabbit holes and wasted a lot of time before trying username = password. Another option would be to brute force the SSH-login with hydra but this is also a pretty uncommon thing in challenges like this.\n",
+  "wordCount" : "460",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/writeups/pg_payday/images/writeup_screens/pg_payday/pg_payday_cover.svg","datePublished": "2026-04-04T00:00:00Z",
+  "dateModified": "2026-04-04T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/pg_payday/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      PG Practice - Payday
+    </h1>
+    <div class="post-meta"><span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_payday/pg_payday_cover.svg" alt="Cover">
+        
+</figure>
+  <div class="post-content"><p><strong>Box Details</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Intermediate</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Linux</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Port Scan</strong></p>
+<pre tabindex="0"><code>Nmap scan report for 192.168.191.39
+Host is up (0.033s latency).
+Not shown: 65527 closed tcp ports (reset)
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)
+80/tcp  open  http        Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)
+110/tcp open  pop3        Dovecot pop3d
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+143/tcp open  imap        Dovecot imapd
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+993/tcp open  ssl/imaps?
+995/tcp open  ssl/pop3s?
+Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre><h2 id="local">Local<a hidden class="anchor" aria-hidden="true" href="#local">#</a></h2>
+<p>To start this box, I manually checked the Webserver running on port <strong>80</strong> on the target machine. There was a <strong>CS-Cart</strong> instance running and i noticed the login-section. I tried some default credentials and <em>admin:admin</em> worked.</p>
+<p>Next, I was able to find the admin interface <code>/admin.php</code> by fuzzing. In the admin interface i discovered the used version of <strong>CS-Cart</strong> in the upgrade center under <code>admin.php?target=upgrade_center</code>:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_payday/pg_payday1.png"></p>
+<pre tabindex="0"><code>CS-Cart Version: 1.3.3
+</code></pre><p>I searched the web for vulnerabilities affecting this version and found a authenticated RCE with a <a href="https://www.exploit-db.com/exploits/48891">public exploit</a>. I followed the exploit and uploaded a <strong>PHP web shell</strong> as <em>.phtml</em> in the <strong>template editor</strong>:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_payday/pg_payday2.png"></p>
+<p>The uploaded shell is accessible via the <code>/skins/</code> directory and is functional as can be seen in the following screenshot:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_payday/pg_payday3.png"></p>
+<p>Subsequently, i started a <strong>netcat</strong> listener on my attacker machine and uploaded a <strong>PHP reverse shell</strong> (e.g. from PentestMonkey) in the same manner as above. After visiting it in the <code>skins</code> directory i received a reverse shell in my listener as user <strong>www-data</strong>.</p>
+<p>We can now simply read <em>local.txt</em> from the home directory of <strong>patrick</strong>.</p>
+<blockquote>
+<p>The <strong>CS-Cart</strong> instance is also vulnerable to a <strong>LFI</strong> which allows us to read <em>/etc/passwd</em>. Although a shell on the machine is obviously better from an attacker perspective, reading <em>/etc/passwd</em> and discovering that there is a user <strong>patrick</strong> on the machine, would be sufficient in this case. This will make sense after reading the section for the <strong>Proof</strong> flag.</p>
+</blockquote>
+<p><img loading="lazy" src="/images/writeup_screens/pg_payday/pg_payday4.png"></p>
+<hr>
+<h2 id="proof">Proof<a hidden class="anchor" aria-hidden="true" href="#proof">#</a></h2>
+<p>The first thing we should do is to get a TTY shell in our obtained reverse shell with <code>$ python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'</code>.</p>
+<p>There is really not much to say about this part of the machine as we can just get a shell as user <strong>patrick</strong> by using the password <em>patrick</em>. <code>$ sudo -l</code> reveals that this user has basically root privileges and we can read the flag at <em>/root/proof.txt</em>:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_payday/pg_payday5.png"></p>
+<blockquote>
+<p>While this is very simple, it is in my opinion also very unusual to have an attack path like this. I got caught up in some rabbit holes and wasted a lot of time before trying username = password. Another option would be to brute force the <strong>SSH-login</strong> with <strong>hydra</strong> but this is also a pretty uncommon thing in challenges like this.</p>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/proving-grounds-practice/">Proving Grounds Practice</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/pg_pelican/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>PG Practice - Pelican</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/pg_twiggy/">
+    <span class="title">Next »</span>
+    <br>
+    <span>PG Practice - Twiggy</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

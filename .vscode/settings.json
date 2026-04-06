@@ -1,4 +1,4 @@
 {
-  "pasteImage.path": "${projectRoot}/static/images/writeup_screens/pg_pelican", 
+  "pasteImage.path": "${projectRoot}/static/images/writeup_screens/pg_payday", 
   "pasteImage.defaultName": "${currentFileName}" 
 }

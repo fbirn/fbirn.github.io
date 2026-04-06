@@ -53,6 +53,47 @@ Service Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;p&gt;As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the &lt;strong&gt;Zookeeper&lt;/strong&gt; Service running on port &lt;strong&gt;2181&lt;/strong&gt; and the web-interface for it on port &lt;strong&gt;8080&lt;/strong&gt;. The running instance is vulnerable to &lt;strong&gt;CVE-2019-5029&lt;/strong&gt; for which there is a &lt;a href=&#34;https://x7331.gitbook.io/boxes/services/tcp/2181-zookeeper&#34;&gt;public exploit&lt;/a&gt;. After starting a &lt;strong&gt;netcat&lt;/strong&gt; listener on my attacker machine, i carried out the exploit in the web-interface as follows:&lt;/p&gt;</description>
     </item>
     <item>
+      <title>PG Practice - Payday</title>
+      <link>http://localhost:1313/writeups/pg_payday/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_payday/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Intermediate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Nmap scan report for 192.168.191.39
+Host is up (0.033s latency).
+Not shown: 65527 closed tcp ports (reset)
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)
+80/tcp  open  http        Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)
+110/tcp open  pop3        Dovecot pop3d
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+143/tcp open  imap        Dovecot imapd
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)
+993/tcp open  ssl/imaps?
+995/tcp open  ssl/pop3s?
+Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;local&#34;&gt;Local&lt;/h2&gt;
+&lt;p&gt;To start this box of, i manually checked the Webserver running on port &lt;strong&gt;80&lt;/strong&gt; on the target machine. There was a &lt;strong&gt;CS-Cart&lt;/strong&gt; instance running and i noticed the login section. I tried some default credentials and &lt;em&gt;admin:admin&lt;/em&gt; worked. I tried to find an admin interface and found one at &lt;code&gt;/admin.php&lt;/code&gt;. I was able to find the used version of &lt;strong&gt;CS-Cart&lt;/strong&gt; in the upgrade center under &lt;code&gt;admin.php?target=upgrade_center&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>PG Practice - Twiggy</title>
       <link>http://localhost:1313/writeups/pg_twiggy/</link>
       <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
