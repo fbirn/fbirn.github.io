@@ -5,6 +5,7 @@ ShowToc: false
 ShowReadingTime: false
 ShowBreadCrumbs: false
 hideAuthor: true
+
 ---
 
 
@@ -34,13 +35,13 @@ hideAuthor: true
 [Link](https://www.sba-research.org/events/ikt-sicherheitskonferenz-2024-young-researchers-day/)
 
 
-### Die Macht des OSINT Workshop (german) - ITS NOW
+### Die Macht des OSINT Workshop (german) - IT-S NOW 2023 Conference
 
 **Public Workshop** · 02/06/2023 </br>
 **Speakers:** Fabio Birnegger, Fatih Varli </br>
 [Link](https://its-now.science/?review#2023-1W2)
 
-### Radio Hacking für Einbrecher*innen (german) - IT-S NOW - 2022 Conference
+### Radio Hacking für Einbrecher*innen (german) - IT-S NOW 2022 Conference
 
 **Public Talk** · 03/06/2022 </br>
 **Speakers:** Fabio Birnegger, Fatih Varli </br>

@@ -91,7 +91,7 @@ PORT    STATE SERVICE     VERSION
 995/tcp open  ssl/pop3s?
 Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;local&#34;&gt;Local&lt;/h2&gt;
-&lt;p&gt;To start this box of, i manually checked the Webserver running on port &lt;strong&gt;80&lt;/strong&gt; on the target machine. There was a &lt;strong&gt;CS-Cart&lt;/strong&gt; instance running and i noticed the login section. I tried some default credentials and &lt;em&gt;admin:admin&lt;/em&gt; worked. I tried to find an admin interface and found one at &lt;code&gt;/admin.php&lt;/code&gt;. I was able to find the used version of &lt;strong&gt;CS-Cart&lt;/strong&gt; in the upgrade center under &lt;code&gt;admin.php?target=upgrade_center&lt;/code&gt;:&lt;/p&gt;</description>
+&lt;p&gt;To start this box, I manually checked the Webserver running on port &lt;strong&gt;80&lt;/strong&gt; on the target machine. There was a &lt;strong&gt;CS-Cart&lt;/strong&gt; instance running and i noticed the login-section. I tried some default credentials and &lt;em&gt;admin:admin&lt;/em&gt; worked.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PG Practice - Twiggy</title>
@@ -358,7 +358,7 @@ Certified Web Exploitation Specialist (CWES)  &lt;/span&gt;&lt;span class=&#34;d
 &lt;p&gt;&lt;strong&gt;Public Talk&lt;/strong&gt; · 17/09/2024 &lt;/br&gt;
 &lt;strong&gt;Speakers:&lt;/strong&gt; Fabio Birnegger, Sebastian Chmel &lt;/br&gt;
 &lt;a href=&#34;https://www.sba-research.org/events/ikt-sicherheitskonferenz-2024-young-researchers-day/&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;die-macht-des-osint-workshop-german---its-now&#34;&gt;Die Macht des OSINT Workshop (german) - ITS NOW&lt;/h3&gt;
+&lt;h3 id=&#34;die-macht-des-osint-workshop-german---it-s-now-2023-conference&#34;&gt;Die Macht des OSINT Workshop (german) - IT-S NOW 2023 Conference&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Public Workshop&lt;/strong&gt; · 02/06/2023 &lt;/br&gt;
 &lt;strong&gt;Speakers:&lt;/strong&gt; Fabio Birnegger, Fatih Varli &lt;/br&gt;
 &lt;a href=&#34;https://its-now.science/?review#2023-1W2&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;</description>
