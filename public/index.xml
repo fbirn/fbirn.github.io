@@ -6,8 +6,50 @@
     <description>Recent content on Fabio Birnegger</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PG Practice - Snookums</title>
+      <link>http://localhost:1313/writeups/pg_snook/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_snook/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Intermediate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV 192.168.224.58
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-11 19:31 +0200
+Nmap scan report for 192.168.224.58
+Host is up (0.034s latency).
+Not shown: 993 filtered tcp ports (no-response)
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 3.0.2
+22/tcp   open  ssh         OpenSSH 7.4 (protocol 2.0)
+80/tcp   open  http        Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)
+111/tcp  open  rpcbind     2-4 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)
+3306/tcp open  mysql       MySQL (unauthorized)
+Service Info: Host: SNOOKUMS; OS: Unix
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;local&#34;&gt;Local&lt;/h2&gt;
+&lt;p&gt;The webserver on port &lt;strong&gt;80&lt;/strong&gt; hosts a &lt;strong&gt;simple PHP Photo Gallery&lt;/strong&gt; with &lt;strong&gt;v0.8&lt;/strong&gt; as we can see in the frontend. I searched the web for vulnerabilities affecting this version and I found a &lt;a href=&#34;https://github.com/beauknowstech/SimplePHPGal-RCE.py&#34;&gt;public exploit&lt;/a&gt; that targets a &lt;strong&gt;RFI&lt;/strong&gt; vulnerability which I tried after starting a &lt;strong&gt;netcat&lt;/strong&gt; listener in another terminal window on port &lt;strong&gt;21&lt;/strong&gt; (always use ports that are open on the target to prevent firewall issues):&lt;/p&gt;</description>
+    </item>
     <item>
       <title>PG Practice - Pelican</title>
       <link>http://localhost:1313/writeups/pg_pelican/</link>
