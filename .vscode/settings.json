@@ -1,4 +1,4 @@
 {
-  "pasteImage.path": "${projectRoot}/static/images/writeup_screens/pg_snook", 
+  "pasteImage.path": "${projectRoot}/static/images/writeup_screens/htb_underpass", 
   "pasteImage.defaultName": "${currentFileName}" 
 }

@@ -101,6 +101,24 @@
 
 <article class="post-entry tag-entry"> 
 <figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_payday/pg_payday_cover.svg" alt="Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PG Practice - Snookums
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+Difficulty Intermediate Type Linux Port Scan
+└─$ nmap -sV 192.168.224.58Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-11 19:31 &#43;0200Nmap scan report for 192.168.224.58Host is up (0.034s latency).Not shown: 993 filtered tcp ports (no-response)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.222/tcp open ssh OpenSSH 7.4 (protocol 2.0)80/tcp open http Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)111/tcp open rpcbind 2-4 (RPC #100000)139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)3306/tcp open mysql MySQL (unauthorized)Service Info: Host: SNOOKUMS; OS: Unix Local The webserver on port 80 hosts a simple PHP Photo Gallery with v0.8 as we can see in the frontend. I searched the web for vulnerabilities affecting this version and I found a public exploit that targets a RFI vulnerability which I tried after starting a netcat listener in another terminal window on port 21 (always use ports that are open on the target to prevent firewall issues):
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-04-11 00:00:00 +0000 UTC'>April 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to PG Practice - Snookums" href="http://localhost:1313/writeups/pg_snook/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
         <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_pelican/pg_pelican_cover.svg" alt="PG Pelican Cover">
 </figure>
   <header class="entry-header">

