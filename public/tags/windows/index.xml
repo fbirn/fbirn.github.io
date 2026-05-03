@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows on Fabio Birnegger</title>
+    <link>http://localhost:1313/tags/windows/</link>
+    <description>Recent content in Windows on Fabio Birnegger</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Heist</title>
+      <link>http://localhost:1313/writeups/htb_heist/</link>
+      <pubDate>Sun, 03 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/htb_heist/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Easy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Windos&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -sC 10.129.96.157
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 19:17 +0200
+Nmap scan report for 10.129.96.157
+Host is up (0.069s latency).
+Not shown: 996 filtered tcp ports (no-response)
+PORT     STATE SERVICE       VERSION
+80/tcp   open  http          Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+| http-title: Support Login Page
+|_Requested resource was login.php
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-methods: 
+|_  Potentially risky methods: TRACE
+135/tcp  open  msrpc         Microsoft Windows RPC
+445/tcp  open  microsoft-ds?
+5985/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;On the webserver on port &lt;strong&gt;80&lt;/strong&gt; we can login as guest. We are redirected to &lt;em&gt;/issues.php&lt;/em&gt; and can read a posting of user &lt;strong&gt;Hazard&lt;/strong&gt; which has an attachment &lt;em&gt;config.txt&lt;/em&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

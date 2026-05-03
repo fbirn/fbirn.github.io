@@ -116,7 +116,25 @@
 
 <article class="post-entry"> 
 <figure class="entry-cover">
-        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/htb_underpass/underpass_cover.png" alt="HTB CCTV Cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/htb_heist/htb_heist_cover.png" alt="HTB Heist Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">HTB - Heist
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+Difficulty Easy Type Windows Port Scan
+└─$ nmap -sV -sC 10.129.96.157Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 19:17 &#43;0200Nmap scan report for 10.129.96.157Host is up (0.069s latency).Not shown: 996 filtered tcp ports (no-response)PORT STATE SERVICE VERSION80/tcp open http Microsoft IIS httpd 10.0|_http-server-header: Microsoft-IIS/10.0| http-title: Support Login Page|_Requested resource was login.php| http-cookie-flags: | /: | PHPSESSID: |_ httponly flag not set| http-methods: |_ Potentially risky methods: TRACE135/tcp open msrpc Microsoft Windows RPC445/tcp open microsoft-ds?5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-server-header: Microsoft-HTTPAPI/2.0|_http-title: Not FoundService Info: OS: Windows; CPE: cpe:/o:microsoft:windows User Flag On the webserver on port 80 we can login as guest. We are redirected to /issues.php and can read a posting of user Hazard which has an attachment config.txt:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to HTB - Heist" href="http://localhost:1313/writeups/htb_heist/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/htb_underpass/underpass_cover.png" alt="HTB Underpass Cover">
 </figure>
   <header class="entry-header">
     <h2 class="entry-hint-parent">HTB - Underpass

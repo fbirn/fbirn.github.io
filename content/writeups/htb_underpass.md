@@ -5,7 +5,7 @@ draft: false
 tags: ["HTB", "Linux", "Write-Up"]
 cover:
     image: "/images/writeup_screens/htb_underpass/underpass_cover.png"      
-    alt: "HTB CCTV Cover"
+    alt: "HTB Underpass Cover"
     relative: true     
 ShowToc: false
 ---
