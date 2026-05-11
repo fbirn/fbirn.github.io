@@ -1,4 +1,4 @@
 {
-  "pasteImage.path": "${projectRoot}/static/images/writeup_screens/htb_heist", 
+  "pasteImage.path": "${projectRoot}/static/images/writeup_screens/htb_access", 
   "pasteImage.defaultName": "${currentFileName}" 
 }

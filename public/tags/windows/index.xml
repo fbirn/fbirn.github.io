@@ -6,8 +6,67 @@
     <description>Recent content in Windows on Fabio Birnegger</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - Access</title>
+      <link>http://localhost:1313/writeups/htb_access/</link>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/htb_access/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Easy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -sC 10.129.34.220
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-11 15:39 +0200
+Nmap scan report for 10.129.34.220
+Host is up (0.040s latency).
+Not shown: 997 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     Microsoft ftpd
+| ftp-syst: 
+|_  SYST: Windows_NT
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_Can&amp;#39;t get directory listing: PASV failed: 425 Cannot open data connection.
+23/tcp open  telnet  Microsoft Windows XP telnetd
+| telnet-ntlm-info: 
+|   Target_Name: ACCESS
+|   NetBIOS_Domain_Name: ACCESS
+|   NetBIOS_Computer_Name: ACCESS
+|   DNS_Domain_Name: ACCESS
+|   DNS_Computer_Name: ACCESS
+|_  Product_Version: 6.1.7600
+80/tcp open  http    Microsoft IIS httpd 7.5
+|_http-server-header: Microsoft-IIS/7.5
+|_http-title: MegaCorp
+| http-methods: 
+|_  Potentially risky methods: TRACE
+Service Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp
+
+Host script results:
+|_clock-skew: 2s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;The port scan shows that anonymous login to the FTP server on standard port &lt;strong&gt;21&lt;/strong&gt; is allowed. This means we can login by providing the name &lt;em&gt;anonymous&lt;/em&gt; and any password.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>HTB - Heist</title>
       <link>http://localhost:1313/writeups/htb_heist/</link>
@@ -28,7 +87,7 @@
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Type&lt;/td&gt;
-          &lt;td&gt;Windos&lt;/td&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
