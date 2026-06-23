@@ -44,7 +44,7 @@ User Flag
 On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.">
 <meta name="author" content="Fabio Birnegger">
 <link rel="canonical" href="http://localhost:1313/writeups/htb_cap/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9b4f18f427ed299296009b0f14c130159f761d9d285109ab0e5db09488a51e86.css" integrity="sha256-m08Y9CftKZKWAJsPFMEwFZ92HZ0oUQmrDl2wlIilHoY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -73,7 +73,7 @@ On port 80 there is a web application in which we are logged in by default as th
   <meta property="og:description" content="Box Details
 Difficulty Easy Type Linux Port Scan
 └─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100Nmap scan report for 10.129.7.242Host is up (0.037s latency).Not shown: 997 closed tcp ports (reset)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)80/tcp open http Gunicorn Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
     <meta property="article:published_time" content="2026-02-28T00:00:00+00:00">
@@ -84,42 +84,10 @@ Difficulty Easy Type Linux Port Scan
     <meta property="og:image" content="http://localhost:1313/writeups/htb_cap/images/writeup_screens/htb_cap/htb_cap_cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://localhost:1313/writeups/htb_cap/images/writeup_screens/htb_cap/htb_cap_cover.png">
-<meta name="twitter:title" content="HTB - Cap">
-<meta name="twitter:description" content="Box Details
-
-  
-      
-          
-          
-      
-  
-  
-      
-          Difficulty
-          Easy
-      
-      
-          Type
-          Linux
-      
-  
-
-Port Scan
-└─$ nmap -sV 10.129.7.242 
-Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100
-Nmap scan report for 10.129.7.242
-Host is up (0.037s latency).
-Not shown: 997 closed tcp ports (reset)
-PORT   STATE SERVICE VERSION
-21/tcp open  ftp     vsftpd 3.0.3
-22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    Gunicorn   
-Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds
-User Flag
-On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.">
+  <meta name="twitter:title" content="HTB - Cap">
+  <meta name="twitter:description" content="Box Details
+Difficulty Easy Type Linux Port Scan
+└─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100Nmap scan report for 10.129.7.242Host is up (0.037s latency).Not shown: 997 closed tcp ports (reset)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)80/tcp open http Gunicorn Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.">
 
 
 <script type="application/ld+json">
@@ -178,17 +146,17 @@ On port 80 there is a web application in which we are logged in by default as th
 </head>
 <body id="top">
     <header class="header">
-    <nav class="nav">
+    <nav class="header-nav">
         <div class="logo">
             <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -204,7 +172,7 @@ On port 80 there is a web application in which we are logged in by default as th
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/writeups/" title="Write-ups">
                     <span>Write-ups</span>
@@ -231,7 +199,9 @@ On port 80 there is a web application in which we are logged in by default as th
     <h1 class="post-title entry-hint-parent">
       HTB - Cap
     </h1>
-    <div class="post-meta"><span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+    <div class="post-meta">
+
+<span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
 
 </div>
   </header> 
@@ -239,7 +209,7 @@ On port 80 there is a web application in which we are logged in by default as th
         <img loading="eager" src="http://localhost:1313/images/writeup_screens/htb_cap/htb_cap_cover.png" alt="HTB CCTV Cover">
         
 </figure>
-  <div class="post-content"><p><strong>Box Details</strong></p>
+  <div class="post-content md-content"><p><strong>Box Details</strong></p>
 <table>
   <thead>
       <tr>
@@ -308,7 +278,6 @@ pass: Buck3tH4TF0RM3!
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/writeups/pg_twiggy/">
     <span class="title">« Prev</span>
-    <br>
     <span>PG Practice - Twiggy</span>
   </a>
 </nav>
@@ -320,15 +289,19 @@ pass: Buck3tH4TF0RM3!
 <footer class="footer">
         <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
@@ -367,14 +340,13 @@ pass: Buck3tH4TF0RM3!
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 

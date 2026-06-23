@@ -1,6 +1,6 @@
 ---
 title: "PG Practice - Bratarina"
-date: 2026-06-23
+date: 2026-06-21
 draft: false
 tags: ["Proving Grounds Practice", "Linux", "Write-Up"]
 cover:

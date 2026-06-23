@@ -10,7 +10,7 @@
 <meta name="description" content="Personal Page of Fabio Birnegger">
 <meta name="author" content="Fabio Birnegger">
 <link rel="canonical" href="http://localhost:1313/tags/write-up/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9b4f18f427ed299296009b0f14c130159f761d9d285109ab0e5db09488a51e86.css" integrity="sha256-m08Y9CftKZKWAJsPFMEwFZ92HZ0oUQmrDl2wlIilHoY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -38,26 +38,27 @@
   <meta property="og:site_name" content="Fabio Birnegger">
   <meta property="og:title" content="Write-Up">
   <meta property="og:description" content="Personal Page of Fabio Birnegger">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Write-Up">
-<meta name="twitter:description" content="Personal Page of Fabio Birnegger">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Write-Up">
+  <meta name="twitter:description" content="Personal Page of Fabio Birnegger">
 
 </head>
 <body class="list" id="top">
     <header class="header">
-    <nav class="nav">
+    <nav class="header-nav">
         <div class="logo">
             <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -73,7 +74,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/writeups/" title="Write-ups">
                     <span>Write-ups</span>
@@ -101,6 +102,47 @@
 
 <article class="post-entry tag-entry"> 
 <figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_bratarina/pg_bratarina_cover.svg" alt="Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PG Practice - Bratarina
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+Difficulty Easy Type Linux Port Scan
+└─$ nmap -sV -sC -p- 192.168.120.71 PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 db:dd:2c:ea:2f:85:c5:89:bc:fc:e9:a3:38:f0:d7:50 (RSA)| 256 e3:b7:65:c2:a7:8e:45:29:bb:62:ec:30:1a:eb:ed:6d (ECDSA)|_ 256 d5:5b:79:5b:ce:48:d8:57:46:db:59:4f:cd:45:5d:ef (ED25519)25/tcp open smtp OpenSMTPD| smtp-commands: bratarina Hello nmap.scanme.org [192.168.45.198], pleased to meet you, 8BITMIME, ENHANCEDSTATUSCODES, SIZE 36700160, DSN, HELP|_ 2.0.0 This is OpenSMTPD 2.0.0 To report bugs in the implementation, please contact bugs@openbsd.org 2.0.0 with full details 2.0.0 End of HELP info53/tcp closed domain80/tcp open http nginx 1.14.0 (Ubuntu)|_http-title: Page not found - FlaskBB |_http-server-header: nginx/1.14.0 (Ubuntu)445/tcp open netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: COFFEECORP)Service Info: Host: bratarina; OS: Linux; CPE: cpe:/o:linux:linux_kernelHost script results:| smb-os-discovery: | OS: Windows 6.1 (Samba 4.7.6-Ubuntu)| Computer name: bratarina| NetBIOS computer name: BRATARINA\x00| Domain name: \x00| FQDN: bratarina|_ System time: 2026-06-22T15:55:52-04:00| smb2-time: | date: 2026-06-22T19:55:53|_ start_date: N/A| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_clock-skew: mean: 1h20m01s, deviation: 2h18m35s, median: 0s| smb2-security-mode: | 3.1.1: |_ Message signing enabled but not required Proof.txt On port 25 the service OpenSMTPD 2.0.0 is running. This version is vulnerable to CVE-2020-7247 for which we can find this public exploit. I executed it with a busybox reverse shell command after starting a netcat listener on port 80.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-21 00:00:00 +0000 UTC'>June 21, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to PG Practice - Bratarina" href="http://localhost:1313/writeups/pg_bratarina/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_nibbles/pg_nibbles_cover.svg" alt="Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PG Practice - Nibbles
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+TABELLE FIXEN WTF???
+Difficulty Intermediate Type Linux Port Scan
+└─$ nmap -sV -sC -p- 192.168.120.47PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)80/tcp open http Apache httpd 2.4.38 ((Debian))|_http-title: Enter a title, displayed at the top of the window.|_http-server-header: Apache/2.4.38 (Debian)139/tcp closed netbios-ssn445/tcp closed microsoft-ds5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9| ssl-cert: Subject: commonName=debian| Subject Alternative Name: DNS:debian| Not valid before: 2020-04-27T15:41:47|_Not valid after: 2030-04-25T15:41:47|_ssl-date: TLS randomness does not represent timeService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local.txt The PostgresSQL service on port 5437 has default credentials set:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-21 00:00:00 +0000 UTC'>June 21, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to PG Practice - Nibbles" href="http://localhost:1313/writeups/pg_nibbles/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
         <img loading="lazy" src="http://localhost:1313/images/writeup_screens/htb_access/htb_access_cover.png" alt="HTB Access Cover">
 </figure>
   <header class="entry-header">
@@ -113,7 +155,9 @@ Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC 10.129.34.220Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-11 15:39 &#43;0200Nmap scan report for 10.129.34.220Host is up (0.040s latency).Not shown: 997 filtered tcp ports (no-response)PORT STATE SERVICE VERSION21/tcp open ftp Microsoft ftpd| ftp-syst: |_ SYST: Windows_NT| ftp-anon: Anonymous FTP login allowed (FTP code 230)|_Can&#39;t get directory listing: PASV failed: 425 Cannot open data connection.23/tcp open telnet Microsoft Windows XP telnetd| telnet-ntlm-info: | Target_Name: ACCESS| NetBIOS_Domain_Name: ACCESS| NetBIOS_Computer_Name: ACCESS| DNS_Domain_Name: ACCESS| DNS_Computer_Name: ACCESS|_ Product_Version: 6.1.760080/tcp open http Microsoft IIS httpd 7.5|_http-server-header: Microsoft-IIS/7.5|_http-title: MegaCorp| http-methods: |_ Potentially risky methods: TRACEService Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xpHost script results:|_clock-skew: 2sService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds User Flag The port scan shows that anonymous login to the FTP server on standard port 21 is allowed. This means we can login by providing the name anonymous and any password.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-05-11 00:00:00 +0000 UTC'>May 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-05-11 00:00:00 +0000 UTC'>May 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to HTB - Access" href="http://localhost:1313/writeups/htb_access/"></a>
 </article>
 
@@ -131,7 +175,9 @@ Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC 10.129.96.157Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 19:17 &#43;0200Nmap scan report for 10.129.96.157Host is up (0.069s latency).Not shown: 996 filtered tcp ports (no-response)PORT STATE SERVICE VERSION80/tcp open http Microsoft IIS httpd 10.0|_http-server-header: Microsoft-IIS/10.0| http-title: Support Login Page|_Requested resource was login.php| http-cookie-flags: | /: | PHPSESSID: |_ httponly flag not set| http-methods: |_ Potentially risky methods: TRACE135/tcp open msrpc Microsoft Windows RPC445/tcp open microsoft-ds?5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-server-header: Microsoft-HTTPAPI/2.0|_http-title: Not FoundService Info: OS: Windows; CPE: cpe:/o:microsoft:windows User Flag On the webserver on port 80 we can login as guest. We are redirected to /issues.php and can read a posting of user Hazard which has an attachment config.txt:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to HTB - Heist" href="http://localhost:1313/writeups/htb_heist/"></a>
 </article>
 
@@ -149,7 +195,9 @@ Difficulty Easy Type Linux TCP Port Scan
 └─$ nmap $IP -sV -sCStarting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 &#43;0200Nmap scan report for 10.129.231.213Host is up (0.061s latency).Not shown: 998 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)|_ 256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)80/tcp open http Apache httpd 2.4.52 ((Ubuntu))|_http-title: Apache2 Ubuntu Default Page: It works|_http-server-header: Apache/2.4.52 (Ubuntu)Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds UDP Port Scan
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to HTB - Underpass" href="http://localhost:1313/writeups/htb_underpass/"></a>
 </article>
 
@@ -167,7 +215,9 @@ Difficulty Intermediate Type Linux Port Scan
 └─$ nmap -sV 192.168.224.58Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-11 19:31 &#43;0200Nmap scan report for 192.168.224.58Host is up (0.034s latency).Not shown: 993 filtered tcp ports (no-response)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.222/tcp open ssh OpenSSH 7.4 (protocol 2.0)80/tcp open http Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)111/tcp open rpcbind 2-4 (RPC #100000)139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)3306/tcp open mysql MySQL (unauthorized)Service Info: Host: SNOOKUMS; OS: Unix Local The webserver on port 80 hosts a simple PHP Photo Gallery with v0.8 as we can see in the frontend. I searched the web for vulnerabilities affecting this version and I found a public exploit that targets a RFI vulnerability which I tried after starting a netcat listener in another terminal window on port 21 (always use ports that are open on the target to prevent firewall issues):
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-11 00:00:00 +0000 UTC'>April 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-04-11 00:00:00 +0000 UTC'>April 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Snookums" href="http://localhost:1313/writeups/pg_snook/"></a>
 </article>
 
@@ -185,7 +235,9 @@ Difficulty Intermediate Type Linux Port Scan
 └─$ nmap -sV -p- 192.168.208.98 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 &#43;0200Nmap scan report for 192.168.208.98Host is up (0.035s latency).Not shown: 65526 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)631/tcp open ipp CUPS 2.22181/tcp open zookeeper Zookeeper 3.4.6-1569965 (Built on 02/20/2014)2222/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)8080/tcp open http Jetty 1.08081/tcp open http nginx 1.14.246295/tcp open java-rmi Java RMIService Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local.txt As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Pelican" href="http://localhost:1313/writeups/pg_pelican/"></a>
 </article>
 
@@ -203,7 +255,9 @@ Difficulty Intermediate Type Linux Port Scan
 Nmap scan report for 192.168.191.39Host is up (0.033s latency).Not shown: 65527 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)80/tcp open http Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)110/tcp open pop3 Dovecot pop3d139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)143/tcp open imap Dovecot imapd445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)993/tcp open ssl/imaps?995/tcp open ssl/pop3s?Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local To start this box, I manually checked the Webserver running on port 80 on the target machine. There was a CS-Cart instance running and i noticed the login-section. I tried some default credentials and admin:admin worked.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Payday" href="http://localhost:1313/writeups/pg_payday/"></a>
 </article>
 
@@ -221,7 +275,9 @@ Difficulty Easy Type Linux Port Scan
 └─$ nmap -sV -p- 192.168.208.62Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 &#43;0200Nmap scan report for 192.168.208.62Host is up (0.032s latency).Not shown: 65529 filtered tcp ports (no-response)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.4 (protocol 2.0)53/tcp open domain NLnet Labs NSD80/tcp open http nginx 1.16.14505/tcp open zmtp ZeroMQ ZMTP 2.04506/tcp open zmtp ZeroMQ ZMTP 2.08000/tcp open http nginx 1.16.1 Proof.txt As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn’t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Twiggy" href="http://localhost:1313/writeups/pg_twiggy/"></a>
 </article>
 
@@ -239,7 +295,9 @@ Difficulty Easy Type Linux Port Scan
 └─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100Nmap scan report for 10.129.7.242Host is up (0.037s latency).Not shown: 997 closed tcp ports (reset)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)80/tcp open http Gunicorn Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <footer class="entry-footer">
+
+<span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to HTB - Cap" href="http://localhost:1313/writeups/htb_cap/"></a>
 </article>
     </main>
@@ -247,15 +305,19 @@ Difficulty Easy Type Linux Port Scan
 <footer class="footer">
         <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
@@ -294,14 +356,13 @@ Difficulty Easy Type Linux Port Scan
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 

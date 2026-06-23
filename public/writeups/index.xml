@@ -4,10 +4,123 @@
     <title>Writeups on Fabio Birnegger</title>
     <link>http://localhost:1313/writeups/</link>
     <description>Recent content in Writeups on Fabio Birnegger</description>
-    <generator>Hugo -- 0.157.0</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PG Practice - Bratarina</title>
+      <link>http://localhost:1313/writeups/pg_bratarina/</link>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_bratarina/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Easy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -sC -p- 192.168.120.71 
+PORT    STATE  SERVICE     VERSION
+22/tcp  open   ssh         OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 db:dd:2c:ea:2f:85:c5:89:bc:fc:e9:a3:38:f0:d7:50 (RSA)
+|   256 e3:b7:65:c2:a7:8e:45:29:bb:62:ec:30:1a:eb:ed:6d (ECDSA)
+|_  256 d5:5b:79:5b:ce:48:d8:57:46:db:59:4f:cd:45:5d:ef (ED25519)
+25/tcp  open   smtp        OpenSMTPD
+| smtp-commands: bratarina Hello nmap.scanme.org [192.168.45.198], pleased to meet you, 8BITMIME, ENHANCEDSTATUSCODES, SIZE 36700160, DSN, HELP
+|_ 2.0.0 This is OpenSMTPD 2.0.0 To report bugs in the implementation, please contact bugs@openbsd.org 2.0.0 with full details 2.0.0 End of HELP info
+53/tcp  closed domain
+80/tcp  open   http        nginx 1.14.0 (Ubuntu)
+|_http-title:         Page not found - FlaskBB        
+|_http-server-header: nginx/1.14.0 (Ubuntu)
+445/tcp open   netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: COFFEECORP)
+Service Info: Host: bratarina; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.7.6-Ubuntu)
+|   Computer name: bratarina
+|   NetBIOS computer name: BRATARINA\x00
+|   Domain name: \x00
+|   FQDN: bratarina
+|_  System time: 2026-06-22T15:55:52-04:00
+| smb2-time: 
+|   date: 2026-06-22T19:55:53
+|_  start_date: N/A
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_clock-skew: mean: 1h20m01s, deviation: 2h18m35s, median: 0s
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;prooftxt&#34;&gt;Proof.txt&lt;/h2&gt;
+&lt;p&gt;On port &lt;strong&gt;25&lt;/strong&gt; the service OpenSMTPD 2.0.0 is running. This version is vulnerable to &lt;strong&gt;CVE-2020-7247&lt;/strong&gt; for which we can find this &lt;a href=&#34;https://github.com/vulhub/vulhub/tree/master/opensmtpd/CVE-2020-7247&#34;&gt;public exploit&lt;/a&gt;. I executed it with a busybox reverse shell command after starting a netcat listener on port &lt;strong&gt;80&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PG Practice - Nibbles</title>
+      <link>http://localhost:1313/writeups/pg_nibbles/</link>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_nibbles/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Intermediate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -sC -p- 192.168.120.47
+PORT     STATE  SERVICE      VERSION
+21/tcp   open   ftp          vsftpd 3.0.3
+22/tcp   open   ssh          OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)
+|   256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)
+|_  256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)
+80/tcp   open   http         Apache httpd 2.4.38 ((Debian))
+|_http-title: Enter a title, displayed at the top of the window.
+|_http-server-header: Apache/2.4.38 (Debian)
+139/tcp  closed netbios-ssn
+445/tcp  closed microsoft-ds
+5437/tcp open   postgresql   PostgreSQL DB 11.3 - 11.9
+| ssl-cert: Subject: commonName=debian
+| Subject Alternative Name: DNS:debian
+| Not valid before: 2020-04-27T15:41:47
+|_Not valid after:  2030-04-25T15:41:47
+|_ssl-date: TLS randomness does not represent time
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;localtxt&#34;&gt;Local.txt&lt;/h2&gt;
+&lt;p&gt;The PostgresSQL service on port 5437 has default credentials set:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>HTB - Access</title>
       <link>http://localhost:1313/writeups/htb_access/</link>

