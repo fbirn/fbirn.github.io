@@ -28,6 +28,12 @@ hideAuthor: true
 
 ## Talks
 
+### Pentesting & KI: Neue Herausforderungen in einer neuen Epoche (german) - Cyber Security Day TÜV TRUST IT 2026
+
+**Public Talk** · 23/06/2026 </br>
+**Speakers:** Fabio Birnegger, Erich Fortmüller </br>
+
+
 ### Purple Cloud: Angriff und Verteidigung in der Cloud (german) - IKT Sicherheitskonferenz 2024
 
 **Public Talk** · 17/09/2024 </br>
@@ -40,6 +46,7 @@ hideAuthor: true
 **Public Workshop** · 02/06/2023 </br>
 **Speakers:** Fabio Birnegger, Fatih Varli </br>
 [Link](https://its-now.science/?review#2023-1W2)
+
 
 ### Radio Hacking für Einbrecher*innen (german) - IT-S NOW 2022 Conference
 

@@ -3,28 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/linux/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/pg_bratarina/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/writeups/pg_internal/</loc>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/pg_nibbles/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/writeups/pg_kevin/</loc>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/proving-grounds-practice/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/write-up/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/writeups/</loc>
-    <lastmod>2026-06-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/writeups/pg_nibbles/</loc>
+    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/writeups/pg_bratarina/</loc>
+    <lastmod>2026-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/htb/</loc>
     <lastmod>2026-05-11T00:00:00+00:00</lastmod>

