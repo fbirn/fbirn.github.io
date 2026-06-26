@@ -41,7 +41,7 @@ PORT     STATE  SERVICE      VERSION
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-## Local.txt
+## Local
 
 The PostgresSQL service on port 5437 has default credentials set:
 
@@ -64,7 +64,7 @@ I used the following command to receive a reverse shell as user **postgres** on 
 We have read privileges on the home directory of wilson so we can read _/home/wilson/local.txt_.
 
 
-## Proof.txt
+## Proof
 
 By analysing the output of `$ find / -perm -u=s -type f 2>/dev/null` we can see that the SUID bit for _/usr/bin/find_ is set: 
 

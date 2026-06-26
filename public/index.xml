@@ -6,8 +6,67 @@
     <description>Recent content on Fabio Birnegger</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PG Practice - Shenzi</title>
+      <link>http://localhost:1313/writeups/pg_shenzi/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_shenzi/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Intermediate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;PORT      STATE SERVICE       VERSION
+21/tcp    open  ftp           FileZilla ftpd 0.9.41 beta
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+80/tcp    open  http          Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
+| http-title: Welcome to XAMPP
+|_Requested resource was http://192.168.118.55/dashboard/
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp   open  ssl/http      Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-11-10T23:48:47
+|_Not valid after:  2019-11-08T23:48:47
+| tls-alpn: 
+|_  http/1.1
+| http-title: Welcome to XAMPP
+|_Requested resource was https://192.168.118.55/dashboard/
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
+|_ssl-date: TLS randomness does not represent time
+445/tcp   open  microsoft-ds?
+3306/tcp  open  mysql         MariaDB 10.3.24 or later (unauthorized)
+5040/tcp  open  unknown
+7680/tcp  open  pando-pub?
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;local&#34;&gt;Local&lt;/h2&gt;
+&lt;p&gt;I enumerated SMB on the machine and discovered that we have anonymous read access on the share &lt;em&gt;Shenzi&lt;/em&gt;:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>PG Practice - Nickel</title>
       <link>http://localhost:1313/writeups/pg_nickel/</link>
@@ -267,7 +326,7 @@ PORT     STATE  SERVICE      VERSION
 |_Not valid after:  2030-04-25T15:41:47
 |_ssl-date: TLS randomness does not represent time
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;localtxt&#34;&gt;Local.txt&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;local&#34;&gt;Local&lt;/h2&gt;
 &lt;p&gt;The PostgresSQL service on port 5437 has default credentials set:&lt;/p&gt;</description>
     </item>
     <item>
@@ -332,7 +391,7 @@ Host script results:
 | smb2-security-mode: 
 |   3.1.1: 
 |_    Message signing enabled but not required
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;prooftxt&#34;&gt;Proof.txt&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;proof&#34;&gt;Proof&lt;/h2&gt;
 &lt;p&gt;On port &lt;strong&gt;25&lt;/strong&gt; the service OpenSMTPD 2.0.0 is running. This version is vulnerable to &lt;strong&gt;CVE-2020-7247&lt;/strong&gt; for which we can find this &lt;a href=&#34;https://github.com/vulhub/vulhub/tree/master/opensmtpd/CVE-2020-7247&#34;&gt;public exploit&lt;/a&gt;. I executed it with a busybox reverse shell command after starting a netcat listener on port &lt;strong&gt;80&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     <item>
@@ -652,7 +711,7 @@ PORT     STATE SERVICE VERSION
 4505/tcp open  zmtp    ZeroMQ ZMTP 2.0
 4506/tcp open  zmtp    ZeroMQ ZMTP 2.0
 8000/tcp open  http    nginx 1.16.1
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;prooftxt&#34;&gt;Proof.txt&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;proof&#34;&gt;Proof&lt;/h2&gt;
 &lt;p&gt;As we can see in the port scan above, there are two web servers running on the target. On port &lt;strong&gt;80&lt;/strong&gt; there is a &lt;em&gt;Mezzanine&lt;/em&gt; Instance which doesn&amp;rsquo;t seem to be exploitable. On the other hand, the webserver on Port &lt;strong&gt;8000&lt;/strong&gt; is running a &lt;strong&gt;Saltstack-Salt-API&lt;/strong&gt; as can be seen in the &lt;em&gt;X-Upstream&lt;/em&gt; Header in the HTTP-Response:&lt;/p&gt;</description>
     </item>
     <item>

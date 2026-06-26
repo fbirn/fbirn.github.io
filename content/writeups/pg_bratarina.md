@@ -58,7 +58,7 @@ Host script results:
 |_    Message signing enabled but not required
 ```
 
-## Proof.txt
+## Proof
 
 On port **25** the service OpenSMTPD 2.0.0 is running. This version is vulnerable to **CVE-2020-7247** for which we can find this [public exploit](https://github.com/vulhub/vulhub/tree/master/opensmtpd/CVE-2020-7247). I executed it with a busybox reverse shell command after starting a netcat listener on port **80**. 
 

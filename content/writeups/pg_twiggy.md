@@ -33,7 +33,7 @@ PORT     STATE SERVICE VERSION
 8000/tcp open  http    nginx 1.16.1
 ```
 
-## Proof.txt
+## Proof
 
 As we can see in the port scan above, there are two web servers running on the target. On port **80** there is a _Mezzanine_ Instance which doesn't seem to be exploitable. On the other hand, the webserver on Port **8000** is running a **Saltstack-Salt-API** as can be seen in the _X-Upstream_ Header in the HTTP-Response: 
 

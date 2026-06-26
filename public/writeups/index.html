@@ -117,6 +117,26 @@
 
 <article class="post-entry"> 
 <figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_shenzi/pg_shenzi_cover.svg" alt="Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PG Practice - Shenzi
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+Difficulty Intermediate Type Linux Port Scan
+PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.41 beta| ftp-syst: |_ SYST: UNIX emulated by FileZilla80/tcp open http Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6| http-title: Welcome to XAMPP|_Requested resource was http://192.168.118.55/dashboard/135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn443/tcp open ssl/http Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)| ssl-cert: Subject: commonName=localhost| Not valid before: 2009-11-10T23:48:47|_Not valid after: 2019-11-08T23:48:47| tls-alpn: |_ http/1.1| http-title: Welcome to XAMPP|_Requested resource was https://192.168.118.55/dashboard/|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6|_ssl-date: TLS randomness does not represent time445/tcp open microsoft-ds?3306/tcp open mysql MariaDB 10.3.24 or later (unauthorized)5040/tcp open unknown7680/tcp open pando-pub?49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPCService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local I enumerated SMB on the machine and discovered that we have anonymous read access on the share Shenzi:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-26 00:00:00 +0000 UTC'>June 26, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to PG Practice - Shenzi" href="http://localhost:1313/writeups/pg_shenzi/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
         <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_nickel/pg_nickel_cover.svg" alt="Cover">
 </figure>
   <header class="entry-header">
@@ -186,7 +206,7 @@ Difficulty Easy Type Windows Port Scan
   <div class="entry-content">
     <p>Box Details
 Difficulty Intermediate Type Linux Port Scan
-└─$ nmap -sV -sC -p- 192.168.120.47PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)80/tcp open http Apache httpd 2.4.38 ((Debian))|_http-title: Enter a title, displayed at the top of the window.|_http-server-header: Apache/2.4.38 (Debian)139/tcp closed netbios-ssn445/tcp closed microsoft-ds5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9| ssl-cert: Subject: commonName=debian| Subject Alternative Name: DNS:debian| Not valid before: 2020-04-27T15:41:47|_Not valid after: 2030-04-25T15:41:47|_ssl-date: TLS randomness does not represent timeService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local.txt The PostgresSQL service on port 5437 has default credentials set:
+└─$ nmap -sV -sC -p- 192.168.120.47PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)80/tcp open http Apache httpd 2.4.38 ((Debian))|_http-title: Enter a title, displayed at the top of the window.|_http-server-header: Apache/2.4.38 (Debian)139/tcp closed netbios-ssn445/tcp closed microsoft-ds5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9| ssl-cert: Subject: commonName=debian| Subject Alternative Name: DNS:debian| Not valid before: 2020-04-27T15:41:47|_Not valid after: 2030-04-25T15:41:47|_ssl-date: TLS randomness does not represent timeService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:
 ...</p>
   </div>
   <footer class="entry-footer">
@@ -206,7 +226,7 @@ Difficulty Intermediate Type Linux Port Scan
   <div class="entry-content">
     <p>Box Details
 Difficulty Easy Type Linux Port Scan
-└─$ nmap -sV -sC -p- 192.168.120.71 PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 db:dd:2c:ea:2f:85:c5:89:bc:fc:e9:a3:38:f0:d7:50 (RSA)| 256 e3:b7:65:c2:a7:8e:45:29:bb:62:ec:30:1a:eb:ed:6d (ECDSA)|_ 256 d5:5b:79:5b:ce:48:d8:57:46:db:59:4f:cd:45:5d:ef (ED25519)25/tcp open smtp OpenSMTPD| smtp-commands: bratarina Hello nmap.scanme.org [192.168.45.198], pleased to meet you, 8BITMIME, ENHANCEDSTATUSCODES, SIZE 36700160, DSN, HELP|_ 2.0.0 This is OpenSMTPD 2.0.0 To report bugs in the implementation, please contact bugs@openbsd.org 2.0.0 with full details 2.0.0 End of HELP info53/tcp closed domain80/tcp open http nginx 1.14.0 (Ubuntu)|_http-title: Page not found - FlaskBB |_http-server-header: nginx/1.14.0 (Ubuntu)445/tcp open netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: COFFEECORP)Service Info: Host: bratarina; OS: Linux; CPE: cpe:/o:linux:linux_kernelHost script results:| smb-os-discovery: | OS: Windows 6.1 (Samba 4.7.6-Ubuntu)| Computer name: bratarina| NetBIOS computer name: BRATARINA\x00| Domain name: \x00| FQDN: bratarina|_ System time: 2026-06-22T15:55:52-04:00| smb2-time: | date: 2026-06-22T19:55:53|_ start_date: N/A| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_clock-skew: mean: 1h20m01s, deviation: 2h18m35s, median: 0s| smb2-security-mode: | 3.1.1: |_ Message signing enabled but not required Proof.txt On port 25 the service OpenSMTPD 2.0.0 is running. This version is vulnerable to CVE-2020-7247 for which we can find this public exploit. I executed it with a busybox reverse shell command after starting a netcat listener on port 80.
+└─$ nmap -sV -sC -p- 192.168.120.71 PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 db:dd:2c:ea:2f:85:c5:89:bc:fc:e9:a3:38:f0:d7:50 (RSA)| 256 e3:b7:65:c2:a7:8e:45:29:bb:62:ec:30:1a:eb:ed:6d (ECDSA)|_ 256 d5:5b:79:5b:ce:48:d8:57:46:db:59:4f:cd:45:5d:ef (ED25519)25/tcp open smtp OpenSMTPD| smtp-commands: bratarina Hello nmap.scanme.org [192.168.45.198], pleased to meet you, 8BITMIME, ENHANCEDSTATUSCODES, SIZE 36700160, DSN, HELP|_ 2.0.0 This is OpenSMTPD 2.0.0 To report bugs in the implementation, please contact bugs@openbsd.org 2.0.0 with full details 2.0.0 End of HELP info53/tcp closed domain80/tcp open http nginx 1.14.0 (Ubuntu)|_http-title: Page not found - FlaskBB |_http-server-header: nginx/1.14.0 (Ubuntu)445/tcp open netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: COFFEECORP)Service Info: Host: bratarina; OS: Linux; CPE: cpe:/o:linux:linux_kernelHost script results:| smb-os-discovery: | OS: Windows 6.1 (Samba 4.7.6-Ubuntu)| Computer name: bratarina| NetBIOS computer name: BRATARINA\x00| Domain name: \x00| FQDN: bratarina|_ System time: 2026-06-22T15:55:52-04:00| smb2-time: | date: 2026-06-22T19:55:53|_ start_date: N/A| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_clock-skew: mean: 1h20m01s, deviation: 2h18m35s, median: 0s| smb2-security-mode: | 3.1.1: |_ Message signing enabled but not required Proof On port 25 the service OpenSMTPD 2.0.0 is running. This version is vulnerable to CVE-2020-7247 for which we can find this public exploit. I executed it with a busybox reverse shell command after starting a netcat listener on port 80.
 ...</p>
   </div>
   <footer class="entry-footer">
@@ -293,26 +313,6 @@ Difficulty Intermediate Type Linux Port Scan
 
 <span title='2026-04-11 00:00:00 +0000 UTC'>April 11, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Snookums" href="http://localhost:1313/writeups/pg_snook/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_pelican/pg_pelican_cover.svg" alt="PG Pelican Cover">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">PG Practice - Pelican
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Box Details
-Difficulty Intermediate Type Linux Port Scan
-└─$ nmap -sV -p- 192.168.208.98 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 &#43;0200Nmap scan report for 192.168.208.98Host is up (0.035s latency).Not shown: 65526 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)631/tcp open ipp CUPS 2.22181/tcp open zookeeper Zookeeper 3.4.6-1569965 (Built on 02/20/2014)2222/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)8080/tcp open http Jetty 1.08081/tcp open http nginx 1.14.246295/tcp open java-rmi Java RMIService Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local.txt As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-04-06 00:00:00 +0000 UTC'>April 6, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
-  <a class="entry-link" aria-label="post link to PG Practice - Pelican" href="http://localhost:1313/writeups/pg_pelican/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
