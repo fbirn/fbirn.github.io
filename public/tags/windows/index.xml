@@ -6,8 +6,218 @@
     <description>Recent content in Windows on Fabio Birnegger</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PG Practice - Fish</title>
+      <link>http://localhost:1313/writeups/pg_fish/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_fish/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Intermediate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -sC -p- 192.168.216.168
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 +0200
+Nmap scan report for 192.168.216.168
+Host is up (0.043s latency).
+Not shown: 65516 closed tcp ports (reset)
+PORT      STATE SERVICE              VERSION
+135/tcp   open  msrpc                Microsoft Windows RPC
+139/tcp   open  netbios-ssn          Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server        Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: FISHYYY
+|   NetBIOS_Domain_Name: FISHYYY
+|   NetBIOS_Computer_Name: FISHYYY
+|   DNS_Domain_Name: Fishyyy
+|   DNS_Computer_Name: Fishyyy
+|   Product_Version: 10.0.19041
+|_  System_Time: 2021-10-29T11:56:13+00:00
+| ssl-cert: Subject: commonName=Fishyyy
+| Not valid before: 2021-10-28T11:48:50
+|_Not valid after:  2022-04-29T11:48:50
+|_ssl-date: 2021-10-29T11:56:26+00:00; -4y240d05h38m29s from scanner time.
+3700/tcp  open  giop
+| fingerprint-strings: 
+|   GetRequest, X11Probe: 
+|     GIOP
+|   giop: 
+|     GIOP
+|     (IDL:omg.org/SendingContext/CodeBase:1.0
+|     169.254.240.58
+|     169.254.240.58
+|_    default
+4848/tcp  open  http                 Sun GlassFish Open Source Edition  4.1
+|_http-server-header: GlassFish Server Open Source Edition  4.1 
+|_http-title: Login
+5040/tcp  open  unknown
+6060/tcp  open  x11?
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 
+|     Accept-Ranges: bytes
+|     ETag: W/&amp;#34;425-1267803922000&amp;#34;
+|     Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT
+|     Content-Type: text/html
+|     Content-Length: 425
+|     Date: Fri, 29 Oct 2021 11:53:47 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|     &amp;lt;html&amp;gt;
+|     &amp;lt;head&amp;gt;
+|     &amp;lt;META HTTP-EQUIV=&amp;#34;REFRESH&amp;#34; CONTENT=&amp;#34;1;URL=app&amp;#34;&amp;gt;
+|     &amp;lt;/head&amp;gt;
+|     &amp;lt;body&amp;gt;
+|     &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt;
+|     &amp;lt;!--
+|     currentLocation = window.location.pathname;
+|     if(currentLocation.charAt(currentLocation.length - 1) == &amp;#34;/&amp;#34;){
+|     window.location = window.location + &amp;#34;app&amp;#34;;
+|     }else{
+|     window.location = window.location + &amp;#34;/app&amp;#34;;
+|     //--&amp;gt;
+|     &amp;lt;/script&amp;gt;
+|     Loading Administration console. Please wait...
+|     &amp;lt;/body&amp;gt;
+|     &amp;lt;/html&amp;gt;
+|   HTTPOptions: 
+|     HTTP/1.1 403 
+|     Cache-Control: private
+|     Expires: Thu, 01 Jan 1970 00:00:00 GMT
+|     Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/
+|     Content-Type: text/html;charset=ISO-8859-1
+|     Content-Length: 5028
+|     Date: Fri, 29 Oct 2021 11:53:48 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|     &amp;lt;!DOCTYPE html&amp;gt;
+|     &amp;lt;html&amp;gt;
+|     &amp;lt;head&amp;gt;
+|     &amp;lt;meta http-equiv=&amp;#34;content-type&amp;#34; content=&amp;#34;text/html; charset=UTF-8&amp;#34; /&amp;gt;
+|     &amp;lt;title&amp;gt;
+|     SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 
+|     &amp;lt;/title&amp;gt;
+|     &amp;lt;meta NAME=&amp;#34;Description&amp;#34; CONTENT=&amp;#34;SynaMan - Synametrics File Manager&amp;#34; /&amp;gt;
+|     &amp;lt;meta NAME=&amp;#34;Keywords&amp;#34; CONTENT=&amp;#34;SynaMan - Synametrics File Manager&amp;#34; /&amp;gt;
+|     &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=10&amp;#34; /&amp;gt;
+|     &amp;lt;link rel=&amp;#34;icon&amp;#34; type=&amp;#34;image/png&amp;#34; href=&amp;#34;images/favicon.png&amp;#34;&amp;gt;
+|     &amp;lt;link type=&amp;#34;text/css&amp;#34; rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;images/AjaxFileExplorer.css&amp;#34;&amp;gt;
+|     &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; type=&amp;#34;text/css&amp;#34;
+|   JavaRMI: 
+|     HTTP/1.1 400 
+|     Content-Type: text/html;charset=utf-8
+|     Content-Length: 145
+|     Date: Fri, 29 Oct 2021 11:53:42 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|_    &amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Oops&amp;lt;/title&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;Oops&amp;lt;/h1&amp;gt;&amp;lt;p&amp;gt;Well, that didn&amp;#39;t go as we had expected.&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;This error has been logged.&amp;lt;/p&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+7676/tcp  open  java-message-service Java Message Service 301
+7680/tcp  open  pando-pub?
+8080/tcp  open  http                 Sun GlassFish Open Source Edition  4.1
+|_http-server-header: GlassFish Server Open Source Edition  4.1 
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-title: Data Web
+| http-methods: 
+|_  Potentially risky methods: PUT DELETE TRACE
+8181/tcp  open  ssl/intermapper?
+| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US
+| Not valid before: 2014-08-21T13:30:10
+|_Not valid after:  2024-08-18T13:30:10
+|_ssl-date: TLS randomness does not represent time
+8686/tcp  open  java-rmi             Java RMI
+| rmi-dumpregistry: 
+|   jmxrmi
+|     javax.management.remote.rmi.RMIServerImpl_Stub
+|     @169.254.240.58:8686
+|     extends
+|       java.rmi.server.RemoteStub
+|       extends
+|_        java.rmi.server.RemoteObject
+49664/tcp open  msrpc                Microsoft Windows RPC
+49665/tcp open  msrpc                Microsoft Windows RPC
+49666/tcp open  msrpc                Microsoft Windows RPC
+49667/tcp open  msrpc                Microsoft Windows RPC
+49668/tcp open  msrpc                Microsoft Windows RPC
+49669/tcp open  msrpc                Microsoft Windows RPC
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;GlassFish Server Open Source Edition  4.1&lt;/strong&gt; running on port &lt;strong&gt;4848&lt;/strong&gt; is vulnerable to LFI. This &lt;a href=&#34;https://www.exploit-db.com/exploits/39441&#34;&gt;public exploit&lt;/a&gt; works and with the following URL we can read &lt;em&gt;win.ini&lt;/em&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PG Practice - Shenzi</title>
+      <link>http://localhost:1313/writeups/pg_shenzi/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/pg_shenzi/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Intermediate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;PORT      STATE SERVICE       VERSION
+21/tcp    open  ftp           FileZilla ftpd 0.9.41 beta
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+80/tcp    open  http          Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
+| http-title: Welcome to XAMPP
+|_Requested resource was http://192.168.118.55/dashboard/
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp   open  ssl/http      Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-11-10T23:48:47
+|_Not valid after:  2019-11-08T23:48:47
+| tls-alpn: 
+|_  http/1.1
+| http-title: Welcome to XAMPP
+|_Requested resource was https://192.168.118.55/dashboard/
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
+|_ssl-date: TLS randomness does not represent time
+445/tcp   open  microsoft-ds?
+3306/tcp  open  mysql         MariaDB 10.3.24 or later (unauthorized)
+5040/tcp  open  unknown
+7680/tcp  open  pando-pub?
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;local&#34;&gt;Local&lt;/h2&gt;
+&lt;p&gt;I enumerated SMB on the machine and discovered that we have anonymous read access on the share &lt;em&gt;Shenzi&lt;/em&gt;:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>PG Practice - Nickel</title>
       <link>http://localhost:1313/writeups/pg_nickel/</link>
@@ -211,33 +421,6 @@ PORT     STATE  SERVICE      VERSION
 Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;local&#34;&gt;Local&lt;/h2&gt;
 &lt;p&gt;The PostgresSQL service on port 5437 has default credentials set:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>PG Practice - Shenzi</title>
-      <link>http://localhost:1313/writeups/pg_shenzi/</link>
-      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/pg_shenzi/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Difficulty&lt;/td&gt;
-          &lt;td&gt;Intermediate&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Type&lt;/td&gt;
-          &lt;td&gt;Linux&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>HTB - Access</title>

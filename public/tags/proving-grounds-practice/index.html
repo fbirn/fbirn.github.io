@@ -102,6 +102,46 @@
 
 <article class="post-entry tag-entry"> 
 <figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_fish/pg_fish_cover.svg" alt="Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PG Practice - Fish
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+Difficulty Intermediate Type Windows Port Scan
+└─$ nmap -sV -sC -p- 192.168.216.168Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 &#43;0200Nmap scan report for 192.168.216.168Host is up (0.043s latency).Not shown: 65516 closed tcp ports (reset)PORT STATE SERVICE VERSION135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds?3389/tcp open ms-wbt-server Microsoft Terminal Services| rdp-ntlm-info: | Target_Name: FISHYYY| NetBIOS_Domain_Name: FISHYYY| NetBIOS_Computer_Name: FISHYYY| DNS_Domain_Name: Fishyyy| DNS_Computer_Name: Fishyyy| Product_Version: 10.0.19041|_ System_Time: 2021-10-29T11:56:13&#43;00:00| ssl-cert: Subject: commonName=Fishyyy| Not valid before: 2021-10-28T11:48:50|_Not valid after: 2022-04-29T11:48:50|_ssl-date: 2021-10-29T11:56:26&#43;00:00; -4y240d05h38m29s from scanner time.3700/tcp open giop| fingerprint-strings: | GetRequest, X11Probe: | GIOP| giop: | GIOP| (IDL:omg.org/SendingContext/CodeBase:1.0| 169.254.240.58| 169.254.240.58|_ default4848/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-title: Login5040/tcp open unknown6060/tcp open x11?| fingerprint-strings: | GetRequest: | HTTP/1.1 200 | Accept-Ranges: bytes| ETag: W/&#34;425-1267803922000&#34;| Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT| Content-Type: text/html| Content-Length: 425| Date: Fri, 29 Oct 2021 11:53:47 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;html&gt;| &lt;head&gt;| &lt;META HTTP-EQUIV=&#34;REFRESH&#34; CONTENT=&#34;1;URL=app&#34;&gt;| &lt;/head&gt;| &lt;body&gt;| &lt;script type=&#34;text/javascript&#34;&gt;| &lt;!--| currentLocation = window.location.pathname;| if(currentLocation.charAt(currentLocation.length - 1) == &#34;/&#34;){| window.location = window.location &#43; &#34;app&#34;;| }else{| window.location = window.location &#43; &#34;/app&#34;;| //--&gt;| &lt;/script&gt;| Loading Administration console. Please wait...| &lt;/body&gt;| &lt;/html&gt;| HTTPOptions: | HTTP/1.1 403 | Cache-Control: private| Expires: Thu, 01 Jan 1970 00:00:00 GMT| Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/| Content-Type: text/html;charset=ISO-8859-1| Content-Length: 5028| Date: Fri, 29 Oct 2021 11:53:48 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;!DOCTYPE html&gt;| &lt;html&gt;| &lt;head&gt;| &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=UTF-8&#34; /&gt;| &lt;title&gt;| SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 | &lt;/title&gt;| &lt;meta NAME=&#34;Description&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta NAME=&#34;Keywords&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=10&#34; /&gt;| &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; href=&#34;images/favicon.png&#34;&gt;| &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;images/AjaxFileExplorer.css&#34;&gt;| &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34;| JavaRMI: | HTTP/1.1 400 | Content-Type: text/html;charset=utf-8| Content-Length: 145| Date: Fri, 29 Oct 2021 11:53:42 GMT| Connection: close| Server: Synametrics Web Server v7|_ &lt;html&gt;&lt;head&gt;&lt;title&gt;Oops&lt;/title&gt;&lt;body&gt;&lt;h1&gt;Oops&lt;/h1&gt;&lt;p&gt;Well, that didn&#39;t go as we had expected.&lt;/p&gt;&lt;p&gt;This error has been logged.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;7676/tcp open java-message-service Java Message Service 3017680/tcp open pando-pub?8080/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-open-proxy: Proxy might be redirecting requests|_http-title: Data Web| http-methods: |_ Potentially risky methods: PUT DELETE TRACE8181/tcp open ssl/intermapper?| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US| Not valid before: 2014-08-21T13:30:10|_Not valid after: 2024-08-18T13:30:10|_ssl-date: TLS randomness does not represent time8686/tcp open java-rmi Java RMI| rmi-dumpregistry: | jmxrmi| javax.management.remote.rmi.RMIServerImpl_Stub| @169.254.240.58:8686| extends| java.rmi.server.RemoteStub| extends|_ java.rmi.server.RemoteObject49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPC GlassFish Server Open Source Edition 4.1 running on port 4848 is vulnerable to LFI. This public exploit works and with the following URL we can read win.ini:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-26 00:00:00 +0000 UTC'>June 26, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to PG Practice - Fish" href="http://localhost:1313/writeups/pg_fish/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_shenzi/pg_shenzi_cover.svg" alt="Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">PG Practice - Shenzi
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+Difficulty Intermediate Type Windows Port Scan
+PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.41 beta| ftp-syst: |_ SYST: UNIX emulated by FileZilla80/tcp open http Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6| http-title: Welcome to XAMPP|_Requested resource was http://192.168.118.55/dashboard/135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn443/tcp open ssl/http Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)| ssl-cert: Subject: commonName=localhost| Not valid before: 2009-11-10T23:48:47|_Not valid after: 2019-11-08T23:48:47| tls-alpn: |_ http/1.1| http-title: Welcome to XAMPP|_Requested resource was https://192.168.118.55/dashboard/|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6|_ssl-date: TLS randomness does not represent time445/tcp open microsoft-ds?3306/tcp open mysql MariaDB 10.3.24 or later (unauthorized)5040/tcp open unknown7680/tcp open pando-pub?49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPCService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local I enumerated SMB on the machine and discovered that we have anonymous read access on the share Shenzi:
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-06-26 00:00:00 +0000 UTC'>June 26, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to PG Practice - Shenzi" href="http://localhost:1313/writeups/pg_shenzi/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
         <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_nickel/pg_nickel_cover.svg" alt="Cover">
 </figure>
   <header class="entry-header">
@@ -178,25 +218,6 @@ Difficulty Intermediate Type Linux Port Scan
 
 <span title='2026-06-18 00:00:00 +0000 UTC'>June 18, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Nibbles" href="http://localhost:1313/writeups/pg_nibbles/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_shenzi/pg_shenzi_cover.svg" alt="Cover">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">PG Practice - Shenzi
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Box Details
-Difficulty Intermediate Type Linux Port Scan
-</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-06-18 00:00:00 +0000 UTC'>June 18, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
-  <a class="entry-link" aria-label="post link to PG Practice - Shenzi" href="http://localhost:1313/writeups/pg_shenzi/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -278,26 +299,12 @@ Nmap scan report for 192.168.191.39Host is up (0.033s latency).Not shown: 6552
 <span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Payday" href="http://localhost:1313/writeups/pg_payday/"></a>
 </article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_twiggy/twiggy_cover.svg" alt="PG Twiggy Cover">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">PG Practice - Twiggy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Box Details
-Difficulty Easy Type Linux Port Scan
-└─$ nmap -sV -p- 192.168.208.62Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 &#43;0200Nmap scan report for 192.168.208.62Host is up (0.032s latency).Not shown: 65529 filtered tcp ports (no-response)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.4 (protocol 2.0)53/tcp open domain NLnet Labs NSD80/tcp open http nginx 1.16.14505/tcp open zmtp ZeroMQ ZMTP 2.04506/tcp open zmtp ZeroMQ ZMTP 2.08000/tcp open http nginx 1.16.1 Proof As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn’t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
-  <a class="entry-link" aria-label="post link to PG Practice - Twiggy" href="http://localhost:1313/writeups/pg_twiggy/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="http://localhost:1313/tags/proving-grounds-practice/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

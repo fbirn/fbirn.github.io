@@ -135,11 +135,20 @@
   </div>
 
   <div class="term-line">
-    <span class="key">  Offensive Security Certified Professional (OSCP)  </span><span class="dim">:</span> <span class="val">Offsec</span> </span><span class="dim">:</span> <span class="val">Running</span>
+    <span class="key">  Certified Active Directory Pentesting Expert (CAPE)   </span><span class="dim">:</span> <span class="val">HTB</span> </span><span class="dim">:</span> <span class="val">In Progress</span>
   </div>
+
+  <div class="term-line">
+    <span class="key">  Offensive Security Certified Professional+ (OSCP+)  </span><span class="dim">:</span> <span class="val">Offsec</span> </span><span class="dim">:</span> <span class="val">July 2026</span>
+  </div>
+
+  <div class="term-line">
+    <span class="key">  Offensive Security Certified Professional (OSCP)  </span><span class="dim">:</span> <span class="val">Offsec</span> </span><span class="dim">:</span> <span class="val">July 2026</span>
+  </div>
+
   <div class="term-line">
     <span class="key">  
-Certified Web Exploitation Specialist (CWES)  </span><span class="dim">:</span> <span class="val">Hack The Box</span> </span><span class="dim">:</span> <span class="val">Feb. 2025</span>
+Certified Web Exploitation Specialist (CWES)  </span><span class="dim">:</span> <span class="val">HTB</span> </span><span class="dim">:</span> <span class="val">Feb. 2025</span>
   </div>
 
 <!--- Skills -->

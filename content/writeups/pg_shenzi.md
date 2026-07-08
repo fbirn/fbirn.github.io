@@ -15,7 +15,7 @@ ShowToc: false
 |   |   |
 |---|---|
 | Difficulty | Intermediate |
-| Type | Linux |
+| Type | Windows |
 
 **Port Scan**
 ```
