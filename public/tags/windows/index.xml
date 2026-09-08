@@ -23,6 +23,10 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -174,6 +178,10 @@ PORT      STATE SERVICE              VERSION
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -232,6 +240,10 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
@@ -299,6 +311,10 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
@@ -389,6 +405,10 @@ Nmap done: 1 IP address (1 host up) scanned in 142.74 seconds
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -436,6 +456,10 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
@@ -495,6 +519,10 @@ Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;

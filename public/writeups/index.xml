@@ -6,8 +6,52 @@
     <description>Recent content in Writeups on Fabio Birnegger</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB - CCTV</title>
+      <link>http://localhost:1313/writeups/htb_cctv/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/htb_cctv/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Easy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -p- $IP
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-10 13:46 +0100
+Nmap scan report for 10.129.7.139
+Host is up (0.073s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.58
+Service Info: Host: default; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 30.79 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;A web server is running on the default &lt;strong&gt;HTTP&lt;/strong&gt; port &lt;strong&gt;80&lt;/strong&gt; at the target. If we visit it via a browser we get presented with the home page of &lt;strong&gt;SecureVision&lt;/strong&gt; where we can find a &lt;em&gt;Staff Login&lt;/em&gt; button. This redirects us to a &lt;strong&gt;ZoneMinder&lt;/strong&gt; Login page. After a short Google search i found the valid default credentials &lt;em&gt;admin:admin&lt;/em&gt; with which i was able to authenticate and access the interface.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>PG Practice - Fish</title>
       <link>http://localhost:1313/writeups/pg_fish/</link>
@@ -22,6 +66,10 @@
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
@@ -174,6 +222,10 @@ PORT      STATE SERVICE              VERSION
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -232,6 +284,10 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
@@ -299,6 +355,10 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
@@ -389,6 +449,10 @@ Nmap done: 1 IP address (1 host up) scanned in 142.74 seconds
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -447,6 +511,10 @@ Service Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -494,6 +562,10 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
@@ -560,6 +632,10 @@ Host script results:
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -619,6 +695,10 @@ Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -669,6 +749,10 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -713,6 +797,10 @@ Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -754,6 +842,10 @@ Service Info: Host: SNOOKUMS; OS: Unix
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
@@ -799,6 +891,10 @@ Service Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -840,6 +936,10 @@ Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -879,6 +979,10 @@ PORT     STATE SERVICE VERSION
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;

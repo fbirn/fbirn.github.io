@@ -1,0 +1,14 @@
+.post-content table tr:first-child {
+    display: none;
+}
+
+.post-content table td:last-child {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.post-content table td:last-child {
+    background: var(--code-bg);
+    border-radius: 5px;
+    padding: 4px 10px;
+}

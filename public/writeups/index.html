@@ -10,7 +10,7 @@
 <meta name="description" content="Writeups - Fabio Birnegger">
 <meta name="author" content="Fabio Birnegger">
 <link rel="canonical" href="http://localhost:1313/writeups/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.44f6bb69b7e805795086e85661eab4d70f048ec1c2489ae53ae1dbbf8267cf11.css" integrity="sha256-RPa7abfoBXlQhuhWYeq01w8EjsHCSJrlOuHbv4JnzxE=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -117,6 +117,26 @@
 
 <article class="post-entry"> 
 <figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/htb_cctv/htb_cctv_cover.png" alt="HTB CCTV Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">HTB - CCTV
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+a a Difficulty Easy Type Linux Port Scan
+└─$ nmap -sV -p- $IP Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-10 13:46 &#43;0100 Nmap scan report for 10.129.7.139 Host is up (0.073s latency). Not shown: 65533 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0) 80/tcp open http Apache httpd 2.4.58 Service Info: Host: default; OS: Linux; CPE: cpe:/o:linux:linux_kernel Service detection performed. Please report any incorrect results at https://nmap.org/submit/ . Nmap done: 1 IP address (1 host up) scanned in 30.79 seconds User Flag A web server is running on the default HTTP port 80 at the target. If we visit it via a browser we get presented with the home page of SecureVision where we can find a Staff Login button. This redirects us to a ZoneMinder Login page. After a short Google search i found the valid default credentials admin:admin with which i was able to authenticate and access the interface.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-08-08 00:00:00 +0000 UTC'>August 8, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to HTB - CCTV" href="http://localhost:1313/writeups/htb_cctv/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
         <img loading="lazy" src="http://localhost:1313/images/writeup_screens/pg_fish/pg_fish_cover.svg" alt="Cover">
 </figure>
   <header class="entry-header">
@@ -125,7 +145,7 @@
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Intermediate Type Windows Port Scan
+a a Difficulty Intermediate Type Windows Port Scan
 └─$ nmap -sV -sC -p- 192.168.216.168Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-26 19:30 &#43;0200Nmap scan report for 192.168.216.168Host is up (0.043s latency).Not shown: 65516 closed tcp ports (reset)PORT STATE SERVICE VERSION135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds?3389/tcp open ms-wbt-server Microsoft Terminal Services| rdp-ntlm-info: | Target_Name: FISHYYY| NetBIOS_Domain_Name: FISHYYY| NetBIOS_Computer_Name: FISHYYY| DNS_Domain_Name: Fishyyy| DNS_Computer_Name: Fishyyy| Product_Version: 10.0.19041|_ System_Time: 2021-10-29T11:56:13&#43;00:00| ssl-cert: Subject: commonName=Fishyyy| Not valid before: 2021-10-28T11:48:50|_Not valid after: 2022-04-29T11:48:50|_ssl-date: 2021-10-29T11:56:26&#43;00:00; -4y240d05h38m29s from scanner time.3700/tcp open giop| fingerprint-strings: | GetRequest, X11Probe: | GIOP| giop: | GIOP| (IDL:omg.org/SendingContext/CodeBase:1.0| 169.254.240.58| 169.254.240.58|_ default4848/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-title: Login5040/tcp open unknown6060/tcp open x11?| fingerprint-strings: | GetRequest: | HTTP/1.1 200 | Accept-Ranges: bytes| ETag: W/&#34;425-1267803922000&#34;| Last-Modified: Fri, 05 Mar 2010 15:45:22 GMT| Content-Type: text/html| Content-Length: 425| Date: Fri, 29 Oct 2021 11:53:47 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;html&gt;| &lt;head&gt;| &lt;META HTTP-EQUIV=&#34;REFRESH&#34; CONTENT=&#34;1;URL=app&#34;&gt;| &lt;/head&gt;| &lt;body&gt;| &lt;script type=&#34;text/javascript&#34;&gt;| &lt;!--| currentLocation = window.location.pathname;| if(currentLocation.charAt(currentLocation.length - 1) == &#34;/&#34;){| window.location = window.location &#43; &#34;app&#34;;| }else{| window.location = window.location &#43; &#34;/app&#34;;| //--&gt;| &lt;/script&gt;| Loading Administration console. Please wait...| &lt;/body&gt;| &lt;/html&gt;| HTTPOptions: | HTTP/1.1 403 | Cache-Control: private| Expires: Thu, 01 Jan 1970 00:00:00 GMT| Set-Cookie: JSESSIONID=F4D252ADE9DDCA2C4DAC70358D0337E9; Path=/| Content-Type: text/html;charset=ISO-8859-1| Content-Length: 5028| Date: Fri, 29 Oct 2021 11:53:48 GMT| Connection: close| Server: Synametrics Web Server v7| &lt;!DOCTYPE html&gt;| &lt;html&gt;| &lt;head&gt;| &lt;meta http-equiv=&#34;content-type&#34; content=&#34;text/html; charset=UTF-8&#34; /&gt;| &lt;title&gt;| SynaMan - Synametrics File Manager - Version: 5.1 - build 1595 | &lt;/title&gt;| &lt;meta NAME=&#34;Description&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta NAME=&#34;Keywords&#34; CONTENT=&#34;SynaMan - Synametrics File Manager&#34; /&gt;| &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=10&#34; /&gt;| &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; href=&#34;images/favicon.png&#34;&gt;| &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;images/AjaxFileExplorer.css&#34;&gt;| &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34;| JavaRMI: | HTTP/1.1 400 | Content-Type: text/html;charset=utf-8| Content-Length: 145| Date: Fri, 29 Oct 2021 11:53:42 GMT| Connection: close| Server: Synametrics Web Server v7|_ &lt;html&gt;&lt;head&gt;&lt;title&gt;Oops&lt;/title&gt;&lt;body&gt;&lt;h1&gt;Oops&lt;/h1&gt;&lt;p&gt;Well, that didn&#39;t go as we had expected.&lt;/p&gt;&lt;p&gt;This error has been logged.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;7676/tcp open java-message-service Java Message Service 3017680/tcp open pando-pub?8080/tcp open http Sun GlassFish Open Source Edition 4.1|_http-server-header: GlassFish Server Open Source Edition 4.1 |_http-open-proxy: Proxy might be redirecting requests|_http-title: Data Web| http-methods: |_ Potentially risky methods: PUT DELETE TRACE8181/tcp open ssl/intermapper?| ssl-cert: Subject: commonName=localhost/organizationName=Oracle Corporation/stateOrProvinceName=California/countryName=US| Not valid before: 2014-08-21T13:30:10|_Not valid after: 2024-08-18T13:30:10|_ssl-date: TLS randomness does not represent time8686/tcp open java-rmi Java RMI| rmi-dumpregistry: | jmxrmi| javax.management.remote.rmi.RMIServerImpl_Stub| @169.254.240.58:8686| extends| java.rmi.server.RemoteStub| extends|_ java.rmi.server.RemoteObject49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPC GlassFish Server Open Source Edition 4.1 running on port 4848 is vulnerable to LFI. This public exploit works and with the following URL we can read win.ini:
 ...</p>
   </div>
@@ -145,7 +165,7 @@ Difficulty Intermediate Type Windows Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Intermediate Type Windows Port Scan
+a a Difficulty Intermediate Type Windows Port Scan
 PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.41 beta| ftp-syst: |_ SYST: UNIX emulated by FileZilla80/tcp open http Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6| http-title: Welcome to XAMPP|_Requested resource was http://192.168.118.55/dashboard/135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn443/tcp open ssl/http Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)| ssl-cert: Subject: commonName=localhost| Not valid before: 2009-11-10T23:48:47|_Not valid after: 2019-11-08T23:48:47| tls-alpn: |_ http/1.1| http-title: Welcome to XAMPP|_Requested resource was https://192.168.118.55/dashboard/|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6|_ssl-date: TLS randomness does not represent time445/tcp open microsoft-ds?3306/tcp open mysql MariaDB 10.3.24 or later (unauthorized)5040/tcp open unknown7680/tcp open pando-pub?49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPCService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local I enumerated SMB on the machine and discovered that we have anonymous read access on the share Shenzi:
 ...</p>
   </div>
@@ -165,7 +185,7 @@ PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.41 beta| ftp-syst
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Intermediate Type Windows Port Scan
+a a Difficulty Intermediate Type Windows Port Scan
 PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.60 beta| ftp-syst: |_ SYST: UNIX emulated by FileZilla22/tcp open ssh OpenSSH for_Windows_8.1 (protocol 2.0)| ssh-hostkey: | 3072 86:84:fd:d5:43:27:05:cf:a7:f2:e9:e2:75:70:d5:f3 (RSA)| 256 9c:93:cf:48:a9:4e:70:f4:60:de:e1:a9:c2:c0:b6:ff (ECDSA)|_ 256 00:4e:d7:3b:0f:9f:e3:74:4d:04:99:0b:b1:8b:de:a5 (ED25519)135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds?3389/tcp open ms-wbt-server Microsoft Terminal Services| rdp-ntlm-info: | Target_Name: NICKEL| NetBIOS_Domain_Name: NICKEL| NetBIOS_Computer_Name: NICKEL| DNS_Domain_Name: nickel| DNS_Computer_Name: nickel| Product_Version: 10.0.18362|_ System_Time: 2026-06-25T17:41:51&#43;00:00| ssl-cert: Subject: commonName=nickel| Not valid before: 2026-06-24T17:34:11|_Not valid after: 2026-12-24T17:34:11|_ssl-date: 2026-06-25T17:42:55&#43;00:00; &#43;1s from scanner time.5040/tcp open unknown8089/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-title: Site doesn&#39;t have a title.|_http-server-header: Microsoft-HTTPAPI/2.033333/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-server-header: Microsoft-HTTPAPI/2.0|_http-title: Site doesn&#39;t have a title.49664/tcp open msrpc Microsoft Windows RPC49665/tcp open msrpc Microsoft Windows RPC49666/tcp open msrpc Microsoft Windows RPC49667/tcp open msrpc Microsoft Windows RPC49668/tcp open msrpc Microsoft Windows RPC49669/tcp open msrpc Microsoft Windows RPCService Info: OS: Windows; CPE: cpe:/o:microsoft:windows Local There is a webserver running on port 33333 which says Invalid Token when accessing it:
 ...</p>
   </div>
@@ -185,7 +205,7 @@ PORT STATE SERVICE VERSION21/tcp open ftp FileZilla ftpd 0.9.60 beta| ftp-syst
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Windows Port Scan
+a a Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC -p- 192.168.237.40 Starting Nmap 7.98 ( https://nmap.org ) at 2026-06-23 21:29 &#43;0200Nmap scan report for 192.168.237.40Host is up (0.036s latency).Not shown: 65522 closed tcp ports (reset)PORT STATE SERVICE VERSION53/tcp open domain Microsoft DNS 6.0.6001 (17714650) (Windows Server 2008 SP1)| dns-nsid: |_ bind.version: Microsoft DNS 6.0.6001 (17714650)135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds Windows Server (R) 2008 Standard 6001 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)3389/tcp open ms-wbt-server Microsoft Terminal Service| ssl-cert: Subject: commonName=internal| Not valid before: 2025-07-24T21:18:58|_Not valid after: 2026-01-23T21:18:58|_ssl-date: 2026-06-23T19:31:49&#43;00:00; 0s from scanner time.| rdp-ntlm-info: | Target_Name: INTERNAL| NetBIOS_Domain_Name: INTERNAL| NetBIOS_Computer_Name: INTERNAL| DNS_Domain_Name: internal| DNS_Computer_Name: internal| Product_Version: 6.0.6001|_ System_Time: 2026-06-23T19:31:41&#43;00:005357/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-title: Service Unavailable|_http-server-header: Microsoft-HTTPAPI/2.049152/tcp open msrpc Microsoft Windows RPC49153/tcp open msrpc Microsoft Windows RPC49154/tcp open msrpc Microsoft Windows RPC49155/tcp open msrpc Microsoft Windows RPC49156/tcp open msrpc Microsoft Windows RPC49157/tcp open msrpc Microsoft Windows RPC49158/tcp open msrpc Microsoft Windows RPCService Info: Host: INTERNAL; OS: Windows; CPE: cpe:/o:microsoft:windows_server_2008::sp1, cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_server_2008:r2Host script results:| smb2-security-mode: | 2.0.2: |_ Message signing enabled but not required| smb2-time: | date: 2026-06-23T19:31:41|_ start_date: 2025-07-25T21:18:51| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_nbstat: NetBIOS name: INTERNAL, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:9e:45:ba (VMware)| smb-os-discovery: | OS: Windows Server (R) 2008 Standard 6001 Service Pack 1 (Windows Server (R) 2008 Standard 6.0)| OS CPE: cpe:/o:microsoft:windows_server_2008::sp1| Computer name: internal| NetBIOS computer name: INTERNAL\x00| Workgroup: WORKGROUP\x00|_ System time: 2026-06-23T12:31:41-07:00|_clock-skew: mean: 1h24m00s, deviation: 3h07m50s, median: 0sService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 142.74 seconds Proof The target is a Windows Server 2008 running SMBv2 as we can see in the port scan results. If we further enumerate this very old technology stack by running nmap SMB scripts against it, we can see that the target is vulnerable to CVE-2009-3103:
 ...</p>
   </div>
@@ -205,7 +225,7 @@ Difficulty Easy Type Windows Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Windows Port Scan
+a a Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC -p- 192.168.237.45PORT STATE SERVICE VERSION80/tcp open http GoAhead WebServer| http-title: HP Power Manager|_Requested resource was http://192.168.237.45/index.asp|_http-server-header: GoAhead-Webs135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)3389/tcp open ms-wbt-server Microsoft Terminal Service| ssl-cert: Subject: commonName=kevin| Not valid before: 2026-06-22T18:36:27|_Not valid after: 2026-12-22T18:36:27| rdp-ntlm-info: | Target_Name: KEVIN| NetBIOS_Domain_Name: KEVIN| NetBIOS_Computer_Name: KEVIN| DNS_Domain_Name: kevin| DNS_Computer_Name: kevin| Product_Version: 6.1.7600|_ System_Time: 2026-06-23T18:41:26&#43;00:00|_ssl-date: 2026-06-23T18:41:34&#43;00:00; &#43;2s from scanner time.3573/tcp open tag-ups-1?49152/tcp open msrpc Microsoft Windows RPC49153/tcp open msrpc Microsoft Windows RPC49154/tcp open msrpc Microsoft Windows RPC49155/tcp open msrpc Microsoft Windows RPC49158/tcp open msrpc Microsoft Windows RPC49160/tcp open msrpc Microsoft Windows RPCService Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows Proof On the webserver on port 80 a HP Power Manager instance is running. The used version 4.0.2 is vulnerable to CVE-2009-3999 for which i found this public exploit. I ran the exploit as follows after starting a netcat listener on port 4444:
 ...</p>
   </div>
@@ -225,7 +245,7 @@ Difficulty Easy Type Windows Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Intermediate Type Linux Port Scan
+a a Difficulty Intermediate Type Linux Port Scan
 └─$ nmap -sV -sC -p- 192.168.120.47PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)80/tcp open http Apache httpd 2.4.38 ((Debian))|_http-title: Enter a title, displayed at the top of the window.|_http-server-header: Apache/2.4.38 (Debian)139/tcp closed netbios-ssn445/tcp closed microsoft-ds5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9| ssl-cert: Subject: commonName=debian| Subject Alternative Name: DNS:debian| Not valid before: 2020-04-27T15:41:47|_Not valid after: 2030-04-25T15:41:47|_ssl-date: TLS randomness does not represent timeService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:
 ...</p>
   </div>
@@ -245,7 +265,7 @@ Difficulty Intermediate Type Linux Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Linux Port Scan
+a a Difficulty Easy Type Linux Port Scan
 └─$ nmap -sV -sC -p- 192.168.120.71 PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 db:dd:2c:ea:2f:85:c5:89:bc:fc:e9:a3:38:f0:d7:50 (RSA)| 256 e3:b7:65:c2:a7:8e:45:29:bb:62:ec:30:1a:eb:ed:6d (ECDSA)|_ 256 d5:5b:79:5b:ce:48:d8:57:46:db:59:4f:cd:45:5d:ef (ED25519)25/tcp open smtp OpenSMTPD| smtp-commands: bratarina Hello nmap.scanme.org [192.168.45.198], pleased to meet you, 8BITMIME, ENHANCEDSTATUSCODES, SIZE 36700160, DSN, HELP|_ 2.0.0 This is OpenSMTPD 2.0.0 To report bugs in the implementation, please contact bugs@openbsd.org 2.0.0 with full details 2.0.0 End of HELP info53/tcp closed domain80/tcp open http nginx 1.14.0 (Ubuntu)|_http-title: Page not found - FlaskBB |_http-server-header: nginx/1.14.0 (Ubuntu)445/tcp open netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: COFFEECORP)Service Info: Host: bratarina; OS: Linux; CPE: cpe:/o:linux:linux_kernelHost script results:| smb-os-discovery: | OS: Windows 6.1 (Samba 4.7.6-Ubuntu)| Computer name: bratarina| NetBIOS computer name: BRATARINA\x00| Domain name: \x00| FQDN: bratarina|_ System time: 2026-06-22T15:55:52-04:00| smb2-time: | date: 2026-06-22T19:55:53|_ start_date: N/A| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_clock-skew: mean: 1h20m01s, deviation: 2h18m35s, median: 0s| smb2-security-mode: | 3.1.1: |_ Message signing enabled but not required Proof On port 25 the service OpenSMTPD 2.0.0 is running. This version is vulnerable to CVE-2020-7247 for which we can find this public exploit. I executed it with a busybox reverse shell command after starting a netcat listener on port 80.
 ...</p>
   </div>
@@ -265,7 +285,7 @@ Difficulty Easy Type Linux Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Windows Port Scan
+a a Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC 10.129.34.220Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-11 15:39 &#43;0200Nmap scan report for 10.129.34.220Host is up (0.040s latency).Not shown: 997 filtered tcp ports (no-response)PORT STATE SERVICE VERSION21/tcp open ftp Microsoft ftpd| ftp-syst: |_ SYST: Windows_NT| ftp-anon: Anonymous FTP login allowed (FTP code 230)|_Can&#39;t get directory listing: PASV failed: 425 Cannot open data connection.23/tcp open telnet Microsoft Windows XP telnetd| telnet-ntlm-info: | Target_Name: ACCESS| NetBIOS_Domain_Name: ACCESS| NetBIOS_Computer_Name: ACCESS| DNS_Domain_Name: ACCESS| DNS_Computer_Name: ACCESS|_ Product_Version: 6.1.760080/tcp open http Microsoft IIS httpd 7.5|_http-server-header: Microsoft-IIS/7.5|_http-title: MegaCorp| http-methods: |_ Potentially risky methods: TRACEService Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xpHost script results:|_clock-skew: 2sService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 18.32 seconds User Flag The port scan shows that anonymous login to the FTP server on standard port 21 is allowed. This means we can login by providing the name anonymous and any password.
 ...</p>
   </div>
@@ -285,7 +305,7 @@ Difficulty Easy Type Windows Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Windows Port Scan
+a a Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC 10.129.96.157Starting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 19:17 &#43;0200Nmap scan report for 10.129.96.157Host is up (0.069s latency).Not shown: 996 filtered tcp ports (no-response)PORT STATE SERVICE VERSION80/tcp open http Microsoft IIS httpd 10.0|_http-server-header: Microsoft-IIS/10.0| http-title: Support Login Page|_Requested resource was login.php| http-cookie-flags: | /: | PHPSESSID: |_ httponly flag not set| http-methods: |_ Potentially risky methods: TRACE135/tcp open msrpc Microsoft Windows RPC445/tcp open microsoft-ds?5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)|_http-server-header: Microsoft-HTTPAPI/2.0|_http-title: Not FoundService Info: OS: Windows; CPE: cpe:/o:microsoft:windows User Flag On the webserver on port 80 we can login as guest. We are redirected to /issues.php and can read a posting of user Hazard which has an attachment config.txt:
 ...</p>
   </div>
@@ -293,26 +313,6 @@ Difficulty Easy Type Windows Port Scan
 
 <span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to HTB - Heist" href="http://localhost:1313/writeups/htb_heist/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover">
-        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/htb_underpass/underpass_cover.png" alt="HTB Underpass Cover">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">HTB - Underpass
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Box Details
-Difficulty Easy Type Linux TCP Port Scan
-└─$ nmap $IP -sV -sCStarting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 &#43;0200Nmap scan report for 10.129.231.213Host is up (0.061s latency).Not shown: 998 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)|_ 256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)80/tcp open http Apache httpd 2.4.52 ((Ubuntu))|_http-title: Apache2 Ubuntu Default Page: It works|_http-server-header: Apache/2.4.52 (Ubuntu)Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds UDP Port Scan
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-<span title='2026-05-03 00:00:00 +0000 UTC'>May 3, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
-  <a class="entry-link" aria-label="post link to HTB - Underpass" href="http://localhost:1313/writeups/htb_underpass/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

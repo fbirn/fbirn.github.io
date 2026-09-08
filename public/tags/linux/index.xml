@@ -23,6 +23,10 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -80,6 +84,10 @@ Service Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
@@ -146,6 +154,10 @@ Host script results:
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -190,6 +202,10 @@ Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -231,6 +247,10 @@ Service Info: Host: SNOOKUMS; OS: Unix
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
@@ -276,6 +296,10 @@ Service Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Intermediate&lt;/td&gt;
       &lt;/tr&gt;
@@ -317,6 +341,10 @@ Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;
       &lt;/tr&gt;
@@ -343,6 +371,50 @@ PORT     STATE SERVICE VERSION
 &lt;p&gt;As we can see in the port scan above, there are two web servers running on the target. On port &lt;strong&gt;80&lt;/strong&gt; there is a &lt;em&gt;Mezzanine&lt;/em&gt; Instance which doesn&amp;rsquo;t seem to be exploitable. On the other hand, the webserver on Port &lt;strong&gt;8000&lt;/strong&gt; is running a &lt;strong&gt;Saltstack-Salt-API&lt;/strong&gt; as can be seen in the &lt;em&gt;X-Upstream&lt;/em&gt; Header in the HTTP-Response:&lt;/p&gt;</description>
     </item>
     <item>
+      <title>HTB - CCTV</title>
+      <link>http://localhost:1313/writeups/htb_cctv/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/htb_cctv/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Box Details&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Difficulty&lt;/td&gt;
+          &lt;td&gt;Easy&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Port Scan&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;└─$ nmap -sV -p- $IP
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-10 13:46 +0100
+Nmap scan report for 10.129.7.139
+Host is up (0.073s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.58
+Service Info: Host: default; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 30.79 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;user-flag&#34;&gt;User Flag&lt;/h2&gt;
+&lt;p&gt;A web server is running on the default &lt;strong&gt;HTTP&lt;/strong&gt; port &lt;strong&gt;80&lt;/strong&gt; at the target. If we visit it via a browser we get presented with the home page of &lt;strong&gt;SecureVision&lt;/strong&gt; where we can find a &lt;em&gt;Staff Login&lt;/em&gt; button. This redirects us to a &lt;strong&gt;ZoneMinder&lt;/strong&gt; Login page. After a short Google search i found the valid default credentials &lt;em&gt;admin:admin&lt;/em&gt; with which i was able to authenticate and access the interface.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>HTB - Cap</title>
       <link>http://localhost:1313/writeups/htb_cap/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
@@ -356,6 +428,10 @@ PORT     STATE SERVICE VERSION
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;a&lt;/td&gt;
+          &lt;td&gt;a&lt;/td&gt;
+      &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;Difficulty&lt;/td&gt;
           &lt;td&gt;Easy&lt;/td&gt;

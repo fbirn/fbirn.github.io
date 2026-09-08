@@ -10,7 +10,7 @@
 <meta name="description" content="Personal Page of Fabio Birnegger">
 <meta name="author" content="Fabio Birnegger">
 <link rel="canonical" href="http://localhost:1313/tags/linux/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.b255db539a50b81cdf98f8e589f90be96d438cc741249f7e8f6510cff8a616fd.css" integrity="sha256-slXbU5pQuBzfmPjlifkL6W1DjMdBJJ9&#43;j2UQz/imFv0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.44f6bb69b7e805795086e85661eab4d70f048ec1c2489ae53ae1dbbf8267cf11.css" integrity="sha256-RPa7abfoBXlQhuhWYeq01w8EjsHCSJrlOuHbv4JnzxE=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -110,7 +110,7 @@
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Windows Port Scan
+a a Difficulty Easy Type Windows Port Scan
 └─$ nmap -sV -sC -p- 192.168.237.45PORT STATE SERVICE VERSION80/tcp open http GoAhead WebServer| http-title: HP Power Manager|_Requested resource was http://192.168.237.45/index.asp|_http-server-header: GoAhead-Webs135/tcp open msrpc Microsoft Windows RPC139/tcp open netbios-ssn Microsoft Windows netbios-ssn445/tcp open microsoft-ds Windows 7 Ultimate N 7600 microsoft-ds (workgroup: WORKGROUP)3389/tcp open ms-wbt-server Microsoft Terminal Service| ssl-cert: Subject: commonName=kevin| Not valid before: 2026-06-22T18:36:27|_Not valid after: 2026-12-22T18:36:27| rdp-ntlm-info: | Target_Name: KEVIN| NetBIOS_Domain_Name: KEVIN| NetBIOS_Computer_Name: KEVIN| DNS_Domain_Name: kevin| DNS_Computer_Name: kevin| Product_Version: 6.1.7600|_ System_Time: 2026-06-23T18:41:26&#43;00:00|_ssl-date: 2026-06-23T18:41:34&#43;00:00; &#43;2s from scanner time.3573/tcp open tag-ups-1?49152/tcp open msrpc Microsoft Windows RPC49153/tcp open msrpc Microsoft Windows RPC49154/tcp open msrpc Microsoft Windows RPC49155/tcp open msrpc Microsoft Windows RPC49158/tcp open msrpc Microsoft Windows RPC49160/tcp open msrpc Microsoft Windows RPCService Info: Host: KEVIN; OS: Windows; CPE: cpe:/o:microsoft:windows Proof On the webserver on port 80 a HP Power Manager instance is running. The used version 4.0.2 is vulnerable to CVE-2009-3999 for which i found this public exploit. I ran the exploit as follows after starting a netcat listener on port 4444:
 ...</p>
   </div>
@@ -130,7 +130,7 @@ Difficulty Easy Type Windows Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Linux Port Scan
+a a Difficulty Easy Type Linux Port Scan
 └─$ nmap -sV -sC -p- 192.168.120.71 PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 db:dd:2c:ea:2f:85:c5:89:bc:fc:e9:a3:38:f0:d7:50 (RSA)| 256 e3:b7:65:c2:a7:8e:45:29:bb:62:ec:30:1a:eb:ed:6d (ECDSA)|_ 256 d5:5b:79:5b:ce:48:d8:57:46:db:59:4f:cd:45:5d:ef (ED25519)25/tcp open smtp OpenSMTPD| smtp-commands: bratarina Hello nmap.scanme.org [192.168.45.198], pleased to meet you, 8BITMIME, ENHANCEDSTATUSCODES, SIZE 36700160, DSN, HELP|_ 2.0.0 This is OpenSMTPD 2.0.0 To report bugs in the implementation, please contact bugs@openbsd.org 2.0.0 with full details 2.0.0 End of HELP info53/tcp closed domain80/tcp open http nginx 1.14.0 (Ubuntu)|_http-title: Page not found - FlaskBB |_http-server-header: nginx/1.14.0 (Ubuntu)445/tcp open netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: COFFEECORP)Service Info: Host: bratarina; OS: Linux; CPE: cpe:/o:linux:linux_kernelHost script results:| smb-os-discovery: | OS: Windows 6.1 (Samba 4.7.6-Ubuntu)| Computer name: bratarina| NetBIOS computer name: BRATARINA\x00| Domain name: \x00| FQDN: bratarina|_ System time: 2026-06-22T15:55:52-04:00| smb2-time: | date: 2026-06-22T19:55:53|_ start_date: N/A| smb-security-mode: | account_used: guest| authentication_level: user| challenge_response: supported|_ message_signing: disabled (dangerous, but default)|_clock-skew: mean: 1h20m01s, deviation: 2h18m35s, median: 0s| smb2-security-mode: | 3.1.1: |_ Message signing enabled but not required Proof On port 25 the service OpenSMTPD 2.0.0 is running. This version is vulnerable to CVE-2020-7247 for which we can find this public exploit. I executed it with a busybox reverse shell command after starting a netcat listener on port 80.
 ...</p>
   </div>
@@ -150,7 +150,7 @@ Difficulty Easy Type Linux Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Linux TCP Port Scan
+a a Difficulty Easy Type Linux TCP Port Scan
 └─$ nmap $IP -sV -sCStarting Nmap 7.98 ( https://nmap.org ) at 2026-05-03 00:54 &#43;0200Nmap scan report for 10.129.231.213Host is up (0.061s latency).Not shown: 998 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 256 48:b0:d2:c7:29:26:ae:3d:fb:b7:6b:0f:f5:4d:2a:ea (ECDSA)|_ 256 cb:61:64:b8:1b:1b:b5:ba:b8:45:86:c5:16:bb:e2:a2 (ED25519)80/tcp open http Apache httpd 2.4.52 ((Ubuntu))|_http-title: Apache2 Ubuntu Default Page: It works|_http-server-header: Apache/2.4.52 (Ubuntu)Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 21.52 seconds UDP Port Scan
 ...</p>
   </div>
@@ -170,7 +170,7 @@ Difficulty Easy Type Linux TCP Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Intermediate Type Linux Port Scan
+a a Difficulty Intermediate Type Linux Port Scan
 └─$ nmap -sV 192.168.224.58Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-11 19:31 &#43;0200Nmap scan report for 192.168.224.58Host is up (0.034s latency).Not shown: 993 filtered tcp ports (no-response)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.222/tcp open ssh OpenSSH 7.4 (protocol 2.0)80/tcp open http Apache httpd 2.4.6 ((CentOS) PHP/5.4.16)111/tcp open rpcbind 2-4 (RPC #100000)139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: SAMBA)3306/tcp open mysql MySQL (unauthorized)Service Info: Host: SNOOKUMS; OS: Unix Local The webserver on port 80 hosts a simple PHP Photo Gallery with v0.8 as we can see in the frontend. I searched the web for vulnerabilities affecting this version and I found a public exploit that targets a RFI vulnerability which I tried after starting a netcat listener in another terminal window on port 21 (always use ports that are open on the target to prevent firewall issues):
 ...</p>
   </div>
@@ -190,7 +190,7 @@ Difficulty Intermediate Type Linux Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Intermediate Type Linux Port Scan
+a a Difficulty Intermediate Type Linux Port Scan
 └─$ nmap -sV -p- 192.168.208.98 Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-06 00:12 &#43;0200Nmap scan report for 192.168.208.98Host is up (0.035s latency).Not shown: 65526 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)631/tcp open ipp CUPS 2.22181/tcp open zookeeper Zookeeper 3.4.6-1569965 (Built on 02/20/2014)2222/tcp open ssh OpenSSH 7.9p1 Debian 10&#43;deb10u2 (protocol 2.0)8080/tcp open http Jetty 1.08081/tcp open http nginx 1.14.246295/tcp open java-rmi Java RMIService Info: Host: PELICAN; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local.txt As we can see in the port scan above, there are a lot of different services running on the target server. The most interesting one is the Zookeeper Service running on port 2181 and the web-interface for it on port 8080. The running instance is vulnerable to CVE-2019-5029 for which there is a public exploit. After starting a netcat listener on my attacker machine, i carried out the exploit in the web-interface as follows:
 ...</p>
   </div>
@@ -210,7 +210,7 @@ Difficulty Intermediate Type Linux Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Intermediate Type Linux Port Scan
+a a Difficulty Intermediate Type Linux Port Scan
 Nmap scan report for 192.168.191.39Host is up (0.033s latency).Not shown: 65527 closed tcp ports (reset)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 4.6p1 Debian 5build1 (protocol 2.0)80/tcp open http Apache httpd 2.2.4 (PHP/5.2.3-1ubuntu6)110/tcp open pop3 Dovecot pop3d139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)143/tcp open imap Dovecot imapd445/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: MSHOME)993/tcp open ssl/imaps?995/tcp open ssl/pop3s?Service Info: Host: 127.0.0.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel Local To start this box, I manually checked the Webserver running on port 80 on the target machine. There was a CS-Cart instance running and i noticed the login-section. I tried some default credentials and admin:admin worked.
 ...</p>
   </div>
@@ -230,7 +230,7 @@ Nmap scan report for 192.168.191.39Host is up (0.033s latency).Not shown: 6552
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Linux Port Scan
+a a Difficulty Easy Type Linux Port Scan
 └─$ nmap -sV -p- 192.168.208.62Starting Nmap 7.98 ( https://nmap.org ) at 2026-04-05 20:40 &#43;0200Nmap scan report for 192.168.208.62Host is up (0.032s latency).Not shown: 65529 filtered tcp ports (no-response)PORT STATE SERVICE VERSION22/tcp open ssh OpenSSH 7.4 (protocol 2.0)53/tcp open domain NLnet Labs NSD80/tcp open http nginx 1.16.14505/tcp open zmtp ZeroMQ ZMTP 2.04506/tcp open zmtp ZeroMQ ZMTP 2.08000/tcp open http nginx 1.16.1 Proof As we can see in the port scan above, there are two web servers running on the target. On port 80 there is a Mezzanine Instance which doesn’t seem to be exploitable. On the other hand, the webserver on Port 8000 is running a Saltstack-Salt-API as can be seen in the X-Upstream Header in the HTTP-Response:
 ...</p>
   </div>
@@ -238,6 +238,26 @@ Difficulty Easy Type Linux Port Scan
 
 <span title='2026-04-04 00:00:00 +0000 UTC'>April 4, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
   <a class="entry-link" aria-label="post link to PG Practice - Twiggy" href="http://localhost:1313/writeups/pg_twiggy/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="http://localhost:1313/images/writeup_screens/htb_cctv/htb_cctv_cover.png" alt="HTB CCTV Cover">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">HTB - CCTV
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Box Details
+a a Difficulty Easy Type Linux Port Scan
+└─$ nmap -sV -p- $IP Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-10 13:46 &#43;0100 Nmap scan report for 10.129.7.139 Host is up (0.073s latency). Not shown: 65533 closed tcp ports (reset) PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0) 80/tcp open http Apache httpd 2.4.58 Service Info: Host: default; OS: Linux; CPE: cpe:/o:linux:linux_kernel Service detection performed. Please report any incorrect results at https://nmap.org/submit/ . Nmap done: 1 IP address (1 host up) scanned in 30.79 seconds User Flag A web server is running on the default HTTP port 80 at the target. If we visit it via a browser we get presented with the home page of SecureVision where we can find a Staff Login button. This redirects us to a ZoneMinder Login page. After a short Google search i found the valid default credentials admin:admin with which i was able to authenticate and access the interface.
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-03-10 00:00:00 +0000 UTC'>March 10, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>Fabio Birnegger</span></footer>
+  <a class="entry-link" aria-label="post link to HTB - CCTV" href="http://localhost:1313/writeups/htb_cctv/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -250,7 +270,7 @@ Difficulty Easy Type Linux Port Scan
   </header>
   <div class="entry-content">
     <p>Box Details
-Difficulty Easy Type Linux Port Scan
+a a Difficulty Easy Type Linux Port Scan
 └─$ nmap -sV 10.129.7.242 Starting Nmap 7.98 ( https://nmap.org ) at 2026-03-01 17:11 &#43;0100Nmap scan report for 10.129.7.242Host is up (0.037s latency).Not shown: 997 closed tcp ports (reset)PORT STATE SERVICE VERSION21/tcp open ftp vsftpd 3.0.322/tcp open ssh OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)80/tcp open http Gunicorn Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernelService detection performed. Please report any incorrect results at https://nmap.org/submit/ .Nmap done: 1 IP address (1 host up) scanned in 17.23 seconds User Flag On port 80 there is a web application in which we are logged in by default as the user Nathan. In the application we can check out different network stuff. When we click the burger menu and select Security Snapshot we can download a .pcap file. Seems like every time we visit this page, a new file gets created. There is an IDOR vulnerability through which we can visit the page http://10.10.10.245/data/0 which was already there.
 ...</p>
   </div>

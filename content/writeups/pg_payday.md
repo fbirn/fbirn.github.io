@@ -14,6 +14,7 @@ ShowToc: false
 
 |   |   |
 |---|---|
+| a | a |
 | Difficulty | Intermediate |
 | Type | Linux |
 
